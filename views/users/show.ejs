@@ -1,0 +1,189 @@
+<% include ../partials/header %>
+
+<div class="container my-2">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="my-1"><span class="font-weight-bold"><%= user.username %></span> profilja</h1>
+      <hr>
+    </div>
+    <div class="col-lg-3 order-lg-1 text-center">
+      <img src="<%= user.avatar %>" class="mx-auto mb-2 img-fluid img-thumbnail">
+      <div id="editImage" class="collapse">
+        <span class="small text-uppercase text-muted">Profilkép feltöltése</span>
+        <form role="form" action="/users/<%= user._id %>?_method=PUT" method="POST">
+        <label class="">
+          <input class=""  type="text" id="file" name="user[avatar]" value="<%= user.avatar %>">
+        </label><br>
+        <button class="btn btn-sm btn-success">OK</button>
+        </form>
+      </div>
+      <p class="lead"><%= user.lastName + " " + user.firstName %></p>
+      <hr>
+      <table class="table table-sm small text-left">
+        <tbody>
+          <tr>
+            <td class="text-uppercase">Csatlakozott</td>
+            <td><b><%= moment(user.userCreated).format('YYYY. MMMM D.') %></b></td>
+          </tr>
+          <tr>
+            <td class="text-uppercase">Cikkek</td>
+            <td><b><%= contents.length %></b></td>
+          </tr>
+            <td class="text-uppercase">Hozzászólások</td>
+            <td><b><%= comments.length %></b></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-lg-9 order-lg-2">
+      <ul class="nav nav-tabs small text-uppercase">
+        <li class="nav-item">
+          <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Profil</a>
+        </li>
+        <% if(currentUser && currentUser.equals(user._id)) { %>
+        <li class="nav-item">
+          <a href="" data-target="#messages" data-toggle="tab" class="nav-link">Üzenetek</a>
+        </li>
+        <li class="nav-item" data-target="#editImage" data-toggle="collapse">
+          <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Profil szerkesztése</a>
+        </li>
+        <li class="nav-item">
+          <a href="" data-target="#admin" data-toggle="tab" class="nav-link">Admin</a>
+        </li>
+        <% } %>
+      </ul>
+      
+      <div class="tab-content py-3">
+        <div class="tab-pane active" id="profile">
+          <div class="row my-2">
+            <div class="col-md-12">
+              <h5 class="mt-1">Mottó:</h5>
+              <hr>
+              <p>
+                <q><em><%= user.slogan %></em></q>
+              </p>
+              <hr>
+              <h5 class="mt-4">Rólam:</h5>
+              <hr>
+              <p class="text-justify">
+                <%= user.bio %>
+              </p>
+              <hr>
+            </div>
+          </div>
+          <!--/row-->
+        </div>
+         <div class="tab-pane fade" id="messages">
+          <h4 class="my-2">Recent Messages &amp; Notifications</h4>
+          <div class="alert alert-info alert-dismissable">
+            <a class="panel-close close" data-dismiss="alert">&#xD7;</a> This is an <span class="font-weight-bold">.alert</span>.
+            Use this to show important messages to the user.
+          </div>
+          <table class="table table-hover table-striped">
+            <tbody>
+              <tr>
+                <td>
+                  <span class="float-right font-weight-bold">3 hrs ago</span> Here is your a link to the latest summary
+                  report from the..
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="float-right font-weight-bold">Yesterday</span> There has been a request on your account
+                  since that was..
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div> 
+
+        <div class="tab-pane" id="admin">
+          <h4 class="my-2">Adminisztrátor kód</h4>
+          <h5>Ha adminisztrátor vagy, akkor kaptál egy 10 jegyű kódot. Itt megadhatod az Admin jogok éltbe léptetéséhez!</h5>
+          <form action="/users/<%= user._id %>?_method=PUT" method="POST">
+            <div class="input-group">
+              <label class="col-lg-3 col-form-label form-control-label">Admin kód</label>
+                <input class="" type="password" aria-describedby="button-addon" name="user[adminCode]">
+            <div class="input-group-append">
+              <button class="btn btn-outline-dark" id="button-addon"><i class="fas fa-check-circle"></i> Mentés</button>
+              </div>
+            </div>
+          </form>
+          </div>
+
+        <div class="tab-pane" id="edit">
+          <h4 class="my-2">Profil szerkesztése</h4>
+          <form role="form" action="/users/<%= user._id %>?_method=PUT" method="POST">
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Vezetéknév</label>
+              <div class="col-lg-9">
+                <input class="form-control" type="text" name="user[lastName]" value="<%= user.lastName %>">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Keresztnév</label>
+              <div class="col-lg-9">
+                <input class="form-control" type="text" name="user[firstName]" value="<%= user.firstName %>">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Email cím</label>
+              <div class="col-lg-9">
+                <input class="form-control" type="email" name="user[email]" value="<%= user.email %>">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Megye</label>
+              <div class="col-lg-9">
+                <input class="form-control" type="text" name="user[county]" value="<%= user.county %>">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Mottó</label>
+              <div class="col-lg-9">
+                <input class="form-control" type="text" name="user[slogan]" maxlength="150" value="<%= user.slogan %>" placeholder="max. 150 karakter!">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Magamról</label>
+              <div class="col-lg-9">
+                <textarea class="form-control" type="text" rows="5" name="user[bio]" maxlength="600"><%= user.bio %></textarea>
+              </div>
+            </div>
+
+
+            <!-- <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Jelszó</label>
+              <div class="col-lg-9">
+                <input class="form-control" type="password" name="user[password]" value="<%= user.password %>">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Jelszó megerősítése</label>
+              <div class="col-lg-9">
+                <input class="form-control" type="password" name="user[confirmPassword]" value="<%= user.password %>">
+              </div>
+            </div> -->
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label"></label>
+              <div class="col-lg-9">
+                <button class="btn btn-success btn-lg"><i class="fas fa-check-circle"></i> Mentés</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</section>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+  crossorigin="anonymous"></script>
+
+</body>
+
+</html>

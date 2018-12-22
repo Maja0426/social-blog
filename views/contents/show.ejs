@@ -1,0 +1,142 @@
+<% include ../partials/header %>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-12 news-show">
+      <div class="card">
+        <img class="card-img-top" src="<%= content.image %>" alt="article image">
+        <div class="show-title p-2 mb-5">
+          <h1 class="font-weight-bold text-uppercase"><strong>
+              <%= content.title %>
+            </strong>
+          </h1>
+          <h5 class="my-1">
+            <b><a class="text-dark" href="/users/<%= content.author.id %>">
+                <%= content.author.username %></a>, <span class="">
+                <%= moment(content.createdAt).format('YYYY. MMMM D. dddd') %></span></b>
+            <span class="font-weight-bold badge badge-dark mr-2"> #
+              <%= content.category %></span>
+          </h5>
+        </div>
+        <div class="card-body">
+          <!-- <h5 class="my-3 mb-5">
+            <b><a class="text-dark" href="/users/<%= content.author.id %>">
+                <%= content.author.username %></a>, <span class="text-muted">
+                <%= moment(content.createdAt).format('YYYY. MMMM D. dddd') %></span></b>
+              <span class="mr-2"><i class="fas fa-tags"></i></span>
+              <span class="font-weight-bold mr-2"><%= content.category %></span>
+          </h5> -->
+          <div class="feed-paragraph">
+            <p class="img-text">
+              <%- content.article %>
+            </p>
+          </div>
+        </div>
+        <% if(currentUser && content.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin) { %>
+        <div class="card-footer">
+          <a class="btn btn-warning" href="/contents/<%= content._id %>/edit"><i class="fas fa-edit"></i> Szerkeszt</a>
+          <form class="d-inline" action="/contents/<%= content._id %>?_method=DELETE" method="POST">
+            <button class="btn btn-danger"><i class="fas fa-trash-alt"></i> Töröl</button>
+          </form>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+
+  <div id="comments" class="row mt-4">
+    <div class="col-md-8">
+      <div class="card comments-card">
+        <div class="card-body">
+          <h3 class="font-weight-bold p-1 mt-2">
+            <%= content.comments.length%> hozzászólás
+            <!-- <div class="float-right">
+              <a class="btn btn-success" href="/contents/<%= content._id %>/comments/new"><i class="fas fa-pencil-alt"></i> Hozzászólás írása</a>
+            </div> -->
+          </h3>
+        </div>
+        <% content.comments.forEach(function(comment) { %>
+        <div class="media mt-2">
+          <img class="align-self-start m-2" src="<%= comment.author.avatar %>" alt="Generic placeholder image">
+          <div class="media-body">
+
+            <h6 class="mt-2 pl-2 d-inline-block"><a class="text-dark" href="/users/<%= comment.author.id %>"><b>
+                  <%= comment.author.username %></b></a>,
+              <span>
+                <%= moment(comment.createdAt).fromNow() %>
+              </span>
+            </h6>
+            <% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin) { %>
+            <div class="p-2 commentButton float-right">
+              <a class="btn btn-sm btn-warning mr-2" href="/contents/<%= content._id %>/comments/<%= comment._id %>/edit"><i
+                  class="fas fa-edit"></i> Szerkeszt</a>
+              <form class="d-inline" action="/contents/<%= content._id %>/comments/<%= comment._id %>?_method=DELETE"
+                method="POST">
+                <button class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i> Töröl</button>
+              </form>
+            </div>
+            <% } %>
+
+            <p class="px-2">
+              <%= comment.text %>
+            </p>
+          </div>
+        </div>
+        <% }) %>
+        <% if(currentUser) { %> 
+        <div class="mt-3">
+          <form action="/contents/<%= content._id %>/comments" method="POST">
+            <div class="d-inline-block mb-2">
+              <button type="submit" class="btn btn-default"><i class="fas fa-pencil-alt"></i></i> Hozzászólás
+                írása</button>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-12 mx-auto">
+                <textarea rows="3" class="form-control" placeholder="Jöhet a véleményed!" name="comment[text]" required></textarea>
+              </div>
+            </div>
+          </form>
+        </div>
+        <% } else { %>
+          <span class="p-2 bg-yellow text-d mt-3">Hozzászólás írásához be kell jelentkezned!</span>
+          <% } %>
+      </div>
+    </div>
+    <div class="col-md-4">
+
+      <div class="tags mb-5">
+        <h3 class="mt-4 mb-4"><span class=""><i class="far fa-chart-bar"></i></span> A szerzőről</h3>
+        <p class="ml-2 py-0 text-uppercase">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <%= content.author.bio %>
+            </li>
+          </ul>
+        </p>
+      </div>
+
+
+      <div class="tags mb-5">
+        <h3 class="mt-4 mb-4"><span class=""><i class="fab fa-adversal"></i></span>
+          Hirdetések</h3>
+        <p class="ml-2 py-0 text-uppercase">
+          <div class="card">
+            <img class="card-top-img" src="https://images.pexels.com/photos/341014/pexels-photo-341014.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+              alt="">
+          </div>
+          <div class="card">
+            <img class="card-top-img" src="https://images.pexels.com/photos/788662/pexels-photo-788662.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+              alt="">
+          </div>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mb-5">
+    <a class="btn btn-dark" href="/contents">Vissza</a>
+  </div>
+</div>
+
+<% include ../partials/footer %>

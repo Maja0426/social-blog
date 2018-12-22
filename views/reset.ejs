@@ -1,0 +1,26 @@
+<% include ./partials/header %>
+
+<div class="container">
+  <div class="card card-box">
+    <div class="text-center">
+    <h2 class="mb-5">Új jelszó megadása</h2>
+  </div>
+  <form action="/reset/<%= token %>" method="POST">
+    <div class="form-group col-md-9 mx-auto">
+      <label for="password">Új jelszó</label>
+      <input type="password" class="form-control" id="password" placeholder="Új jelszó" name="password"
+        required>
+    </div>
+    <div class="form-group col-md-9 mx-auto">
+      <label for="confirm">Jelszó mégegyszer</label>
+      <input type="password" class="form-control" id="confirm" placeholder="Új jelszó mégegyszer" name="confirm"
+        required>
+    </div>
+    <div class="text-center mt-3">
+      <button class="btn btn-success"><i class="fas fa-check-circle"></i> Jelszó mentése</button>
+    </div>
+  </form>
+  </div>
+</div>
+
+<% include ./partials/footer %>

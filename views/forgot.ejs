@@ -1,0 +1,21 @@
+<% include ./partials/header %>
+
+<div class="container">
+  <div class="card card-box">
+    <div class="text-center">
+    <h2 class="mb-5">Elfelejtett jelszó</h2>
+  </div>
+  <form action="/forgot" method="POST">
+    <div class="form-group col-md-9 mx-auto">
+      <input type="email" class="form-control" id="inputPassword" placeholder="Email címed" name="email"
+        required>
+    </div>
+    <div class="text-center mt-3">
+      <button class="btn btn-success"><i class="fas fa-check-circle"></i> Jelszó visszaállítás</button>
+      <a class="btn btn-dark" href="/login"><i class="fas fa-hand-point-left"></i> Vissza</a>
+    </div>
+  </form>
+  </div>
+</div>
+
+<% include ./partials/footer %>
