@@ -76,7 +76,7 @@ router.post("/", middleware.isLoggedIn, upload.single("image"), function (req, r
   cloudinary.uploader.upload(req.file.path, function(result) {
     // add cloudinary url for the image to the contents object under image property
     req.body.content.image = result.secure_url;
-    // add author ro content
+    // add author to content
     req.body.content.author = {
       id: req.user._id,
       username: req.user.username,

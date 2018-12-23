@@ -9,15 +9,6 @@
     
     <div class="col-lg-3 order-lg-1 text-center">
       <img src="<%= user.avatar %>" class="mb-2 img-fluid img-thumbnail">
-      <div id="editImage" class="collapse">
-        <span class="small text-uppercase text-muted">Profilkép feltöltése</span>
-        <form role="form" action="/users/<%= user._id %>?_method=PUT" method="POST">
-        <label class="">
-          <input class=""  type="text" id="file" name="user[avatar]" value="<%= user.avatar %>">
-        </label><br>
-        <button class="btn btn-sm btn-success">OK</button>
-        </form>
-      </div>
       <p class="lead"><%= user.lastName + " " + user.firstName %></p>
       <hr>
       <table class="table table-sm small text-left">
@@ -46,7 +37,7 @@
         <li class="nav-item">
           <a href="" data-target="#messages" data-toggle="tab" class="nav-link">Üzenetek</a>
         </li>
-        <li class="nav-item" data-target="#editImage" data-toggle="collapse">
+        <li class="nav-item">
           <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Profil szerkesztése</a>
         </li>
         <li class="nav-item">
@@ -116,7 +107,13 @@
         <div class="tab-pane" id="edit">
           <div class="col-lg-12">
           <h4 class="my-2">Profil szerkesztése</h4>
-          <form role="form" action="/users/<%= user._id %>?_method=PUT" method="POST">
+          <form role="form" action="/users/<%= user._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Profilkép feltöltése</label>
+              <div class="col-lg-9">
+                <input class="" type="file" name="avatar" accept="image/*" required>
+              </div>
+            </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Vezetéknév</label>
               <div class="col-lg-9">

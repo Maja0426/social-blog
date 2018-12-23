@@ -5,6 +5,32 @@ var User = require("../models/user");
 var Comment = require("../models/comment");
 var Content = require("../models/content");
 
+// IMAGE UPLOAD SECTION
+var multer = require('multer');
+var storage = multer.diskStorage({
+  filename: function (req, file, callback) {
+    callback(null, Date.now() + file.originalname);
+  }
+});
+var imageFilter = function (req, file, cb) {
+  // accept image files only
+  if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
+    return cb(new Error('Csak kép file-t lehet feltölteni!'), false);
+  }
+  cb(null, true);
+};
+var upload = multer({
+  storage: storage,
+  fileFilter: imageFilter
+})
+
+var cloudinary = require('cloudinary');
+cloudinary.config({
+  cloud_name: 'maja0426',
+  api_key: "831789779817282",
+  api_secret: "A8gM9XzEuhRuLSds9Fru_l7lTz0"
+});
+
 
 // SHOW USERS ROUTE
 router.get("/:id", function(req, res){
@@ -43,10 +69,12 @@ router.get("/:id/edit", middleware.checkOwnProfile, function(req, res){
 });
 
 // UPDATE USERS ROUTE
-router.put("/:id", function(req, res){
-  if(req.body.user.adminCode === "Tmajoros1977") {
+router.put("/:id", upload.single("avatar"), function (req, res) {
+  cloudinary.uploader.upload(req.file.path, function (result) {
+  req.body.user.avatar = result.secure_url;
+  if (req.body.user.adminCode === "Tmajoros1977") {
     req.body.user.isAdmin = true;
-  } 
+  }
   User.findByIdAndUpdate(req.params.id, req.body.user, function(err, updateUser){
     if(err) {
       req.flash("error", "Valami gond van, bocsi!");
@@ -54,6 +82,7 @@ router.put("/:id", function(req, res){
       res.redirect("/users/" + req.params.id);
     }
   });
+});
 });
 
 
