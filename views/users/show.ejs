@@ -6,8 +6,9 @@
       <h1 class="my-1"><span class="font-weight-bold"><%= user.username %></span> profilja</h1>
       <hr>
     </div>
+    
     <div class="col-lg-3 order-lg-1 text-center">
-      <img src="<%= user.avatar %>" class="mx-auto mb-2 img-fluid img-thumbnail">
+      <img src="<%= user.avatar %>" class="mb-2 img-fluid img-thumbnail">
       <div id="editImage" class="collapse">
         <span class="small text-uppercase text-muted">Profilkép feltöltése</span>
         <form role="form" action="/users/<%= user._id %>?_method=PUT" method="POST">
@@ -35,6 +36,7 @@
         </tbody>
       </table>
     </div>
+
     <div class="col-lg-9 order-lg-2">
       <ul class="nav nav-tabs small text-uppercase">
         <li class="nav-item">
@@ -112,6 +114,7 @@
           </div>
 
         <div class="tab-pane" id="edit">
+          <div class="col-lg-12">
           <h4 class="my-2">Profil szerkesztése</h4>
           <form role="form" action="/users/<%= user._id %>?_method=PUT" method="POST">
             <div class="form-group row">
@@ -150,20 +153,6 @@
                 <textarea class="form-control" type="text" rows="5" name="user[bio]" maxlength="600"><%= user.bio %></textarea>
               </div>
             </div>
-
-
-            <!-- <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label">Jelszó</label>
-              <div class="col-lg-9">
-                <input class="form-control" type="password" name="user[password]" value="<%= user.password %>">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label">Jelszó megerősítése</label>
-              <div class="col-lg-9">
-                <input class="form-control" type="password" name="user[confirmPassword]" value="<%= user.password %>">
-              </div>
-            </div> -->
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label"></label>
               <div class="col-lg-9">
@@ -171,6 +160,7 @@
               </div>
             </div>
           </form>
+          </div>
         </div>
       </div>
     </div>

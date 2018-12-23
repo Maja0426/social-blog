@@ -2,9 +2,8 @@
 
 <div class="container">
   <div class="jumbotron">
-    <h1 class=""><i class="fas fa-bullhorn"></i> PROJECT-1</h1>
+        <h1 class=""><i class="fas fa-bullhorn"></i> PROJECT-1</h1>
   </div>
-
   <div class="row">
 
     <!---------------------------- Bal oldali sáv nyitó --------------------------------------->
@@ -24,7 +23,7 @@
       <div class="row">
         <!-- Az első négy cikk borító, a legfrisebbtől számítva, egyesével. A col-md-8 100%-a -->
         <div class="col-md-12">
-          <% contents.reverse().slice(0,4).forEach(function(content){ %>
+          <% contents.reverse().slice(0, 4).forEach(function(content){ %>
           <div class="card">
             <div class="article-main-img">
               <img class="card-img" src="<%= content.image %>" alt="article title image">
@@ -68,7 +67,7 @@
          kettesével. A legfrisebbtől számított következő 4 cikk jelenik meg ------------------->
 
       <div class="row">
-        <% contents.slice(4, 8).forEach(function(content){ %>
+        <% contents.slice(4, 10).forEach(function(content){ %>
         <div class="col-md-6">
           <div class="card">
             <div class="article-main-img">
@@ -117,7 +116,7 @@
         <div class="col-md-12">
 
             <div class="tags">
-              <h3 class="mb-4"><span class=""><i class="far fa-chart-bar"></i></span> Oldal statisztika</h3>
+              <h3 class="mb-4"><span class=""></span> Oldal statisztika</h3>
               <ul class="list-group">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                   Talált cikkek száma
@@ -138,7 +137,7 @@
             </div>
 
             <div class="tags">
-              <h3 class="mt-4 mb-4"><span class=""><i class="fas fa-tags"></i></span> Mai cikkek</h3>
+              <h3 class="mt-4 mb-4"><span class=""></span> Mai cikkek</h3>
                 <div class="text-uppercase daily-articles">
                 <% contents.forEach(function(content){ %>
               <% if(moment().format('YYYYMMD') === moment(content.createdAt).format('YYYYMMD')){ %>
@@ -149,7 +148,7 @@
             </div>
 
           <div class="tags">
-            <h3 class="mt-4 mb-4"><span class=""><i class="fab fa-adversal"></i></span> Hirdetések</h3>
+            <h3 class="mt-4 mb-4"><span class=""></span> Hirdetések</h3>
             <p class="py-0 text-uppercase">
               <div class="card">
                 <img class="card-top-img" src="https://images.pexels.com/photos/341014/pexels-photo-341014.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
@@ -164,10 +163,10 @@
 
           <div class="tags new-articles">
               <h3 class="my-4">
-                <span class=""><i class="far fa-newspaper"></i>
+                <span class="">
                 </span>Korábbi cikkek</h3>
                 <div class="">
-                  <% contents.slice(8).forEach(function(content){ %>
+                  <% contents.slice(10).forEach(function(content){ %>
                     <img class="card-img" src="<%= content.image %>" alt="article title image">
                   <div class="news-feed-lines mb-3">
                 <a class="" href="/contents/<%= content._id %>">
@@ -190,14 +189,14 @@
   </div> <!-- Ez a legelső "Basic" row záró div-je -->
   <div class="row">
       <!----------------- A maradék cikkek, x db. egymás után, sima szalag, btn ---------------->
-      <% if(contents.length > 8) { %> <!-- Ha több cikk van mint 7 akkor jelenik meg -->
+      <% if(contents.length > 10) { %> <!-- Ha több cikk van mint 7 akkor jelenik meg -->
         <div class="col-md-12 mb-2">
           <h2 class="text-center">További cikkek</h2>
         </div>
-        <% contents.slice(8).forEach(function(content){ %>
+        <% contents.slice(10).forEach(function(content){ %>
           <div class="col-md-6 news-feed-lines mb-2">
           <a class="" href="/contents/<%= content._id %>">
-            <b><%= content.title %></b> | <%= moment(content.createdAt).format('YYYY. MMMM D. HH:mm') %><!-- <span class="category badge">|<%= content.category %> </span> -->
+            <b><%= content.title %></b> | <%= moment(content.createdAt).format('YYYY. MMMM D. HH:mm') %>
           </a>
           </div>
           <% }) %>
