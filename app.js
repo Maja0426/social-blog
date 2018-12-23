@@ -56,7 +56,7 @@ app.use("/users", userRoutes);
 
 
 
-app.listen(3000, || process.env.PORT, process.env.IP, function () {
+app.listen(3000 || process.env.PORT, process.env.IP, function () {
   console.log("YOUR LIFE WILL BE CHANGE.. SERVER HAS STARTED!");
   console.log("==============================================")
   console.log("💻 localhost:3000");
