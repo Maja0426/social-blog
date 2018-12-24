@@ -193,7 +193,13 @@ nav a {
   text-align: center;
 }
 
-.tags h3 {
+/* hide details icon*/
+details,
+details>* {
+  display: block;
+}
+
+.tags h3, summary h3 {
   font-family: 'Ubuntu';
   background: #f8e641;
   color: #000;
@@ -423,6 +429,8 @@ body .footer-2nd h6 {
   background: var(--light);
   clear: left;
 }
+
+
   /*=== Universal Classes ===*/
 
   .bg-fixed {

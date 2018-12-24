@@ -20,7 +20,9 @@ app.locals.moment = require("moment");
 /* mongoose.connect("mongodb://localhost:27017/DB_07", {
   useNewUrlParser: true
 }); */
-mongoose.connect("mongodb://tmajoros:Tmsmajoros1977@ds125272.mlab.com:25272/majablog_test_db", { useNewUrlParser: true });
+mongoose.connect("mongodb://tmajoros:Tmsmajoros1977@ds161833.mlab.com:61833/test_blog", {
+  useNewUrlParser: true
+});
 mongoose.set('useFindAndModify', false);
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended: true}));
