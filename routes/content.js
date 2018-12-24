@@ -31,6 +31,7 @@ cloudinary.config({
   api_secret: "A8gM9XzEuhRuLSds9Fru_l7lTz0"
 });
 
+
 // INDEX ROUTE - SHOW ALL BLOGS(ARTICLES)
 router.get("/", middleware.checkAllUser, middleware.checkAllComments, function (req, res) {
   // fuzzy search

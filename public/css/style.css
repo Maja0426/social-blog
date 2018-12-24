@@ -110,6 +110,7 @@ nav a {
 
 .show-title {
   background: #f8e641;
+  margin-bottom: 3vh !important;
 }
 
 .card-body {
@@ -329,7 +330,7 @@ nav a {
 }
 
 .search-bar {
-  border: 1px solid rgb(201, 191, 191);
+  border: 1px solid #c9bfbf;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   padding-left: 10px;

@@ -6,12 +6,13 @@
   <form action="/contents" method="POST" enctype="multipart/form-data">
     <div class="form-row">
       <div class="form-group col-md-6 mx-auto">
-        <input class="form-control" type="text" placeholder="cím (max. 100 karakter)" name="content[title]" maxlength="100" required>
+        <input class="form-control" type="text" placeholder="cím (max. 100 karakter)" name="content[title]" maxlength="100"
+          required>
       </div>
     </div>
     <div class="form-row">
-      <div class="form-group col-md-6 mx-auto">
-        <input type="file" placeholder="kép url" name="image" accept="image/*" required>
+      <div class="input-group col-md-6 mx-auto mb-3">
+        <input type="file" name="image" accept="image/*" required>
       </div>
     </div>
     <div class="form-row">
@@ -48,14 +49,12 @@
       </div>
     </div>
     <div class="form-row">
-      <div class="form-group col-md-5 mx-auto">
-        <button class="btn btn-success btn-block"><i class="fas fa-check-circle"></i> Mentem a cikket</button>
+      <div class="form-group text-center col-md-12">
+        <button class="btn btn-success"><i class="fas fa-check-circle"></i> Mentem a cikket</button>
+        <a class="btn btn-dark" href="/contents"><i class="fas fa-hand-point-left"></i> Vissza</a>
       </div>
     </div>
   </form>
-  <div class="text-center mb-5">
-    <a class="btn btn-dark btn-md" href="/contents"><i class="fas fa-hand-point-left"></i> Vissza</a>
-  </div>
 </div>
 
 <% include ../partials/footer %>
