@@ -41,6 +41,8 @@
               <a class="dropdown-item" href="#">Gasztronómia</a>
             </div>
           </li>
+          <li class="nav-item <%= typeof page !== 'undefined' && page === 'help' ? 'activeMenu' : '' %>">
+            <a class="nav-link" href="/help"><i class="fas fa-question"></i> Segítség</a>
         </ul>
         <form class="form-inline my-2 mr-2" action="/contents" method="GET">
           <div class="input-group">

@@ -13,8 +13,13 @@ router.get("/", function (req, res) {
 
 // GDPR PAGE
 router.get("/gdpr", function(req, res){
-  res.render("gdpr/gdpr");
+  res.render("other/gdpr");
 })
+
+// HELP PAGE
+router.get("/help", function(req, res){
+  res.render("other/help", {page: "help"});
+});
 
 // SHOW REGISTER FORM
 router.get("/register", function (req, res) {
