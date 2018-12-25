@@ -1,4 +1,4 @@
-
+/* FONTS */
 @font-face {
   font-family: 'Rokkitt';
   src: url('../fonts/Rokkitt-Regular.ttf') format('truetype');
@@ -19,6 +19,7 @@
   font-style: normal;
 }
 
+/* DEFINE COLORS */
 :root {
   --dark: #00171F;
   --light: #F0F2EF;
@@ -28,9 +29,17 @@
   --shadow: 3px 3px 15px #343a40
 }
 
+/* ADD SMOOTH SCROLLING IN-PAGE NAVIGATION */
 html {
   scroll-behavior: smooth;
 }
+
+
+/* MAIN SETTINGS */
+
+/* .container-fluid {
+  padding: 5% !important
+} */
 
 body {
   background: #fff;
@@ -55,6 +64,7 @@ body #footer a:hover {
   background: #fff;
 }
 
+/* NAVBAR & NAV-TABS SETTINGS */
 nav {
   box-shadow: 0 0 8px #888 !important;
 }
@@ -63,10 +73,7 @@ nav a {
   color: #000 !important;
 }
 
-.content {
-  min-height: calc(100vh - 200px);
-}
-
+/* another .active, main menu */
 .activeMenu {
   background: #f8e641;
   border-bottom: 1px solid #000;
@@ -89,6 +96,12 @@ nav a {
   margin-bottom: 0;
 }
 
+/* BODY MIN. HEIGHT*/
+.content {
+  min-height: calc(100vh - 200px);
+}
+
+/* HELP PAGE LEFT-SIDE MENUBAR*/
 .menuLeft {
   width: 31%;
   position: fixed;
@@ -98,10 +111,23 @@ nav a {
 }
 
 .menuLeft a {
-  margin-bottom: 10px !important;
+  display: block;
+  margin: 20px !important;
   padding: 5px 10px !important;
+  color: #F0F2EF;
+  background: #474747;
+  text-decoration: none;
+  transition: .3s ease;
 }
 
+.menuLeft a:hover {
+  color: #f8e641;
+  background: #000;
+  transform: scale(1.1);
+  box-shadow: 5px 5px 5px #474747;
+}
+
+/* MEDIA QUERIES */
 @media(max-width:767px) {
   .fastMenu a {
     display: inline-block;
@@ -111,36 +137,38 @@ nav a {
     position: static;
     width: 100%;
   }
+  .menuLeft a:hover {
+    transform: none;
+    box-shadow: none;
+  }
   .test, .icon {
     display: none;
   }
 }
 
+/* =========== GAP UNDER MAIN MENU ================ */
 .header-bottom {
   margin-bottom: 90px;
 }
 
+/* =========== MAIN PAGE PARAGRAPH FONT SIZE ================ */
 .feed-paragraph {
   font-size: 20px !important;
+  font-family: 'Ubuntu';
+  margin-top: 1%
 }
 
+/* =========== UNDERLINE CARDS ================ */
 .card {
   border-radius: 0;
+  border: none;
   border-bottom: 8px solid #474747 !important;
-  margin-bottom: 50px;
 }
 
-.show-title {
-  background: #f8e641;
-  margin-bottom: 3vh !important;
-}
-
-.card-body {
-  padding: 0 10px !important;
-}
-
+/*=========== MAIN PAGE ARTICLE DETAILS ================*/
 .card-body {
   font-family: "Ubuntu";
+  }
 }
 
 .news-feed .card {
@@ -148,6 +176,46 @@ nav a {
   font-family: 'Rokkitt';
 }
 
+.article-main-img {
+  position: relative;
+}
+
+.article-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.article-header a {
+  color: #000;
+}
+
+.article-header h2,
+.article-header h3,
+.article-header h5 {
+  display: block;
+  padding: .5rem;
+  background: #f8e641;
+  color: #000;
+  font-weight: bold;
+  max-width: 100%;
+  margin: 20px;
+}
+
+.article-header h2 {
+  font-size: 3rem;
+}
+
+@media(max-width:900px) {
+
+  .article-header h2,
+  .article-header h3,
+  .article-header h5 {
+    font-size: 1.5rem;
+  }
+}
+
+/* =========== SHOW ROUTE ================ */
 .news-show .card {
   border: none;
   font-family: 'Rokkitt' !important;
@@ -155,15 +223,6 @@ nav a {
 
 .news-show .card .card-footer{
   border: none;
-}
-
-.news-show img {
-  border-bottom: 8px solid #f8e641;
-}
-
-.news-show .card-header h1 {
-  border-bottom: 4px solid #f8e641;
-  border-top: 4px solid #f8e641;
 }
 
 .news-show h1,
@@ -195,8 +254,19 @@ nav a {
   font-size: 20px;
 }
 
+/* RIGHT SIDEBAR TITLE*/
 .tags {
   margin-bottom: 50px;
+}
+
+.tags h3 {
+  font-family: 'Ubuntu';
+  background: #000;
+  color: #f8e641;
+  padding: 8px 10px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .tags-sideLine {
@@ -218,25 +288,8 @@ nav a {
   text-align: center;
 }
 
-.tags h3, summary h3 {
-  font-family: 'Ubuntu';
-  background: #f8e641;
-  color: #000;
-  padding: 8px 10px;
-  text-align: center;
-  text-transform: uppercase;
-  border: 2px dashed #fff;
-}
-
 .list-group-item {
   margin-bottom: 5px;
-}
-
-.index_list:hover {
-  background: #17a2b8;
-  color: #f5f5f5 !important;
-  cursor: pointer;
-  border-color: #e2e5e7;
 }
 
 .comments-card {
@@ -253,48 +306,10 @@ nav a {
   text-transform: uppercase;
 }
 
-.bg-white, .media, .commentButton {
+.media, .commentButton {
   background: #e2e5e7 !important;
 }
-
-.article-main-img {
-  position: relative;
-}
-
-.article-header h2,
-.article-header h3,
-.article-header h5 {
-  font-family: 'Rokkitt' !important;
-  margin-bottom: 0;
-  margin-top: 0 !important;
-}
-
-@media(max-width:900px) {
-  .article-header h2,
-  .article-header h3,
-  .article-header h5 {
-    font-size: 22px;
-  }
-}
-
-.article-header a {
-  position: absolute;
-  left: 0;
-  bottom: 8px;
-  background: #000;
-  color: #fff;
-  width: 100%;
-  opacity: .8;
-  text-decoration: none;
-  transition: .3s ease-in-out;
-}
-
-.article-header a:hover {
-  opacity: 1;
-  background: #f8e641 !important;
-  color: #000;
-}
-
+ 
 .small-text {
   font-size: 16px;
 }

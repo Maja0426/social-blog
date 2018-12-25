@@ -6,33 +6,22 @@
     <div class="col-md-12 news-show">
       <div class="card">
         <img class="card-img-top" src="<%= content.image %>" alt="article image">
-        <div class="show-title p-2">
-          <h1 class="font-weight-bold text-uppercase"><strong>
-              <%= content.title %>
-            </strong>
+        <div class="pt-3">
+          <h1 class="font-weight-bold text-uppercase"><%= content.title %>
           </h1>
+         
           <h5 class="my-1">
-            <b><a class="text-dark" href="/users/<%= content.author.id %>">
-                <%= content.author.username %></a>, <span class="">
+            <b><span><img src="<%= content.author.avatar %>" width="70px;" alt=""></span> <a class="text-dark" href="/users/<%= content.author.id %>"><%= content.author.username %></a>, <span class="">
                 <%= moment(content.createdAt).format('YYYY. MMMM D. dddd') %></span></b>
-            <span class="font-weight-bold badge badge-dark mr-2"> #
+            <span class="font-weight-bold badge badge-pill badge-primary mr-2"> #
               <%= content.category %></span>
           </h5>
         </div>
-        <div class="card-body">
-          <!-- <h5 class="my-3 mb-5">
-            <b><a class="text-dark" href="/users/<%= content.author.id %>">
-                <%= content.author.username %></a>, <span class="text-muted">
-                <%= moment(content.createdAt).format('YYYY. MMMM D. dddd') %></span></b>
-              <span class="mr-2"><i class="fas fa-tags"></i></span>
-              <span class="font-weight-bold mr-2"><%= content.category %></span>
-          </h5> -->
           <div class="feed-paragraph">
-            <p class="img-text">
+            <p>
               <%- content.article %>
             </p>
           </div>
-        </div>
         <% if(currentUser && content.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin) { %>
         <div class="card-footer">
           <a class="btn btn-warning" href="/contents/<%= content._id %>/edit"><i class="fas fa-edit"></i> Szerkeszt</a>
@@ -47,7 +36,7 @@
 
   <div id="comments" class="row mt-4">
     <div class="col-md-8">
-      <div class="card comments-card">
+      <div class="card comments-card mb-5">
         <div class="card-body">
           <h3 class="font-weight-bold p-1 mt-2">
             <%= content.comments.length%> hozzászólás
@@ -121,11 +110,11 @@
         <h3 class="mt-4 mb-4"><span class=""></i></span>
           Hirdetések</h3>
         <p class="ml-2 py-0 text-uppercase">
-          <div class="card">
+          <div class="card mb-5">
             <img class="card-top-img" src="https://images.pexels.com/photos/341014/pexels-photo-341014.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
               alt="">
           </div>
-          <div class="card">
+          <div class="card mb-5">
             <img class="card-top-img" src="https://images.pexels.com/photos/788662/pexels-photo-788662.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
               alt="">
           </div>
