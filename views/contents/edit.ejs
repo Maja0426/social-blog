@@ -2,7 +2,7 @@
 
 <div class="container">
   <h1 class="text-center font-weight-bold">[
-    <%= content.title %>] szerkesztése</h1>
+    <%= content.title %> ] szerkesztése</h1>
 
   <form action="/contents/<%= content._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
     <div class="form-row">
@@ -52,15 +52,13 @@
         <textarea rows="12" class="form-control feed-paragraph" name="blog[article]" required><%- content.article %></textarea>
       </div>
     </div>
-    <div class="form-row">
-      <div class="form-group col-md-5 mx-auto">
-        <button class="btn btn-primary btn-block">Frissítsd!</button>
+    <div class="form-row card-box">
+      <div class="form-group text-center col-md-12">
+        <button class="btn btn-success"><i class="fas fa-check-circle"></i> Mentem a cikket</button>
+        <a class="btn btn-dark" href="/contents/<%= content._id %>"><i class="fas fa-hand-point-left"></i> Vissza</a>
       </div>
     </div>
   </form>
-  <div class="text-center mb-5">
-    <a class="btn btn-dark btn-md" href="/contents/<%= content._id %>">Vissza</a>
-  </div>
 </div>
 
 <% include ../partials/footer %>

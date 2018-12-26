@@ -148,7 +148,6 @@ input.search-bar {
     box-shadow: none;
   }
 
-  .test,
   .icon {
     display: none;
   }
@@ -394,8 +393,8 @@ input.search-bar {
 
   .card-box .btn {
     display: block;
-    width: 50% !important;
-    margin: 15px auto;
+    width: 75% !important;
+    margin: 20px auto;
   }
 }
 

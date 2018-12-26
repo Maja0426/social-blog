@@ -8,7 +8,7 @@ var crypto = require("crypto");
 
 // ROOT ROUTE
 router.get("/", function (req, res) {
-  res.redirect("/contents");
+  res.render("landing");
 });
 
 // GDPR PAGE
