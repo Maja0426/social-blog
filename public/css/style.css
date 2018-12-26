@@ -37,12 +37,13 @@ html {
 
 /* MAIN SETTINGS */
 .container-fluid {
-  width: calc(100vw - 7%) !important;
+  width: calc(100vw - 10%) !important;
 }
 
-@media(max-width:768px) {
+@media(max-width:900px) {
   .container-fluid {
-    width: calc(100vw - 1%) !important;
+    width: calc(100% - .5rem) !important;
+    margin: auto !important;
   }
 }
 
@@ -69,6 +70,25 @@ body #footer a:hover {
 }
 
 /* NAVBAR & NAV-TABS SETTINGS */
+@media(max-width:900px) {
+  nav form {
+    max-width: 60% !important;
+    float: left;
+  }
+
+  form.form-inline {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+  }
+
+  .form-inline .search-bar {
+    max-width: 65% !important;
+  }
+}
+
+input.search-bar {
+  border-radius: 0;
+}
 
 /* another .active, main menu */
 .activeMenu .btn {
@@ -144,7 +164,7 @@ body #footer a:hover {
 
 /* =========== GAP UNDER MAIN MENU ================ */
 .header-bottom {
-  margin-bottom: 90px;
+  margin-bottom: 70px;
 }
 
 /* =========== MAIN PAGE PARAGRAPH FONT SIZE ================ */
@@ -152,10 +172,6 @@ body #footer a:hover {
   font-size: 20px !important;
   font-family: 'Ubuntu';
   margin-top: 1%
-}
-
-input.search-bar {
-  border-radius: 0;
 }
 
 /* =========== UNDERLINE CARDS ================ */
@@ -205,7 +221,7 @@ input.search-bar {
   font-size: 3rem;
 }
 
-@media(max-width:900px) {
+@media(max-width:1024px) {
 
   .article-header h2,
   .article-header h3,
@@ -327,7 +343,7 @@ input.search-bar {
   color: #fff;
   margin-bottom: 3px;
   border-bottom: 8px solid #f8e641;
-  padding: 5px;
+  padding: 15px;
   transition: .3s ease-in-out;
 }
 
@@ -487,7 +503,6 @@ body .footer-2nd h6 {
   font-size: 1rem;
   margin-right: 5px;
   margin-bottom: 8px;
-  float: left
 }
 
 .bg-fixed {

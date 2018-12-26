@@ -1,14 +1,6 @@
 <% include ../partials/header %>
 
 <div class="container-fluid">
-  <!-- <div class="jumbotron">
-    <h1 class="display-4"><i class="fas fa-bullhorn icon"></i> PROJECT-1</h1>
-    <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et atque libero expedita illum tempora
-      harum sed rerum, debitis accusamus provident?</p>
-    <hr>
-    <a class="btn btn-lg btn-primary mb-3" href="/contents/new"><i class="fas fa-marker"></i> Cikkírás</a>
-    <a class="btn btn-lg btn-info mb-3" href="/help"><i class="fas fa-question"></i> Segítség</a>
-  </div> -->
   <div class="row">
 
     <!---------------------------- Bal oldali sáv nyitó --------------------------------------->
@@ -178,7 +170,6 @@
             </div>
           </div>
         </div>
-      </div> <!-- row záró div-->
     <!------------------------------- Jobb oldali sáv záró ------------------------------------->
   </div> <!-- Ez a legelső "Basic" row záró div-je -->
   <div class="row">
@@ -189,7 +180,7 @@
       <h2 class="text-center">További cikkek</h2>
     </div>
     <% contents.slice(10).forEach(function(content){ %>
-    <div class="col-md-6 news-feed-lines mb-2">
+    <div class="col-md-6 news-feed-lines">
       <a class="" href="/contents/<%= content._id %>">
         <b>
           <%= content.title %></b> |
