@@ -74,9 +74,6 @@ body #footer a:hover {
 .activeMenu .btn {
   background: #000 !important;
   color: #F0F2EF !important;
-  /* border-bottom: 1px solid #000;
-  color: #000 !important */
-  ;
 }
 
 .nav-tabs a {
@@ -157,6 +154,10 @@ body #footer a:hover {
   margin-top: 1%
 }
 
+input.search-bar {
+  border-radius: 0;
+}
+
 /* =========== UNDERLINE CARDS ================ */
 .card {
   border-radius: 0;
@@ -228,7 +229,7 @@ body #footer a:hover {
   font-family: 'Rokkitt' !important;
 }
 
-@media(max-width:768px) {
+@media(max-width:767px) {
   .news-show h1 {
     font-size: 1.6rem;
   }
