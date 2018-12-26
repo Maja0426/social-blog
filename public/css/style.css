@@ -40,13 +40,6 @@ html {
   width: calc(100vw - 10%) !important;
 }
 
-@media(max-width:900px) {
-  .container-fluid {
-    width: calc(100% - .5rem) !important;
-    margin: auto !important;
-  }
-}
-
 body {
   background: #fff;
 }
@@ -70,15 +63,14 @@ body #footer a:hover {
 }
 
 /* NAVBAR & NAV-TABS SETTINGS */
-@media(max-width:900px) {
+@media(max-width:1024px) {
   nav form {
-    max-width: 60% !important;
-    float: left;
+    max-width: 55% !important;
   }
 
   form.form-inline {
     margin-left: 5px !important;
-    margin-right: 5px !important;
+    margin-right: 0 !important;
   }
 
   .form-inline .search-bar {
@@ -226,7 +218,7 @@ input.search-bar {
   .article-header h2,
   .article-header h3,
   .article-header h5 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 }
 
@@ -323,7 +315,6 @@ input.search-bar {
 
 .category {
   font-size: 14px;
-  /* padding: 4px 8px; */
   text-transform: uppercase;
 }
 
@@ -392,10 +383,8 @@ input.search-bar {
 }
 
 .search-bar {
-  border: 1px solid #c9bfbf;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  padding-left: 10px;
+  border: 1px solid #c9bfbf;;
+  padding-left: 5px;
 }
 
 @media(max-width: 900px) {
