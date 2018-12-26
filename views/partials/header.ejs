@@ -13,11 +13,11 @@
   <% moment.locale("hu") %>
 </head>
 
-<body>
+<body id="pageTop">
   <header class="header-bottom">
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-background">
-      <a class="navbar-brand" href="/"><i class="fas fa-bullhorn"></i> PROJECT-1</a>
+    <nav class="container-fluid navbar navbar-expand-lg navbar-light fixed-top bg-background">
+     <!--  <a class="navbar-brand" href="/"><i class="fas fa-bullhorn"></i> PROJECT-1</a> -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -25,13 +25,13 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item <%= typeof page !== 'undefined' && page === 'mainPage' ? 'activeMenu' : '' %>">
-            <a class="nav-link" href="/contents"><i class="fas fa-home"></i> Főoldal </a>
+            <a class="btn btn-outline-yellow" href="/contents"><i class="fas fa-home"></i> Főoldal </a>
           </li>
           <li class="nav-item <%= typeof page !== 'undefined' && page === 'writeNew' ? 'activeMenu' : '' %>">
-            <a class="nav-link" href="/contents/new"><i class="fas fa-marker"></i> Cikket írok </a>
+<a class="btn btn-outline-yellow" href="/contents/new"><i class="fas fa-marker"></i> Cikket írok </a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+<a class="btn btn-outline-yellow dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">Kategóriák</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
               <a class="dropdown-item" href="#">Közhasznú</a>
@@ -41,8 +41,9 @@
               <a class="dropdown-item" href="#">Gasztronómia</a>
             </div>
           </li>
-          <li class="nav-item <%= typeof page !== 'undefined' && page === 'help' ? 'activeMenu' : '' %>">
-            <a class="nav-link" href="/help"><i class="fas fa-question"></i> Segítség</a>
+<li class="nav-item <%= typeof page !== 'undefined' && page === 'help' ? 'activeMenu' : '' %>">
+<a class="btn btn-outline-yellow" href="/help"><i class="fas fa-question"></i> Segítség</a>
+            </li>
         </ul>
         <form class="form-inline my-2 mr-2" action="/contents" method="GET">
           <div class="input-group">
@@ -55,17 +56,18 @@
         <ul class="navbar-nav ml-left">
           <% if(!currentUser) { %>
           <li class="nav-item <%= typeof page !== 'undefined' && page === 'login' ? 'activeMenu' : '' %>">
-            <a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i> Belépés </a>
+<a class="btn btn-outline-yellow" href="/login"><i class="fas fa-sign-in-alt"></i> Belépés </a>
           </li>
           <li class="nav-item <%= typeof page !== 'undefined' && page === 'register' ? 'activeMenu' : '' %>">
-            <a class="nav-link" href="/register"><i class="fas fa-user-plus"></i> Regisztráció</a> 
+<a class="btn btn-outline-yellow" href="/register"><i class="fas fa-user-plus"></i> Regisztráció</a>
           </li>
           <% } else { %>
             <li class="nav-item <%= typeof page !== 'undefined' && page === 'profile' ? 'activeMenu' : '' %>">
-            <a class="nav-link" href="/users/<%= currentUser._id %>">Bejelenkezve mint: <b class=""><u><%= currentUser.username %></u></b></a>
+<a class="btn btn-outline-yellow" href="/users/<%= currentUser._id %>">Bejelenkezve mint: <b class=""><u>
+      <%= currentUser.username %></u></b></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i> Kilépés</a>
+<a class="btn btn-outline-yellow" href="/logout"><i class="fas fa-sign-out-alt"></i> Kilépés</a>
           </li>
           <% } %>
         </ul>

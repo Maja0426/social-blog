@@ -1,14 +1,14 @@
 <% include ../partials/header %>
 
-<div class="container">
-  <div class="jumbotron">
+<div class="container-fluid">
+  <!-- <div class="jumbotron">
     <h1 class="display-4"><i class="fas fa-bullhorn icon"></i> PROJECT-1</h1>
     <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et atque libero expedita illum tempora
       harum sed rerum, debitis accusamus provident?</p>
     <hr>
     <a class="btn btn-lg btn-primary mb-3" href="/contents/new"><i class="fas fa-marker"></i> Cikkírás</a>
     <a class="btn btn-lg btn-info mb-3" href="/help"><i class="fas fa-question"></i> Segítség</a>
-  </div>
+  </div> -->
   <div class="row">
 
     <!---------------------------- Bal oldali sáv nyitó --------------------------------------->
@@ -17,10 +17,10 @@
     <div class="col-md-8 news-feed">
       <% if(searcher === true) { %>
       <div class="tags tags-sideLine col-md-12">
-        <h3 class=""><span class=""><i class="fas fa-tags tags-sideLine"></i></span>Keresési találatok</h3>
+        <h3 class=""><span class=""></span>Talált cikkek: <%= contents.length %> db.</h3>
         <div class="text-uppercase searched-articles">
           <% contents.forEach(function(content){ %>
-          <div class=""><a class="" href="/contents/<%= content._id %>"> <span class="font-weight-bold badge badge-danger">
+          <div class=""><a class="" href="/contents/<%= content._id %>"> <span class="font-weight-bold badge-custom">
                 <%= moment(content.createdAt).format('YYYY.MM.DD') %> </span>
               <%= content.title %> </a></div>
           <% }) %>
@@ -42,7 +42,7 @@
                     </h2>
                   </a>
                 </div>
-            <p class="card-text text-muted font-weight-bold">
+            <p class="card-text text-muted">
                 <%= content.author.username %> |
                 <%= moment(content.createdAt).format('YYYY. MMMM D. HH:mm') %>
               <span class="category badge pr-2">#
@@ -55,7 +55,7 @@
                 </p>
               </div>
               <p class="text-uppercase">
-                <a class="btn btn-dark btn-sm" href="/contents/<%= content._id %>">Teljes cikk</a>
+                <a class="btn btn-outline-yellow btn-sm" href="/contents/<%= content._id %>">Tovább</a>
                 <span class="float-right pt-1"><i class="far fa-comments"></i>
                   <%= content.comments.length %> <a class="text-dark" href="/contents/<%= content._id %>/#comments">hozzászólás</a></span>
               </p>
@@ -81,7 +81,7 @@
                     </h5>
                   </a>
                 </div>
-            <p class="card-text">
+            <p class="card-text text-muted">
                 <%= content.author.username %> |
                 <%= moment(content.createdAt).format('YYYY. MMMM D. HH:mm') %>
               <span class="category badge pr-2">#
@@ -94,7 +94,7 @@
                 </p>
               </div>
               <p class="text-uppercase">
-                <a class="btn btn-dark btn-sm" href="/contents/<%= content._id %>">Teljes cikk</a>
+                <a class="btn btn-outline-yellow btn-sm" href="/contents/<%= content._id %>">Tovább</a>
                 <span class="float-right pt-1"><i class="far fa-comments"></i>
                   <%= content.comments.length %> <a class="text-dark" href="/contents/<%= content._id %>/#comments">hozzászólás</a></span>
               </p>
@@ -132,11 +132,11 @@
           </div>
 
           <div class="tags tags-sideLine">
-            <h3 class="mt-4 mb-4"><span class=""></span> Mai cikkek</h3>
+            <h3 class="mt-4 mb-4"><span class=""></span>Friss</h3>
             <div class="text-uppercase daily-articles">
               <% contents.forEach(function(content){ %>
               <% if(moment().format('YYYYMMD') === moment(content.createdAt).format('YYYYMMD')){ %>
-              <div class=""><a class="" href="/contents/<%= content._id %>"> <span class="font-weight-bold badge badge-danger">
+              <div class=""><a class="" href="/contents/<%= content._id %>"> <span class="font-weight-bold badge-custom">
                     <%= moment(content.createdAt).format('HH:mm') %> </span>
                   <%= content.title %> </a></div>
               <% } %>
@@ -179,7 +179,6 @@
           </div>
         </div>
       </div> <!-- row záró div-->
-    </div>
     <!------------------------------- Jobb oldali sáv záró ------------------------------------->
   </div> <!-- Ez a legelső "Basic" row záró div-je -->
   <div class="row">
