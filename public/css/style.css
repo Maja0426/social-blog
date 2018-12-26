@@ -40,6 +40,12 @@ html {
   width: calc(100vw - 7%) !important;
 }
 
+@media(max-width:768px) {
+  .container-fluid {
+    width: calc(100vw - 1%) !important;
+  }
+}
+
 body {
   background: #fff;
 }

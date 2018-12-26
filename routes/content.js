@@ -123,7 +123,7 @@ router.get("/:id/edit", middleware.checkOwnContent, function (req, res) {
 router.put("/:id", middleware.checkOwnContent, upload.single("image"), function (req, res) {
   cloudinary.uploader.upload(req.file.path, function (result) {
   req.body.blog.image = result.secure_url;
-  req.body.blog.article = req.sanitize(req.body.blog.article);
+  /* req.body.blog.article = req.sanitize(req.body.blog.article); */
   Content.findByIdAndUpdate(req.params.id, req.body.blog, function (err, updatedContent) {
     if (err) {
       console.log(err);
