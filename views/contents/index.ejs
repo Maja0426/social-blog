@@ -9,10 +9,11 @@
     <div class="col-md-8 news-feed">
       <% if(searcher === true) { %>
       <div class="tags tags-sideLine col-md-12">
-        <h3 class=""><span class=""></span>Talált cikkek: <%= contents.length %> db.</h3>
+        <h3 class=""><span class=""></span>Talált cikkek:
+          <%= contents.length %> db.</h3>
         <div class="text-uppercase searched-articles">
           <% contents.forEach(function(content){ %>
-          <div class=""><a class="" href="/contents/<%= content._id %>"> <span class="font-weight-bold badge-custom">
+          <div><a href="/contents/<%= content._id %>"> <span class="font-weight-bold badge-custom">
                 <%= moment(content.createdAt).format('YYYY.MM.DD') %> </span>
               <%= content.title %> </a></div>
           <% }) %>
@@ -27,30 +28,30 @@
             <div class="article-main-img">
               <img class="card-img" src="<%= content.image %>" alt="article title image">
             </div>
-                <div class="article-header">
-                  <a class="" href="/contents/<%= content._id %>">
-                    <h2>
-                      <%= content.title %>
-                    </h2>
-                  </a>
-                </div>
-            <p class="card-text text-muted">
-                <%= content.author.username %> |
-                <%= moment(content.createdAt).format('YYYY. MMMM D. HH:mm') %>
-              <span class="category badge pr-2">#
+            <div class="article-header">
+              <a class="" href="/contents/<%= content._id %>">
+                <h2>
+                  <%= content.title %>
+                </h2>
+              </a>
+            </div>
+            <p class="card-text text-muted mb-2">
+              <%= content.author.username %> |
+              <%= moment(content.createdAt).format('YYYY. MMMM D. HH:mm') %>
+              <span class="pl-3 comment-icon"><a href="/contents/<%= content._id %>/#comments"><i class="far fa-comments"></i>
+                  <%= content.comments.length %></a></span><br>
+              <span class="category badge-custom">#
                 <%= content.category %>
               </span>
             </p>
-              <div class="feed-paragraph">
-                <p class="">
-                  <%- content.article.substring(0, 150) %>...
-                </p>
-              </div>
-              <p class="text-uppercase">
-                <a class="btn btn-outline-yellow btn-sm" href="/contents/<%= content._id %>">Tovább</a>
-                <span class="float-right pt-1"><i class="far fa-comments"></i>
-                  <%= content.comments.length %> <a class="text-dark" href="/contents/<%= content._id %>/#comments">hozzászólás</a></span>
+            <div class="feed-paragraph">
+              <p class="">
+                <%- content.article.substring(0, 150) %>...
               </p>
+            </div>
+            <p class="text-uppercase">
+              <a class="btn btn-outline-yellow btn-sm" href="/contents/<%= content._id %>">Tovább</a>
+            </p>
           </div>
           <% }) %>
         </div>
@@ -63,33 +64,23 @@
         <% contents.slice(4, 12).forEach(function(content){ %>
         <div class="col-md-6">
           <div class="card mb-5">
-            <div class="article-main-img">
-              <img class="card-img" src="<%= content.image %>" alt="article title image">
+            <div class="article-main-img second-article-header">
+              <a href="/contents/<%= content._id %>">
+                <img class="card-img" src="<%= content.image %>" alt="article title image">
+                <h4 class="mt-2">
+                  <%= content.title %>
+                </h4>
+              </a>
             </div>
-                <div class="article-header">
-                  <a class="" href="/contents/<%= content._id %>">
-                    <h5>
-                      <%= content.title %>
-                    </h5>
-                  </a>
-                </div>
-            <p class="card-text text-muted">
-                <%= content.author.username %> |
-                <%= moment(content.createdAt).format('YYYY. MMMM D. HH:mm') %>
-              <span class="category badge pr-2">#
-                <%= content.category %>
-              </span>
+            <p class="card-text text-muted mb-2">
+              <%= content.author.username %> |
+              <%= moment(content.createdAt).format('YYYY. MMMM D. HH:mm') %>
+              <span class="pl-3 comment-icon"><a href="/contents/<%= content._id %>/#comments"><i class="far fa-comments"></i>
+                  <%= content.comments.length %></a><br>
+                <span class="category badge-custom">#
+                  <%= content.category %>
+                </span></span>
             </p>
-              <div class="feed-paragraph">
-                <p class="">
-                  <%- content.article.substring(0, 100) %>...
-                </p>
-              </div>
-              <p class="text-uppercase">
-                <a class="btn btn-outline-yellow btn-sm" href="/contents/<%= content._id %>">Tovább</a>
-                <span class="float-right pt-1"><i class="far fa-comments"></i>
-                  <%= content.comments.length %> <a class="text-dark" href="/contents/<%= content._id %>/#comments">hozzászólás</a></span>
-              </p>
           </div>
         </div>
         <% }) %>
@@ -154,23 +145,23 @@
             <h3 class="my-4">
               <span class="">
               </span>Korábbi cikkek</h3>
-              <% contents.slice(12).forEach(function(content){ %>
-              <a class="" href="/contents/<%= content._id %>"><img class="card-img" src="<%= content.image %>" alt="article title image">
+            <% contents.slice(12).forEach(function(content){ %>
+            <a class="" href="/contents/<%= content._id %>"><img class="card-img" src="<%= content.image %>" alt="article title image">
               <div class="news-feed-lines mb-3">
-                  <b>
-                    <%= content.title %></b><br>
-                  <span class="text-uppercase small">-
-                    <%= content.author.username %>
-                  </span>
-                  <span class="float-right">
-                    <%= moment(content.createdAt).fromNow() %>
-                  </span>
-                </a>
-              </div>
-              <% }) %>
-            </div>
+                <b>
+                  <%= content.title %></b><br>
+                <span class="text-uppercase small">-
+                  <%= content.author.username %>
+                </span>
+                <span class="float-right">
+                  <%= moment(content.createdAt).fromNow() %>
+                </span>
+            </a>
           </div>
+          <% }) %>
         </div>
+      </div>
+    </div>
     <!------------------------------- Jobb oldali sáv záró ------------------------------------->
   </div> <!-- Ez a legelső "Basic" row záró div-je -->
 
@@ -178,7 +169,7 @@
     <!----------------- A maradék cikkek, x db. egymás után, sima szalag, btn ---------------->
     <!-- <% if(contents.length > 10) { %> -->
     <!-- Ha több cikk van mint 10 akkor jelenik meg -->
-   <!-- <div class="col-lg-12">
+    <!-- <div class="col-lg-12">
     <h2 class="text-center">További cikkek</h2>
    </div>
     <% contents.slice(10).forEach(function(content){ %>
@@ -193,7 +184,7 @@
     <% } %> -->
     <!-------------------------- A maradék cikk blokk lezárása ------------------------------->
   </div>
-  
+
 </div> <!-- A fő container záró div-je -->
 
 <% include ../partials/footer %>

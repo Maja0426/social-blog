@@ -56,15 +56,6 @@ body #footer a:hover {
 }
 
 /* NAVBAR & NAV-TABS SETTINGS */
-
-/* .form-inline .input-group {
-  width: 80%;
-}
-
- .input-group .search-bar {
-    width: 55% !important;
-  }  */
-
 @media(max-width:1024px) {
   nav form {
     max-width: 60% !important;
@@ -78,6 +69,11 @@ body #footer a:hover {
   .form-inline .search-bar {
     max-width: 65% !important;
   }
+}
+
+.search-bar {
+  border: 1px solid #c9bfbf;
+  padding-left: 5px;
 }
 
 input.search-bar {
@@ -194,18 +190,32 @@ input.search-bar {
   left: 0;
 }
 
+
+.second-article-header a {
+  color: #000;
+}
+
+.second-article-header h4 {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.card-img {
+  border-radius: 0;
+}
+
 .article-header a {
   color: #000;
 }
 
-.article-header h2,
-.article-header h3,
-.article-header h5 {
+.article-header a h2,
+.article-header a h3,
+.article-header a h5 {
   display: block;
   padding: .5rem;
   background: #f8e641;
   color: #000;
-  font-weight: bold;
+  font-weight: bold !important;
   max-width: 100%;
   margin: 20px;
 }
@@ -218,7 +228,8 @@ input.search-bar {
 
   .article-header h2,
   .article-header h3,
-  .article-header h5 {
+  .article-header h5,
+  .second-article-header h4 {
     font-size: 1.2rem;
   }
 }
@@ -251,7 +262,7 @@ input.search-bar {
 }
 
 .news-feed img {
-  border-bottom: 8px solid #f8e641;
+  /* border-bottom: 8px solid #f8e641; */
   transition: .3s ease-in;
 }
 
@@ -315,8 +326,13 @@ input.search-bar {
 }
 
 .category {
-  font-size: 14px;
+  font-size: 11px !important;
   text-transform: uppercase;
+}
+
+.comment-icon a {
+  color: #000;
+  text-decoration: none;
 }
 
 .media,
@@ -381,11 +397,6 @@ input.search-bar {
 
 .edit-img img {
   width: 250px;
-}
-
-.search-bar {
-  border: 1px solid #c9bfbf;;
-  padding-left: 5px;
 }
 
 @media(max-width: 900px) {
@@ -587,15 +598,15 @@ body .footer-2nd h6 {
 }
 
 .btn-custom-d {
-  border: 1px solid var(--menu);
+  border-left: 1px solid #c9bfbf;
   color: #000;
-  background: var(--menu)
+  background: #c9bfbf;
+  border-radius: 0;
 }
 
 .btn-custom-d:hover {
-  color: var(--light);
-  background: var(--primary);
-  border: 1px solid var(--primary);
+  color: #f8e641;
+  background: #000
 }
 
 .btn-xl {

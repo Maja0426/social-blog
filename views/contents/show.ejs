@@ -11,9 +11,12 @@
           </h1>
          
           <h5 class="my-1">
-            <b><span><img src="<%= content.author.avatar %>" width="70px;" alt=""></span> <a class="text-dark" href="/users/<%= content.author.id %>"><%= content.author.username %></a>, <span class="">
-                <%= moment(content.createdAt).format('YYYY. MMMM D. dddd') %></span></b>
-            <span class="font-weight-bold badge-custom mr-2"> #
+            <div class="float-left pr-2 pb-1">
+              <img src="<%= content.author.avatar %>" width="80px;" alt="profile image">
+            </div>
+             <a class="text-dark font-weight-bold" href="/users/<%= content.author.id %>"><%= content.author.username %></a>, <span class="text-muted">
+                <%= moment(content.createdAt).format('YYYY. MMMM D. dddd') %></span><br>
+            <span class="badge-custom pl-2"> #
               <%= content.category %></span>
           </h5>
         </div>
