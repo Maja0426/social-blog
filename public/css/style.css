@@ -101,7 +101,7 @@ input.search-bar {
 }
 
 /* HELP PAGE LEFT-SIDE MENUBAR*/
-.menuLeft {
+.menuLeft, .superMenuLeft {
   width: 29%;
   position: fixed;
   z-index: 1;
@@ -120,6 +120,20 @@ input.search-bar {
   background: #474747;
   text-decoration: none;
   transition: .3s ease;
+}
+
+.superMenuLeft a {
+  display: block;
+  margin: 10px 0 !important;
+  padding: 5px 10px !important;
+  color: #F0F2EF;
+  background: #474747;
+  text-decoration: none;
+}
+
+.superMenuLeft a:hover {
+  color: #f8e641;
+  background: #000;
 }
 
 .menuLeft a:hover {

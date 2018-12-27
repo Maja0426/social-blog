@@ -5,11 +5,19 @@ var User = require("../models/user");
 var async = require("async");
 var nodemailer = require("nodemailer");
 var crypto = require("crypto");
+var middleware = require("../middleware");
 
 // ROOT ROUTE
 router.get("/", function (req, res) {
   res.redirect("/contents");
 });
+
+// SUPERVISOR PAGE
+router.get("/supervisor", middleware.checkAdmin, middleware.checkAllUser, middleware.checkAllContents, middleware.checkAllComments, function (req, res) {
+  res.render("super", {
+    page: "superVisor"
+  });
+})
 
 // GDPR PAGE
 router.get("/gdpr", function(req, res){
@@ -35,7 +43,7 @@ router.post("/register", function (req, res) {
   User.register(newUser, req.body.password, function (err, regUser) {
     if (err) {
       console.log(err);
-      req.flash("error", err.message);
+      req.flash("error", "Valami gond van. Esetleg már foglalt felhasználónév vagy már regisztrált emailcím.");
       return res.redirect("/register");
     }
     passport.authenticate("local")(req, res, function () {

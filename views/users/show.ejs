@@ -3,26 +3,32 @@
 <div class="container my-2">
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="my-1"><span class="font-weight-bold"><%= user.username %></span> profilja</h1>
+      <h1 class="my-1"><span class="font-weight-bold">
+          <%= user.username %></span> profilja</h1>
       <hr>
     </div>
-    
+
     <div class="col-lg-3 order-lg-1 text-center">
       <img src="<%= user.avatar %>" class="mb-2 img-fluid img-thumbnail">
-      <p class="lead"><%= user.lastName + " " + user.firstName %></p>
+      <p class="lead">
+        <%= user.lastName + " " + user.firstName %>
+      </p>
       <hr>
       <table class="table table-sm small text-left">
         <tbody>
           <tr>
             <td class="text-uppercase">Csatlakozott</td>
-            <td><b><%= moment(user.userCreated).format('YYYY. MMMM D.') %></b></td>
+            <td><b>
+                <%= moment(user.userCreated).format('YYYY. MMMM D.') %></b></td>
           </tr>
           <tr>
             <td class="text-uppercase">Cikkek</td>
-            <td><b><%= contents.length %></b></td>
+            <td><b>
+                <%= contents.length %></b></td>
           </tr>
-            <td class="text-uppercase">Hozzászólások</td>
-            <td><b><%= comments.length %></b></td>
+          <td class="text-uppercase">Hozzászólások</td>
+          <td><b>
+              <%= comments.length %></b></td>
           </tr>
         </tbody>
       </table>
@@ -43,9 +49,12 @@
         <li class="nav-item">
           <a href="" data-target="#admin" data-toggle="tab" class="nav-link">Admin</a>
         </li>
+        <li class="nav-item">
+          <a href="" data-target="#delete" data-toggle="tab" class="nav-link">Törlés menü</a>
+        </li>
         <% } %>
       </ul>
-      
+
       <div class="tab-content py-3">
         <div class="tab-pane active" id="profile">
           <div class="row my-2">
@@ -53,7 +62,8 @@
               <h5 class="mt-1">Mottó:</h5>
               <hr>
               <p>
-                <q><em><%= user.slogan %></em></q>
+                <q><em>
+                    <%= user.slogan %></em></q>
               </p>
               <hr>
               <h5 class="mt-4">Rólam:</h5>
@@ -66,7 +76,7 @@
           </div>
           <!--/row-->
         </div>
-         <div class="tab-pane fade" id="messages">
+        <div class="tab-pane fade" id="messages">
           <h4 class="my-2">Recent Messages &amp; Notifications</h4>
           <div class="alert alert-info alert-dismissable">
             <a class="panel-close close" data-dismiss="alert">&#xD7;</a> This is an <span class="font-weight-bold">.alert</span>.
@@ -88,75 +98,92 @@
               </tr>
             </tbody>
           </table>
-        </div> 
+        </div>
 
         <div class="tab-pane" id="admin">
           <h4 class="my-2">Adminisztrátor kód</h4>
-          <h5>Ha adminisztrátor vagy, akkor kaptál egy 10 jegyű kódot. Itt megadhatod az Admin jogok éltbe léptetéséhez!</h5>
+          <h5>Ha adminisztrátor vagy, akkor kaptál egy 10 jegyű kódot. Itt megadhatod az Admin jogok éltbe
+            léptetéséhez!</h5>
           <form action="/users/<%= user._id %>?_method=PUT" method="POST">
             <div class="input-group">
               <label class="col-lg-3 col-form-label form-control-label">Admin kód</label>
-                <input class="" type="password" aria-describedby="button-addon" name="user[adminCode]">
-            <div class="input-group-append">
-              <button class="btn btn-outline-dark" id="button-addon"><i class="fas fa-check-circle"></i> Mentés</button>
+              <input class="" type="password" aria-describedby="button-addon" name="user[adminCode]">
+              <div class="input-group-append">
+                <button class="btn btn-outline-dark" id="button-addon"><i class="fas fa-check-circle"></i> Mentés</button>
               </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="tab-pane" id="delete">
+          <h4 class="my-2">Profil törlése</h4>
+          <h5>Tájékoztatunk, hogy a profil törlése végleges és visszavonhatatlan! A korábban ezzel a profillal
+            létrehozott bejegyzések, hozzászólások továbbra is láthatóak maradnak!</h5>
+            <div class="card">
+          <form class="d-inline" action="/users/<%= user._id %>?_method=DELETE" method="POST">
+            <button class="btn btn-danger"><i class="fas fa-trash-alt"></i> Profil törlése</button>
+            <div class="ml-4">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+              <label class="form-check-label" for="exampleCheck1">Biztosan törlöm a profilomat, a döntésem végleges!</label>
             </div>
           </form>
           </div>
+        </div>
 
         <div class="tab-pane" id="edit">
           <div class="col-lg-12">
-          <h4 class="my-2">Profil szerkesztése</h4>
-          <form role="form" action="/users/<%= user._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label">Profilkép feltöltése</label>
-              <div class="col-lg-9">
-                <input class="" type="file" name="avatar" accept="image/*" required>
+            <h4 class="my-2">Profil szerkesztése</h4>
+            <form role="form" action="/users/<%= user._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+              <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Profilkép feltöltése</label>
+                <div class="col-lg-9">
+                  <input class="" type="file" name="avatar" accept="image/*" required>
+                </div>
               </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label">Vezetéknév</label>
-              <div class="col-lg-9">
-                <input class="form-control" type="text" name="user[lastName]" value="<%= user.lastName %>">
+              <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Vezetéknév</label>
+                <div class="col-lg-9">
+                  <input class="form-control" type="text" name="user[lastName]" value="<%= user.lastName %>">
+                </div>
               </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label">Keresztnév</label>
-              <div class="col-lg-9">
-                <input class="form-control" type="text" name="user[firstName]" value="<%= user.firstName %>">
+              <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Keresztnév</label>
+                <div class="col-lg-9">
+                  <input class="form-control" type="text" name="user[firstName]" value="<%= user.firstName %>">
+                </div>
               </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label">Email cím</label>
-              <div class="col-lg-9">
-                <input class="form-control" type="email" name="user[email]" value="<%= user.email %>">
+              <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Email cím</label>
+                <div class="col-lg-9">
+                  <input class="form-control" type="email" name="user[email]" value="<%= user.email %>">
+                </div>
               </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label">Megye</label>
-              <div class="col-lg-9">
-                <input class="form-control" type="text" name="user[county]" value="<%= user.county %>">
+              <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Megye</label>
+                <div class="col-lg-9">
+                  <input class="form-control" type="text" name="user[county]" value="<%= user.county %>">
+                </div>
               </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label">Mottó</label>
-              <div class="col-lg-9">
-                <input class="form-control" type="text" name="user[slogan]" maxlength="150" value="<%= user.slogan %>" placeholder="max. 150 karakter!">
+              <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Mottó</label>
+                <div class="col-lg-9">
+                  <input class="form-control" type="text" name="user[slogan]" maxlength="150" value="<%= user.slogan %>"
+                    placeholder="max. 150 karakter!">
+                </div>
               </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label">Magamról</label>
-              <div class="col-lg-9">
-                <textarea class="form-control" type="text" rows="5" name="user[bio]" maxlength="600"><%= user.bio %></textarea>
+              <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Magamról</label>
+                <div class="col-lg-9">
+                  <textarea class="form-control" type="text" rows="5" name="user[bio]" maxlength="600"><%= user.bio %></textarea>
+                </div>
               </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label"></label>
-              <div class="col-lg-9">
-                <button class="btn btn-success btn-lg"><i class="fas fa-check-circle"></i> Mentés</button>
+              <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label"></label>
+                <div class="col-lg-9">
+                  <button class="btn btn-success btn-lg"><i class="fas fa-check-circle"></i> Mentés</button>
+                </div>
               </div>
-            </div>
-          </form>
+            </form>
           </div>
         </div>
       </div>

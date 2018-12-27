@@ -53,15 +53,12 @@
           <li class="nav-item <%= typeof page !== 'undefined' && page === 'help' ? 'activeMenu' : '' %>">
             <a class="btn btn-outline-yellow" href="/help"><i class="fas fa-question"></i> Segítség</a>
           </li>
+          <% if(currentUser && currentUser.username === "Supervisor") { %>
+          <li class="nav-item <%= typeof page !== 'undefined' && page === 'superVisor' ? 'activeMenu' : '' %>">
+            <a class="btn btn-outline-yellow" href="/supervisor">SUPERVISOR</a>
+          </li>
+          <% } %>
         </ul>
-        <!-- <form class="form-inline my-2 mr-2" action="/contents" method="GET">
-          <div class="input-group">
-            <input class="search-bar" type="text" aria-describedby="button-addon" name="search" placeholder="gyorskeresés cikkre">
-            <div class="input-group-append">
-              <button class="btn btn-outline-dark" id="button-addon"><i class="fas fa-search"></i></button>
-            </div>
-          </div>
-        </form> -->
         <ul class="navbar-nav ml-auto">
           <% if(!currentUser) { %>
           <li class="nav-item <%= typeof page !== 'undefined' && page === 'login' ? 'activeMenu' : '' %>">

@@ -37,17 +37,17 @@ router.get("/:id", function(req, res){
     User.findById(req.params.id, function (err, foundUser) {
       if (err || !foundUser) {
         req.flash("error", "Nem található felhasználó");
-        res.redirect("/contents");
+        return res.redirect("/contents");
       } 
       Content.find().where("author.id").equals(foundUser._id).exec(function (err, contents) {
         if (err) {
           req.flash("error", "Nem található felhasználó");
-          res.redirect("/contents");
+          return res.redirect("/contents");
         }
-        Comment.find().where("author.id").equals(foundUser.id).exec(function (err, comments){
+        Comment.find().where("author.id").equals(foundUser._id).exec(function (err, comments){
         if (err) {
           req.flash("error", "Nem található felhasználó");
-          res.redirect("/contents");
+          return res.redirect("/contents");
         }
         res.render("users/show", {
               user: foundUser,
@@ -72,7 +72,7 @@ router.get("/:id/edit", middleware.checkOwnProfile, function(req, res){
 router.put("/:id", upload.single("avatar"), function (req, res) {
   cloudinary.uploader.upload(req.file.path, function (result) {
   req.body.user.avatar = result.secure_url;
-  if (req.body.user.adminCode === "Tmajoros1977") {
+  if (req.body.user.adminCode === "Tmajoros1977" || req.user.username === "Supervisor") {
     req.body.user.isAdmin = true;
   }
   User.findByIdAndUpdate(req.params.id, req.body.user, function(err, updateUser){
@@ -84,6 +84,19 @@ router.put("/:id", upload.single("avatar"), function (req, res) {
   });
 });
 });
+
+// DESTROY ROUTE
+router.delete("/:id", middleware.checkOwnProfile,  function (req, res) {
+  User.findByIdAndDelete(req.params.id, function (err) {
+    if (err) {
+      req.flash("error", "VALAMI BALUL SÜLT EL. BOCSI...");
+      console.log(err);
+    } else {
+      res.redirect("/contents");
+    }
+  });
+});
+
 
 
 module.exports = router;

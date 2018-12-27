@@ -94,28 +94,7 @@
         <div class="col-md-12">
 
           <div class="tags tags-sideLine">
-            <h3>Oldal statisztika</h3>
-            <ul class="list-group">
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                Talált cikkek száma
-                <span class="badge badge-dark">
-                  <%= contents.length %></span>
-              </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                Regisztrált felhasználók
-                <span class="badge badge-dark">
-                  <%= allUser.length %></span>
-              </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                Hozzászólások száma
-                <span class="badge badge-dark">
-                  <%= allComment.length %></span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="tags tags-sideLine">
-            <h3 class="mt-4 mb-4"><span class=""></span>Friss</h3>
+            <h3 class="mb-4"><span class=""></span>Friss</h3>
             <div class="text-uppercase daily-articles">
               <% contents.forEach(function(content){ %>
               <% if(moment().format('YYYYMMD') === moment(content.createdAt).format('YYYYMMD')){ %>

@@ -4,22 +4,22 @@
   <h1 class="text-center font-weight-bold">[
     <%= content.title %> ] szerkesztése</h1>
 
-  <form action="/contents/<%= content._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+  <form action="/contents/<%= content._id %>?_method=PUT" method="POST">
     <div class="form-row">
       <div class="form-group col-md-6 mx-auto">
         <input class="form-control" type="text" value="<%= content.title %>" name="blog[title]" maxlength="70" required>
       </div>
     </div>
-    <div class="form-row">
+    <!-- <div class="form-row">
       <div class="form-group col-md-6 mx-auto">
         <div class="col-md-12 text-center edit-img">
           <img class="mb-3 rounded" src="<%= content.image %>" alt="article image">
         </div>
         <div class="form-group col-md-6 mx-auto">
-        <input type="file" name="image" accept="image/*" required>
+        <input type="file" name="image"  value="<%= content.image %>" >
       </div>
       </div>
-    </div>
+    </div> -->
     <div class="form-row">
       <div class="form-group col-md-12 text-center">
         <h4>Válaszz kategóriát!</h4>
@@ -54,7 +54,7 @@
     </div>
     <div class="form-row card-box">
       <div class="form-group text-center col-md-12">
-        <button class="btn btn-success"><i class="fas fa-check-circle"></i> Mentem a cikket</button>
+        <button type="submit" class="btn btn-success"><i class="fas fa-check-circle"></i> Mentem a cikket</button>
         <a class="btn btn-dark" href="/contents/<%= content._id %>"><i class="fas fa-hand-point-left"></i> Vissza</a>
       </div>
     </div>

@@ -79,7 +79,19 @@ middlewareObj.checkAllUser = function(req, res, next) {
         }
         next();
 });
-};
+}
+
+middlewareObj.checkAllContents = function (req, res, next) {
+  Content.find({}, function (err, allContents) {
+    if (err || !allContents) {
+      req.flash("error", "Nem találhatók cikkek!");
+      res.redirect("/contents");
+    } else {
+      allContent = allContents;
+    }
+    next();
+  });
+}
 
 middlewareObj.checkAllComments = function (req, res, next) {
   Comment.find({}, function (err, allComments) {
@@ -91,7 +103,15 @@ middlewareObj.checkAllComments = function (req, res, next) {
     }
     next();
   });
-};
+}
+
+middlewareObj.checkAdmin = function(req, res, next) {
+  if (req.isAuthenticated() && req.user.username === "Supervisor") {
+    return next();
+  }
+  req.flash("error", "Ehhez a művelethez nincs jogosultságod!");
+  res.redirect("/contents");
+}
 
 middlewareObj.isLoggedIn = function (req, res, next) {
   if (req.isAuthenticated()) {
