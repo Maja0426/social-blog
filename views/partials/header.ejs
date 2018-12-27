@@ -16,11 +16,11 @@
 <body id="pageTop">
   <header class="header-bottom">
     <!-- Fixed navbar -->
-    <nav class="container-fluid navbar navbar-expand-md navbar-light fixed-top bg-white">
+    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-white">
       <span class="nav-item <%= typeof page !== 'undefined' && page === 'mainPage' ? 'activeMenu' : '' %>">
         <a class="btn btn-outline-yellow" href="/contents"><i class="fas fa-home"></i></a>
       </span>
-      <form class="form-inline ml-2" action="/contents" method="GET">
+      <form class="form-inline mr-auto" action="/contents" method="GET">
         <div class="input-group">
           <input class="search-bar" type="text" aria-describedby="button-addon" name="search" placeholder="gyorskeresés">
           <div class="input-group-append">
@@ -28,10 +28,11 @@
           </div>
         </div>
       </form>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+      <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav">
           <li class="nav-item <%= typeof page !== 'undefined' && page === 'writeNew' ? 'activeMenu' : '' %>">
@@ -82,7 +83,7 @@
     </nav>
   </header>
 
-  <div class="container-fluid">
+  <div class="container">
     <% if(error && error.length > 0) { %>
     <div class="alert alert-danger text-center" role="alert">
       <%= error %>

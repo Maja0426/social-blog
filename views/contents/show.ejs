@@ -1,6 +1,6 @@
 <% include ../partials/header %>
 
-<div class="container-fluid">
+<div class="container">
 
   <div class="row">
     <div class="col-md-12 news-show">
@@ -13,7 +13,7 @@
           <h5 class="my-1">
             <b><span><img src="<%= content.author.avatar %>" width="70px;" alt=""></span> <a class="text-dark" href="/users/<%= content.author.id %>"><%= content.author.username %></a>, <span class="">
                 <%= moment(content.createdAt).format('YYYY. MMMM D. dddd') %></span></b>
-            <span class="font-weight-bold badge badge-pill badge-primary mr-2"> #
+            <span class="font-weight-bold badge-custom mr-2"> #
               <%= content.category %></span>
           </h5>
         </div>

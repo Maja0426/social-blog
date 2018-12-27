@@ -36,9 +36,6 @@ html {
 }
 
 /* MAIN SETTINGS */
-.container-fluid {
-  width: calc(100vw - 10%) !important;
-}
 
 body {
   background: #fff;
@@ -58,14 +55,19 @@ body #footer a:hover {
   border-bottom: 1px dotted #f8e641
 }
 
-.bg-background {
-  background: #fff;
+/* NAVBAR & NAV-TABS SETTINGS */
+
+/* .form-inline .input-group {
+  width: 80%;
 }
 
-/* NAVBAR & NAV-TABS SETTINGS */
+ .input-group .search-bar {
+    width: 55% !important;
+  }  */
+
 @media(max-width:1024px) {
   nav form {
-    max-width: 55% !important;
+    max-width: 60% !important;
   }
 
   form.form-inline {
@@ -132,7 +134,7 @@ input.search-bar {
 }
 
 /* MEDIA QUERIES */
-@media(max-width:767px) {
+@media(max-width:1024px) {
   .fastMenu a {
     display: inline-block;
   }

@@ -1,6 +1,6 @@
 <% include ../partials/header %>
 
-<div class="container-fluid">
+<div class="container">
   <div class="row">
 
     <!---------------------------- Bal oldali sáv nyitó --------------------------------------->
@@ -57,10 +57,10 @@
       </div>
 
       <!-- Ez itt a legújabb 4 cikk után következő cikk col-md-6 néretben,
-         kettesével. A legfrisebbtől számított következő 6 cikk jelenik meg ------------------->
+         kettesével. A legfrisebbtől számított következő 8 cikk jelenik meg ------------------->
 
       <div class="row">
-        <% contents.slice(4, 10).forEach(function(content){ %>
+        <% contents.slice(4, 12).forEach(function(content){ %>
         <div class="col-md-6">
           <div class="card mb-5">
             <div class="article-main-img">
@@ -149,11 +149,12 @@
               </div>
             </p>
           </div>
+
           <div class="tags tags-sideLine new-articles">
             <h3 class="my-4">
               <span class="">
               </span>Korábbi cikkek</h3>
-              <% contents.slice(10).forEach(function(content){ %>
+              <% contents.slice(12).forEach(function(content){ %>
               <a class="" href="/contents/<%= content._id %>"><img class="card-img" src="<%= content.image %>" alt="article title image">
               <div class="news-feed-lines mb-3">
                   <b>
@@ -172,15 +173,16 @@
         </div>
     <!------------------------------- Jobb oldali sáv záró ------------------------------------->
   </div> <!-- Ez a legelső "Basic" row záró div-je -->
+
   <div class="row">
     <!----------------- A maradék cikkek, x db. egymás után, sima szalag, btn ---------------->
-    <% if(contents.length > 10) { %>
-    <!-- Ha több cikk van mint 7 akkor jelenik meg -->
-    <div class="col-md-12 mb-2">
-      <h2 class="text-center">További cikkek</h2>
-    </div>
+    <!-- <% if(contents.length > 10) { %> -->
+    <!-- Ha több cikk van mint 10 akkor jelenik meg -->
+   <!-- <div class="col-lg-12">
+    <h2 class="text-center">További cikkek</h2>
+   </div>
     <% contents.slice(10).forEach(function(content){ %>
-    <div class="col-md-6 news-feed-lines">
+    <div class="col-md-6 news-feed-lines mb-2">
       <a class="" href="/contents/<%= content._id %>">
         <b>
           <%= content.title %></b> |
@@ -188,9 +190,10 @@
       </a>
     </div>
     <% }) %>
-    <% } %>
+    <% } %> -->
     <!-------------------------- A maradék cikk blokk lezárása ------------------------------->
   </div>
+  
 </div> <!-- A fő container záró div-je -->
 
 <% include ../partials/footer %>
