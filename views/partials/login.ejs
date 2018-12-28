@@ -13,21 +13,21 @@
       <div class="modal-body">
         <form action="/login" method="POST">
           <div class="form-group col-md-9 mx-auto">
-            <label for="userName">Felhasználó név</label>
-            <input type="text" class="form-control" id="userName" placeholder="Ide jöhet a felhasználóneved!" name="username"
+            <label for="loginName">Felhasználó név</label>
+            <input type="text" class="form-control" id="loginName" placeholder="Ide jöhet a felhasználóneved!" name="username"
               required>
           </div>
           <div class="form-group col-md-9 mx-auto">
-            <label for="inputPassword">Jelszó</label>
-            <input type="password" class="form-control" id="inputPassword" placeholder="Jöhet a jelszó..." name="password"
+            <label for="userPasswd">Jelszó</label>
+            <input type="password" class="form-control" id="userPasswd" placeholder="Jöhet a jelszó..." name="password"
               required>
           </div>
           <div class="modal-footer">
             <button class="btn btn-success"><i class="fas fa-check-circle"></i> Belépek</button>
-            <a class="btn btn-dark" href="/contents"><i class="fas fa-hand-point-left"></i> Bezár</a>
+            <button class="btn btn-dark" data-dismiss="modal"><i class="fas fa-times-circle"></i> Bezár</button>
           </div>
         </form>
-        <a class="btn btn-outline-yellow" href="/forgot"><i class="fas fa-key"></i> Elfelejtett jelszó</a>
+        <a class="btn btn-outline-yellow" data-toggle="modal" data-target="#userForgot" href="/forgot"><i class="fas fa-key"></i> Elfelejtett jelszó</a>
       </div>
     </div>
   </div>
@@ -69,13 +69,40 @@
           <div class="modal-footer">
             <div class="text-center mt-3">
               <button class="btn btn-success"><i class="fas fa-check-circle"></i> Regisztrálok</button>
-              <a class="btn btn-dark" href="/contents"><i class="fas fa-hand-point-left"></i> Vissza</a>
+              <button class="btn btn-dark" data-dismiss="modal"><i class="fas fa-times-circle"></i> Bezár</button>
             </div>
           </div>
           <div class="col-md-12 mx-auto">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
-            <label class="form-check-label" for="exampleCheck1">Tudomásul vettem az <a class="" href="/gdpr" target="_blank">adatkezelési
+            <input type="checkbox" class="form-check-input" id="check1" required>
+            <label class="form-check-label" for="check1">Tudomásul vettem az <a class="" href="/gdpr" target="_blank">adatkezelési
                 tájékoztatóban</a> foglaltakat, és elfogadom azt.</label>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--   MODAL FORGOT    -->
+
+<div class="modal fade bg-panic" id="userForgot" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fas fa-key"></i> Elfelejtett jelszó</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/forgot" method="POST">
+          <div class="form-group col-md-9 mx-auto">
+            <input type="email" class="form-control" id="inputMail" placeholder="Email címed" name="email" required>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-success"><i class="fas fa-check-circle"></i> Új jelszót kérek</button>
+            <button class="btn btn-dark" data-dismiss="modal"><i class="fas fa-times-circle"></i> Bezár</button>
           </div>
         </form>
       </div>

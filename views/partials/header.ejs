@@ -17,15 +17,15 @@
 <body id="pageTop">
   <header class="header-bottom">
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-warning">
+    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
       <span class="nav-item <%= typeof page !== 'undefined' && page === 'mainPage' ? 'activeMenu' : '' %>">
         <a class="btn btn-outline-yellow" href="/contents"><i class="fas fa-home"></i></a>
       </span>
       <form class="form-inline mr-auto" action="/contents" method="GET">
         <div class="input-group">
-          <input class="search-bar" type="text" aria-describedby="button-addon" name="search" placeholder="gyorskeresés">
+          <input class="search-bar" type="text" aria-describedby="btn-add-on" name="search" placeholder="gyorskeresés">
           <div class="input-group-append">
-            <button class="btn btn-custom-d" id="button-addon"><i class="fas fa-search"></i></button>
+            <button class="btn btn-custom-d" id="btn-add-on"><i class="fas fa-search"></i></button>
           </div>
         </div>
       </form>
@@ -51,7 +51,7 @@
             </div>
           </li> -->
           <li class="nav-item <%= typeof page !== 'undefined' && page === 'help' ? 'activeMenu' : '' %>">
-            <a class="btn btn-outline-yellow" href="/help"><i class="fas fa-question"></i> Segítség</a>
+            <a class="btn btn-outline-yellow" href="/help"><i class="fas fa-question"></i> Súgó</a>
           </li>
           <% if(currentUser && currentUser.username === "Supervisor") { %>
           <li class="nav-item <%= typeof page !== 'undefined' && page === 'superVisor' ? 'activeMenu' : '' %>">

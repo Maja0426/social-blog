@@ -139,8 +139,8 @@
             létrehozott bejegyzések, hozzászólások továbbra is láthatóak maradnak! Ha további kérdésed van, a "Segítség" menüpont profil szekciójában bővebb felvilágosítást találsz!</h5>
           <div class="card">
             <form class="d-inline" action="/users/<%= user._id %>?_method=DELETE" method="POST">
-              <button class="btn btn-danger"><i class="fas fa-trash-alt"></i> Profil törlése</button>
-              <div class="ml-4">
+              <button class="btn btn-danger mt-2"><i class="fas fa-trash-alt"></i> Profil törlése</button>
+              <div class="ml-4 my-3">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
                 <label class="form-check-label" for="exampleCheck1">Biztosan törlöm a profilomat, a döntésem végleges!</label>
               </div>
@@ -170,12 +170,12 @@
                   <input class="form-control" type="text" name="user[firstName]" value="<%= user.firstName %>">
                 </div>
               </div>
-              <div class="form-group row">
+              <!-- <div class="form-group row">
                 <label class="col-lg-3 col-form-label form-control-label">Email cím</label>
                 <div class="col-lg-9">
-                  <input class="form-control" type="email" name="user[email]" value="<%= user.email %>">
+                  <input class="form-control" type="email" name="user[email]" value="<%= user.email %>" required>
                 </div>
-              </div>
+              </div> -->
               <div class="form-group row">
                 <label class="col-lg-3 col-form-label form-control-label">Megye</label>
                 <div class="col-lg-9">

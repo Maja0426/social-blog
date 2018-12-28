@@ -61,7 +61,7 @@ router.post("/register", function (req, res) {
 // HANDLING LOGIN LOGIC
 router.post("/login", passport.authenticate("local", {
   successRedirect: "/contents",
-  failureRedirect: "/login",
+  failureRedirect: "/contents",
   failureFlash: true,
   successFlash: "Üdözöl a PROJECT-1!"
 }), function (req, res) {
@@ -75,9 +75,9 @@ router.get("/logout", function (req, res) {
 });
 
 // FORGOT PASSWORD ROUTE
-router.get("/forgot", function(req, res){
+/* router.get("/forgot", function(req, res){
   res.render("forgot");
-});
+}); */
 
 router.post('/forgot', function (req, res, next) {
   async.waterfall([
@@ -93,7 +93,7 @@ router.post('/forgot', function (req, res, next) {
       }, function (err, user) {
         if (!user) {
           req.flash('error', 'Ehhez az email címhez nem tartozik felhasználó.');
-          return res.redirect('/forgot');
+          return res.redirect('/contents');
         }
 
         user.resetPasswordToken = token;
@@ -133,7 +133,7 @@ router.post('/forgot', function (req, res, next) {
     }
   ], function (err) {
     if (err) return next(err);
-    res.redirect('/forgot');
+    res.redirect('/contents');
   });
 });
 
@@ -146,7 +146,7 @@ router.get('/reset/:token', function (req, res) {
   }, function (err, user) {
     if (!user) {
       req.flash('error', 'A jelszóvisszaállító kulcs nem érvényes vagy lejárt.');
-      return res.redirect('/forgot');
+      return res.redirect('/contents');
     }
     res.render('reset', {
       token: req.params.token
