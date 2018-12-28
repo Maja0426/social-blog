@@ -30,9 +30,9 @@ router.get("/help", function(req, res){
 });
 
 // SHOW REGISTER FORM
-router.get("/register", function (req, res) {
+/* router.get("/register", function (req, res) {
   res.render("register", {page: "register"});
-});
+}); */
 
 // CREATE REGISTER FORM
 router.post("/register", function (req, res) {
@@ -54,9 +54,9 @@ router.post("/register", function (req, res) {
 });
 
 // SHOW LOGIN FORM
-router.get("/login", function (req, res) {
+/* router.get("/login", function (req, res) {
   res.render("login", {page: "login"});
-});
+}); */
 
 // HANDLING LOGIN LOGIC
 router.post("/login", passport.authenticate("local", {

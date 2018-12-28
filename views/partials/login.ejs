@@ -1,0 +1,84 @@
+<!-- MODAL LOGIN -->
+
+<div class="modal fade" id="userLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Bejelentkezés</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/login" method="POST">
+          <div class="form-group col-md-9 mx-auto">
+            <label for="userName">Felhasználó név</label>
+            <input type="text" class="form-control" id="userName" placeholder="Ide jöhet a felhasználóneved!" name="username"
+              required>
+          </div>
+          <div class="form-group col-md-9 mx-auto">
+            <label for="inputPassword">Jelszó</label>
+            <input type="password" class="form-control" id="inputPassword" placeholder="Jöhet a jelszó..." name="password"
+              required>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-success"><i class="fas fa-check-circle"></i> Belépek</button>
+            <a class="btn btn-dark" href="/contents"><i class="fas fa-hand-point-left"></i> Bezár</a>
+          </div>
+        </form>
+        <a class="btn btn-outline-yellow" href="/forgot"><i class="fas fa-key"></i> Elfelejtett jelszó</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL REGISTRATION -->
+
+<div class="modal fade" id="userRegister" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Regisztráció</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/register" method="POST" class="">
+          <div class="form-group col-md-9 mx-auto">
+            <label for="userName">Felhasználó név</label>
+            <input type="text" class="form-control" id="userName" placeholder="Ide jöhet a felhasználóneved!" name="username"
+              required>
+          </div>
+          <div class="form-group col-md-9 mx-auto">
+            <label for="userEmai">Email cím</label>
+            <input type="email" class="form-control" id="userEmail" aria-describedby="emailHelp" placeholder="Ide meg az email címed!"
+              name="email" required>
+            <small id="emailHelp" class="form-text text-muted">Soha nem adjuk ki illetékteleneknek az email címed.
+              Tényleg.</small>
+          </div>
+          <div class="form-group col-md-9 mx-auto">
+            <label for="inputPassword">Jelszó</label>
+            <input type="password" class="form-control" id="inputPassword" aria-describedby="passwdHelp" placeholder="Jöhet a jelszó..."
+              name="password" required>
+            <small id="passwdHelp" class="form-text">Ne feledd!! Minimum 8 karakter, nagybetű, szám és/vagy speciális
+              karakter legyen! Téged véd az erős jelszó!</small>
+          </div>
+          <div class="modal-footer">
+            <div class="text-center mt-3">
+              <button class="btn btn-success"><i class="fas fa-check-circle"></i> Regisztrálok</button>
+              <a class="btn btn-dark" href="/contents"><i class="fas fa-hand-point-left"></i> Vissza</a>
+            </div>
+          </div>
+          <div class="col-md-12 mx-auto">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+            <label class="form-check-label" for="exampleCheck1">Tudomásul vettem az <a class="" href="/gdpr" target="_blank">adatkezelési
+                tájékoztatóban</a> foglaltakat, és elfogadom azt.</label>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

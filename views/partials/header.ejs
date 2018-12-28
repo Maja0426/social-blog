@@ -17,7 +17,7 @@
 <body id="pageTop">
   <header class="header-bottom">
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-white">
+    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-warning">
       <span class="nav-item <%= typeof page !== 'undefined' && page === 'mainPage' ? 'activeMenu' : '' %>">
         <a class="btn btn-outline-yellow" href="/contents"><i class="fas fa-home"></i></a>
       </span>
@@ -62,10 +62,10 @@
         <ul class="navbar-nav ml-auto">
           <% if(!currentUser) { %>
           <li class="nav-item <%= typeof page !== 'undefined' && page === 'login' ? 'activeMenu' : '' %>">
-            <a class="btn btn-outline-yellow" href="/login"><i class="fas fa-sign-in-alt"></i> Belépés </a>
+            <a class="btn btn-outline-yellow" data-toggle="modal" data-target="#userLogin" href="/login"><i class="fas fa-sign-in-alt"></i> Belépés </a>
           </li>
           <li class="nav-item <%= typeof page !== 'undefined' && page === 'register' ? 'activeMenu' : '' %>">
-            <a class="btn btn-outline-yellow" href="/register"><i class="fas fa-user-plus"></i> Regisztráció</a>
+            <a class="btn btn-outline-yellow" data-toggle="modal" data-target="#userRegister" href="/register"><i class="fas fa-user-plus"></i> Regisztráció</a>
           </li>
           <% } else { %>
           <li class="nav-item <%= typeof page !== 'undefined' && page === 'profile' ? 'activeMenu' : '' %>">
@@ -93,5 +93,8 @@
     </div>
     <% } %>
   </div>
+
+<% include login %>
+
 
   <section class="content">
