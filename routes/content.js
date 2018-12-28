@@ -43,6 +43,7 @@ router.get("/", middleware.checkAllUser, middleware.checkAllComments, function (
     }, function (err, foundContent) {
       if (err) {
         console.log(err);
+        res.redirect("/contents");
       } else {
         var searcher = true;
         res.render("contents/index", {
@@ -56,6 +57,7 @@ router.get("/", middleware.checkAllUser, middleware.checkAllComments, function (
   Content.find({}, function (err, foundContent) {
     if (err) {
       console.log(err);
+      res.redirect("/contents");
     } else {
       var searcher = false;
       res.render("contents/index", {
@@ -67,7 +69,7 @@ router.get("/", middleware.checkAllUser, middleware.checkAllComments, function (
 }
 });
 
-// NEW ROUTE - RENDER NEW.EJS PAGE
+// NEW ROUTE - RENDER NEW .EJS PAGE
 router.get("/new", middleware.isLoggedIn, function (req, res) {
   res.render("contents/new", {page: "writeNew"});
 });
@@ -100,8 +102,8 @@ router.get("/:id", function (req, res) {
   Content.findById(req.params.id).populate("comments").exec(function (err, foundContent) {
     if (err || !foundContent) {
       console.log(err);
-      req.flash("error", "A cikk nem található!");
-      res.redirect("contents");
+      req.flash("error", "A keresett oldal nem található!");
+      res.redirect("/contents");
     } else {
       res.render("contents/show", {
         content: foundContent

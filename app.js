@@ -9,6 +9,7 @@ var express           = require("express"),
     flash             = require("connect-flash"),
     expressSanitizer  = require("express-sanitizer");
 
+
 // REQUIRING ROUTES
 var indexRoutes       = require("./routes/index");
 var contentRoutes     = require("./routes/content");
@@ -55,6 +56,12 @@ app.use("/", indexRoutes);
 app.use("/contents", contentRoutes);
 app.use("/contents/:id/comments", commentRoutes);
 app.use("/users", userRoutes);
+
+
+// EASY 404 ERROR HANDLING
+app.get('*', function (req, res) {
+  res.render("404");
+});
 
 
 // DEPLOYED RUNNING SCRIPT

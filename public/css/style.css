@@ -20,6 +20,22 @@
   font-style: normal;
 }
 
+.page-404 {
+  font-family: 'Ubuntu';
+  position: relative;
+  height: 100vh;
+  background: url(../images/problem.jpeg) no-repeat 70% center/cover;
+}
+
+.content-404 {
+background: #f8e641;
+margin: 10px;
+padding: 20px;
+color: rgba(0, 0, 0, 1);
+opacity: .8;
+}
+
+
 /* DEFINE COLORS */
 :root {
   --dark: #00171F;
