@@ -39,6 +39,9 @@
         <li class="nav-item">
           <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Profil</a>
         </li>
+        <li class="nav-item">
+          <a href="" data-target="#articles" data-toggle="tab" class="nav-link">Cikkek</a>
+        </li>
         <% if(currentUser && currentUser.equals(user._id)) { %>
         <li class="nav-item">
           <a href="" data-target="#messages" data-toggle="tab" class="nav-link">Üzenetek</a>
@@ -76,6 +79,21 @@
           </div>
           <!--/row-->
         </div>
+
+        <div class="tab-pane" id="articles">
+          <h4 class="mt-2 mb-3">
+            <%= user.username %> eddigi írásai</h4>
+          
+          <% contents.forEach(function(content) { %>
+            <p class="">
+          <a class="mr-2 text-d" href="/contents/<%= content._id %>">
+            <%= content.title %></a>
+          </p>
+          <% }) %>
+          
+        </div>
+
+
         <div class="tab-pane fade" id="messages">
           <h4 class="my-2">Recent Messages &amp; Notifications</h4>
           <div class="alert alert-info alert-dismissable">
@@ -118,15 +136,15 @@
         <div class="tab-pane" id="delete">
           <h4 class="my-2">Profil törlése</h4>
           <h5>Tájékoztatunk, hogy a profil törlése végleges és visszavonhatatlan! A korábban ezzel a profillal
-            létrehozott bejegyzések, hozzászólások továbbra is láthatóak maradnak!</h5>
-            <div class="card">
-          <form class="d-inline" action="/users/<%= user._id %>?_method=DELETE" method="POST">
-            <button class="btn btn-danger"><i class="fas fa-trash-alt"></i> Profil törlése</button>
-            <div class="ml-4">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
-              <label class="form-check-label" for="exampleCheck1">Biztosan törlöm a profilomat, a döntésem végleges!</label>
-            </div>
-          </form>
+            létrehozott bejegyzések, hozzászólások továbbra is láthatóak maradnak! Ha további kérdésed van, a "Segítség" menüpont profil szekciójában bővebb felvilágosítást találsz!</h5>
+          <div class="card">
+            <form class="d-inline" action="/users/<%= user._id %>?_method=DELETE" method="POST">
+              <button class="btn btn-danger"><i class="fas fa-trash-alt"></i> Profil törlése</button>
+              <div class="ml-4">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+                <label class="form-check-label" for="exampleCheck1">Biztosan törlöm a profilomat, a döntésem végleges!</label>
+              </div>
+            </form>
           </div>
         </div>
 

@@ -25,14 +25,16 @@
               <%- content.article %>
             </p>
           </div>
-        <% if(currentUser && content.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin) { %>
         <div class="card-footer">
+          <% if(currentUser && content.author.id.equals(currentUser._id)) { %>
           <a class="btn btn-warning" href="/contents/<%= content._id %>/edit"><i class="fas fa-edit"></i> Szerkeszt</a>
+           <% } %>
+           <% if(currentUser && content.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin) { %>
           <form class="d-inline" action="/contents/<%= content._id %>?_method=DELETE" method="POST">
             <button class="btn btn-danger"><i class="fas fa-trash-alt"></i> Töröl</button>
           </form>
+          <% } %>
         </div>
-        <% } %>
       </div>
     </div>
   </div>
@@ -59,16 +61,18 @@
                 <%= moment(comment.createdAt).fromNow() %>
               </span>
             </h6>
-            <% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin) { %>
             <div class="p-2 commentButton float-right">
+              <% if(currentUser && comment.author.id.equals(currentUser._id)) { %>
               <a class="btn btn-sm btn-warning mr-2" href="/contents/<%= content._id %>/comments/<%= comment._id %>/edit"><i
                   class="fas fa-edit"></i> Szerkeszt</a>
+            <% } %>
+            <% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin) { %>
               <form class="d-inline" action="/contents/<%= content._id %>/comments/<%= comment._id %>?_method=DELETE"
                 method="POST">
                 <button class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i> Töröl</button>
               </form>
+              <% } %>
             </div>
-            <% } %>
 
             <p class="px-2">
               <%= comment.text %>

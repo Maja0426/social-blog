@@ -36,7 +36,7 @@ cloudinary.config({
 router.get("/:id", function(req, res){
     User.findById(req.params.id, function (err, foundUser) {
       if (err || !foundUser) {
-        req.flash("error", "Nem található felhasználó");
+        req.flash("error", "Nem található vagy törölt felhasználó");
         return res.redirect("/contents");
       } 
       Content.find().where("author.id").equals(foundUser._id).exec(function (err, contents) {

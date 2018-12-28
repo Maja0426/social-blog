@@ -40,25 +40,61 @@
           <li class="media mb-3">
             <img src="<%= user.avatar %>" class="mr-3" alt=" profile image">
             <div class="media-body">
-              <h6 class="mt-0 my-1"><b class="">Név:</b>
+              <h6 class="mt-0 my-1"><b class="">Név: </b>
                 <%= user.lastName + " " + user.firstName %><br>
-                <b class="">Felhasználónév:</b>
+                <b class="">Felhasználónév: </b>
                 <a href="/users/<%= user._id %>" class=""><%=user.username %></a><br>
               </h6>
-              <b class=""> Regisztrált:</b>
+              <b class=""> Regisztrált: </b>
                 <%= moment(user.userCreated).format('YYYY. MMMM D. HH:mm') %><br>
-              <b class="">Emailcím:</b><a href="mailto:<%= user.email %>"> <%= user.email %></a>
-              <!-- <b>Közzétett cikkek:</b> 
-              <%var num = 0%>
+              <b class="">Emailcím: </b><a href="mailto:<%= user.email %>"> <%= user.email %></a><br>
+              <details>
+                <summary><b>Cikkek: </b> 
+              <% var num = 0 %>
               <% allContent.forEach(function(content) { %>
-               <% if(content.author.id === user._id) { %>
+               <% if(content.author.id.equals(user._id)) { %>
               <% num += 1 %>
                 <% } %>
               <% }) %>
-                 <%= console.log(num+" db.") %> db. -->
+                 <%= num %> db.</summary>
+                 <% var num = 0 %>
+              <% allContent.forEach(function(content) { %>
+               <% if(content.author.id.equals(user._id)) { %>
+              <a class="small mr-2 text-d" href="/contents/<%= content._id %>">[<%= content.title %>]</a>
+                <% } %>
+              <% }) %>
+              </details>
+              <details>
+                <summary>
+                  <b>Kommentek: </b>
+                 <% var num = 0 %>
+              <% allComment.forEach(function(comment) { %>
+               <% if(comment.author.id.equals(user._id)) { %>
+              <% num += 1 %>
+                <% } %>
+              <% }) %>
+                 <%= num %> db.
+                </summary>
+                <% var num = 0 %>
+              <% allComment.forEach(function(comment) { %>
+               <% if(comment.author.id.equals(user._id)) { %>
+              <span class="small mr-2">[<%= comment.text %>]</span>
+                <% } %>
+              <% }) %>
+              </details>
+              <hr>
+              <div>
+                <form class="d-inline" action="/users/<%= user._id %>?_method=DELETE" method="POST">
+            <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Felhasználó törlése</button>
+            <a href="#" class="btn btn-sm btn-success"><i class="far fa-comment-alt"></i> Üzenet </a>
+            <div class="ml-4">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+              <label class="form-check-label" for="exampleCheck1">Biztosan törlöm!</label>
             </div>
-            <!-- <form action="/" method="post"></form>
-          </li> -->
+          </form>
+              </div>
+            </div>
+          </li>
           <% }) %>
         </ul>
       </div>

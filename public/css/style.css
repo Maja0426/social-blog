@@ -149,7 +149,7 @@ input.search-bar {
     display: inline-block;
   }
 
-  .menuLeft {
+  .menuLeft, .superMenuLeft {
     display: block;
     position: static;
     width: 100%;

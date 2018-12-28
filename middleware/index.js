@@ -55,7 +55,7 @@ middlewareObj.checkOwnProfile = function (req, res, next) {
         req.flash("error", "Felhasználó nem található!");
         res.redirect("back");
       } else {
-        if (foundUser._id.equals(req.user._id)) {
+        if (foundUser._id.equals(req.user._id) || req.user.username === "Supervisor") {
           next();
         } else {
           req.flash("error", "Nem rendelkezel engedéllyel ehhez a művelethez!");
