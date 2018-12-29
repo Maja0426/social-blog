@@ -15,6 +15,7 @@ var indexRoutes       = require("./routes/index");
 var contentRoutes     = require("./routes/content");
 var commentRoutes     = require("./routes/comments");
 var userRoutes        = require("./routes/user");
+var mediumsRoutes     = require("./routes/mediums");
 
 // APP CONFIGURATION
 app.locals.moment = require("moment");
@@ -56,7 +57,7 @@ app.use("/", indexRoutes);
 app.use("/contents", contentRoutes);
 app.use("/contents/:id/comments", commentRoutes);
 app.use("/users", userRoutes);
-
+app.use("/mediums", mediumsRoutes);
 
 // EASY 404 ERROR HANDLING
 app.get('*', function (req, res) {

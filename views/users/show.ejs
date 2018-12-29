@@ -83,16 +83,20 @@
         <div class="tab-pane" id="articles">
           <h4 class="mt-2 mb-3">
             <%= user.username %> eddigi írásai</h4>
-          
-          <% contents.forEach(function(content) { %>
-            <p class="">
-          <a class="mr-2 text-d" href="/contents/<%= content._id %>">
-            <%= content.title %></a>
-          </p>
-          <% }) %>
-          
+          <ul class="list-unstyled">
+            <% contents.forEach(function(content) { %>
+              <a href="/contents/<%= content._id %>">
+            <li class="media mb-2">
+              <img src="<%= content.image %>" class="mr-3" alt="article image">
+              <div class="media-body">
+                <h5 class="my-2"><%= content.title %></h5>
+                
+              </div>
+            </li>
+            </a>
+            <% }) %>
+            </ul>
         </div>
-
 
         <div class="tab-pane fade" id="messages">
           <h4 class="my-2">Recent Messages &amp; Notifications</h4>
@@ -168,18 +172,6 @@
                 <label class="col-lg-3 col-form-label form-control-label">Keresztnév</label>
                 <div class="col-lg-9">
                   <input class="form-control" type="text" name="user[firstName]" value="<%= user.firstName %>">
-                </div>
-              </div>
-              <!-- <div class="form-group row">
-                <label class="col-lg-3 col-form-label form-control-label">Email cím</label>
-                <div class="col-lg-9">
-                  <input class="form-control" type="email" name="user[email]" value="<%= user.email %>" required>
-                </div>
-              </div> -->
-              <div class="form-group row">
-                <label class="col-lg-3 col-form-label form-control-label">Megye</label>
-                <div class="col-lg-9">
-                  <input class="form-control" type="text" name="user[county]" value="<%= user.county %>">
                 </div>
               </div>
               <div class="form-group row">

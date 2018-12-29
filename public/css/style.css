@@ -78,6 +78,11 @@ body #footer a:hover {
 }
 
 /* NAVBAR & NAV-TABS SETTINGS */
+nav .nav-item .nav-link {
+  padding-top: 6% !important;
+  padding-bottom: 7% !important;
+}
+
 @media(max-width:1024px) {
   nav form {
     max-width: 60% !important;
@@ -116,7 +121,7 @@ input.search-bar {
 
 /* BODY MIN. HEIGHT*/
 .content {
-  min-height: calc(100vh - 200px);
+  min-height: calc(100vh - 100px);
 }
 
 /* HELP PAGE LEFT-SIDE MENUBAR*/
@@ -359,8 +364,8 @@ input.search-bar {
   border: none;
 }
 
-.media img {
-  width: 80px;
+.profile .media img {
+  width: 100px;
 }
 
 .category {
@@ -410,9 +415,17 @@ input.search-bar {
   overflow: auto;
 }
 
+.media img {
+  width: 150px;
+}
+
+.founded a {
+  text-decoration: none;
+}
+
 .daily-articles a,
 .searched-articles a {
-  display: inline-block;
+  display: block;
   text-decoration: none;
   color: #000;
   padding: 5px;
@@ -535,6 +548,10 @@ body .footer-2nd h6 {
 
 /*=== Universal Classes ===*/
 
+.help-list li {
+  list-style: none;
+}
+
 .badge-custom {
   background: #000;
   color: #F0F2EF;
@@ -619,17 +636,20 @@ body .footer-2nd h6 {
   color: var(--light)
 }
 
-.btn-outline-yellow {
-  border: none;
-  color: #000;
-  font-weight: bold;
-  border-radius: 0;
+.btn-outline-yellow, nav .nav-item .nav-link a {
+  border: none !important;
+  color: #000 !important;
+  font-weight: bold !important;
+  border-radius: 0 !important;
 }
 
-.btn-outline-yellow:hover {
-  color: #f8e641;
-  background: #000;
+.btn-outline-yellow:hover,
+nav .nav-item .nav-link a:hover {
+  color: #f8e641 !important;
+  background: #000 !important;
 }
+
+
 
 .btn-custom {
   border: 1px solid var(--primary);

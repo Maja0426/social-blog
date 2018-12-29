@@ -96,7 +96,7 @@ middlewareObj.checkAllContents = function (req, res, next) {
 middlewareObj.checkAllComments = function (req, res, next) {
   Comment.find({}, function (err, allComments) {
     if (err || !allComments) {
-      req.flash("error", "Nem találhatók felhasználók!");
+      req.flash("error", "Nem találhatók hozzászólások!");
       res.redirect("/contents");
     } else {
       allComment = allComments;
@@ -118,7 +118,7 @@ middlewareObj.isLoggedIn = function (req, res, next) {
     return next();
   }
   req.flash("error", "Kérlek előbb lépj be!");
-  res.redirect("/login");
+  res.redirect("/contents");
 }
 
 module.exports = middlewareObj;

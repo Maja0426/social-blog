@@ -1,26 +1,13 @@
 <% include ../partials/header %>
 
+
 <div class="container">
   <div class="row">
 
     <!---------------------------- Bal oldali sáv nyitó --------------------------------------->
-    <!---------------------------- Keresésnél jelenik meg ------------------------------------->
-
     <div class="col-md-8 news-feed">
-      <% if(searcher === true) { %>
-      <div class="tags tags-sideLine col-md-12">
-        <h3 class=""><span class=""></span>Talált cikkek:
-          <%= contents.length %> db.</h3>
-        <div class="text-uppercase searched-articles">
-          <% contents.forEach(function(content){ %>
-          <div><a href="/contents/<%= content._id %>"> <span class="font-weight-bold badge-custom">
-                <%= moment(content.createdAt).format('YYYY.MM.DD') %> </span>
-              <%= content.title %> </a></div>
-          <% }) %>
-        </div>
-      </div>
-      <% } %>
       <div class="row">
+
         <!-- Az első négy cikk borító, a legfrisebbtől számítva, egyesével. A col-md-8 100%-a -->
         <div class="col-md-12">
           <% contents.reverse().slice(0, 4).forEach(function(content){ %>
@@ -92,7 +79,6 @@
     <div class="col-md-4">
       <div class="row">
         <div class="col-md-12">
-
           <div class="tags tags-sideLine">
             <h3 class="mb-4"><span class=""></span>Friss</h3>
             <div class="text-uppercase daily-articles">
@@ -105,7 +91,7 @@
               <% }) %>
             </div>
           </div>
-
+          
           <div class="tags tags-sideLine">
             <h3 class="mt-4 mb-4"><span class=""></span> Hirdetések</h3>
             <p class="py-0 text-uppercase">
@@ -143,26 +129,6 @@
     </div>
     <!------------------------------- Jobb oldali sáv záró ------------------------------------->
   </div> <!-- Ez a legelső "Basic" row záró div-je -->
-
-  <div class="row">
-    <!----------------- A maradék cikkek, x db. egymás után, sima szalag, btn ---------------->
-    <!-- <% if(contents.length > 10) { %> -->
-    <!-- Ha több cikk van mint 10 akkor jelenik meg -->
-    <!-- <div class="col-lg-12">
-    <h2 class="text-center">További cikkek</h2>
-   </div>
-    <% contents.slice(10).forEach(function(content){ %>
-    <div class="col-md-6 news-feed-lines mb-2">
-      <a class="" href="/contents/<%= content._id %>">
-        <b>
-          <%= content.title %></b> |
-        <%= moment(content.createdAt).format('YYYY. MMMM D. HH:mm') %>
-      </a>
-    </div>
-    <% }) %>
-    <% } %> -->
-    <!-------------------------- A maradék cikk blokk lezárása ------------------------------->
-  </div>
 
 </div> <!-- A fő container záró div-je -->
 

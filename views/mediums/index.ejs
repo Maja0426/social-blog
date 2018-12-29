@@ -1,0 +1,26 @@
+<% include ../partials/header %>
+
+<div class="container">
+  <div class="row">
+<% mediums.forEach(function(news){ %>
+<div class="col-md-4">
+  <div class="card mb-5">
+    <div class="article-main-img second-article-header">
+      <a href="<%= news.url %>" target="_blank">
+        <img class="card-img" src="<%= news.urlToImage %>" alt="article title image">
+        <h4 class="mt-2">
+          <%= news.title %>
+        </h4>
+      </a>
+    </div>
+    <p class="card-text text-muted mb-2">
+      <%= news.author %> |
+      <%= moment(news.publishedAt).format('YYYY. MMMM D. HH:mm') %>
+    </p>
+  </div>
+</div>
+<% }) %>
+  </div>
+</div>
+
+<% include ../partials/footer %>

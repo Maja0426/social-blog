@@ -1,9 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var Content = require("../models/content");
-var Comment = require("../models/comment");
 var middleware = require("../middleware/index");
-
 
 // IMAGE UPLOAD SECTION
 var multer = require('multer');
@@ -45,38 +43,37 @@ router.get("/", middleware.checkAllUser, middleware.checkAllComments, function (
         console.log(err);
         res.redirect("/contents");
       } else {
-        var searcher = true;
-        res.render("contents/index", {
+        res.render("contents/founded", {
           contents: foundContent,
           page: "mainPage",
-          searcher: searcher
         });
       }
     });
   } else {
-  Content.find({}, function (err, foundContent) {
-    if (err) {
-      console.log(err);
-      res.redirect("/contents");
-    } else {
-      var searcher = false;
-      res.render("contents/index", {
-        contents: foundContent, page: "mainPage",
-        searcher: searcher
-      });
-    }
-  });
-}
+    Content.find({}, function (err, foundContent) {
+      if (err) {
+        console.log(err);
+        res.redirect("/contents");
+      } else {
+            res.render("contents/index", {
+              contents: foundContent,
+              page: "mainPage",
+            });
+          }
+    });
+  }
 });
 
 // NEW ROUTE - RENDER NEW .EJS PAGE
 router.get("/new", middleware.isLoggedIn, function (req, res) {
-  res.render("contents/new", {page: "writeNew"});
+  res.render("contents/new", {
+    page: "writeNew"
+  });
 });
 
 // CREATE ROUTE - CREATE NEW CONTENT, ADD CONTENT TO DB
 router.post("/", middleware.isLoggedIn, upload.single("image"), function (req, res) {
-  cloudinary.uploader.upload(req.file.path, function(result) {
+  cloudinary.uploader.upload(req.file.path, function (result) {
     // add cloudinary url for the image to the contents object under image property
     req.body.content.image = result.secure_url;
     // add author to content
@@ -87,14 +84,14 @@ router.post("/", middleware.isLoggedIn, upload.single("image"), function (req, r
       bio: req.user.bio
     };
     req.body.content.article = req.sanitize(req.body.content.article);
-  Content.create(req.body.content, function (err, newContent) {
-    if (err) {
-      req.flash("error", err.message);
-      return res.redirect("back");
-    }
+    Content.create(req.body.content, function (err, newContent) {
+      if (err) {
+        req.flash("error", err.message);
+        return res.redirect("back");
+      }
       res.redirect("/contents/" + newContent.id);
+    });
   });
-});
 });
 
 // SHOW ROUTE
@@ -114,12 +111,12 @@ router.get("/:id", function (req, res) {
 
 // EDIT ROUTE
 router.get("/:id/edit", middleware.checkOwnContent, function (req, res) {
-    Content.findById(req.params.id, function (err, foundContent) {
-      res.render("contents/edit", {
-        content: foundContent
-      });
+  Content.findById(req.params.id, function (err, foundContent) {
+    res.render("contents/edit", {
+      content: foundContent
     });
   });
+});
 
 // UPDATE ROUTE
 router.put("/:id", middleware.checkOwnContent, function (req, res) {

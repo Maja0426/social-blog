@@ -1,0 +1,26 @@
+<% include ../partials/header %>
+
+<div class="container">
+<div class="row">
+  <div class="tags col-md-12">
+    <h3 class=""><span class=""></span>Talált cikkek:
+      <%= contents.length %> db.</h3>
+<ul class="list-unstyled founded">
+<% contents.forEach(function(content){ %>
+  <a class="text-dark" href="/contents/<%= content._id %>"><li class="media p-2 mb-3 mx-2">
+    <img src="<%= content.image %>" class="mr-3" alt="cikk borítókép">
+    <div class="media-body">
+      <h5 class="my-auto"><span class="font-weight-bold badge badge-danger mr-1">
+             <%= moment(content.createdAt).format('YYYY.MM.DD') %></span><%= content.title %>
+      </h5>
+      <p>/<b><%= content.author.username %></b>/</p>
+    </div>
+  </li>
+</a>
+  <% }) %>
+  </ul>
+  </div>
+</div>
+</div>
+
+<% include ../partials/footer %>

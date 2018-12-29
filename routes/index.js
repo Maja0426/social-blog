@@ -44,7 +44,7 @@ router.post("/register", function (req, res) {
     if (err) {
       console.log(err);
       req.flash("error", "Valami gond van. Esetleg már foglalt felhasználónév vagy már regisztrált emailcím.");
-      return res.redirect("/register");
+      return res.redirect("back");
     }
     passport.authenticate("local")(req, res, function () {
       req.flash("success", "Üdvözöllek a PROJECT-1 oldalon, " + regUser.username);
@@ -73,6 +73,9 @@ router.get("/logout", function (req, res) {
   req.flash("success", "Sikeresen kijelentkeztél!");
   res.redirect("/contents");
 });
+
+// ANOTHER NEWS PAGES
+
 
 // FORGOT PASSWORD ROUTE
 /* router.get("/forgot", function(req, res){
