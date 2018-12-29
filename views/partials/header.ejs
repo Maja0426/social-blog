@@ -37,11 +37,11 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav">
           <li class="nav-item <%= typeof page !== 'undefined' && page === 'writeNew' ? 'activeMenu' : '' %>">
-            <a class="btn btn-outline-yellow" href="/contents/new"><i class="fas fa-marker"></i> Cikket írok </a>
+            <a class="nav-link" href="/contents/new"><i class="fas fa-marker"></i> Cikket írok </a>
           </li>
           <li class="nav-item dropdown <%= typeof page !== 'undefined' && page === 'anotherNews' ? 'activeMenu' : '' %>">
-            <a class="nav-link btn btn-outline-yellow" href="#" id="dropdown01" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">Hírcsokor
+            <a class="nav-link" href="#" id="dropdown01" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false"><i class="far fa-newspaper"></i> Hírcsokor
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
               <a class="dropdown-item" href="/mediums/science">Tudomány</a>
@@ -53,31 +53,31 @@
             </div>
           </li>
           <li class="nav-item <%= typeof page !== 'undefined' && page === 'help' ? 'activeMenu' : '' %>">
-            <a class="btn btn-outline-yellow" href="/help"><i class="fas fa-question"></i> Súgó</a>
+            <a class="nav-link" href="/help"><i class="fas fa-question"></i> Súgó</a>
           </li>
           <% if(currentUser && currentUser.username === "Supervisor") { %>
           <li class="nav-item <%= typeof page !== 'undefined' && page === 'superVisor' ? 'activeMenu' : '' %>">
-            <a class="btn btn-outline-yellow" href="/supervisor">SUPERVISOR</a>
+            <a class="nav-link" href="/supervisor">SUPERVISOR</a>
           </li>
           <% } %>
         </ul>
         <ul class="navbar-nav ml-auto">
           <% if(!currentUser) { %>
           <li class="nav-item <%= typeof page !== 'undefined' && page === 'login' ? 'activeMenu' : '' %>">
-            <a class="btn btn-outline-yellow" data-toggle="modal" data-target="#userLogin" href="/login"><i class="fas fa-sign-in-alt"></i>
+            <a class="nav-link" data-toggle="modal" data-target="#userLogin" href="/login"><i class="fas fa-sign-in-alt"></i>
               Belépés </a>
           </li>
           <li class="nav-item <%= typeof page !== 'undefined' && page === 'register' ? 'activeMenu' : '' %>">
-            <a class="btn btn-outline-yellow" data-toggle="modal" data-target="#userRegister" href="/register"><i class="fas fa-user-plus"></i>
+            <a class="nav-link" data-toggle="modal" data-target="#userRegister" href="/register"><i class="fas fa-user-plus"></i>
               Regisztráció</a>
           </li>
           <% } else { %>
           <li class="nav-item <%= typeof page !== 'undefined' && page === 'profile' ? 'activeMenu' : '' %>">
-            <a class="btn btn-outline-yellow" href="/users/<%= currentUser._id %>">Bejelenkezve mint: <b class=""><u>
+            <a class="nav-link" href="/users/<%= currentUser._id %>">Bejelenkezve mint: <b class=""><u>
                   <%= currentUser.username %></u></b></a>
           </li>
           <li class="nav-item">
-            <a class="btn btn-outline-yellow" href="/logout"><i class="fas fa-sign-out-alt"></i> Kilépés</a>
+            <a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i> Kilépés</a>
           </li>
           <% } %>
         </ul>

@@ -79,8 +79,12 @@ body #footer a:hover {
 
 /* NAVBAR & NAV-TABS SETTINGS */
 nav .nav-item .nav-link {
-  padding-top: 6% !important;
-  padding-bottom: 7% !important;
+  color: #000 !important;
+}
+
+nav .nav-item .nav-link:hover {
+  color: #f8e641 !important;
+  background: #000 !important;
 }
 
 @media(max-width:1024px) {
@@ -105,9 +109,9 @@ input.search-bar {
 }
 
 /* another .active, main menu */
-.activeMenu .btn {
-  background: #000 !important;
-  color: #F0F2EF !important;
+.activeMenu a, .activeMenu btn {
+  background: #f8e641 !important;
+  color: #000 !important;
 }
 
 .nav-tabs a {
@@ -636,15 +640,14 @@ body .footer-2nd h6 {
   color: var(--light)
 }
 
-.btn-outline-yellow, nav .nav-item .nav-link a {
-  border: none !important;
+.btn-outline-yellow{
+  
   color: #000 !important;
   font-weight: bold !important;
   border-radius: 0 !important;
 }
 
-.btn-outline-yellow:hover,
-nav .nav-item .nav-link a:hover {
+.btn-outline-yellow:hover {
   color: #f8e641 !important;
   background: #000 !important;
 }
@@ -672,7 +675,8 @@ nav .nav-item .nav-link a:hover {
 
 .btn-custom-d:hover {
   color: #f8e641;
-  background: #000
+  background: #000;
+  border: 1px solid #000;
 }
 
 .btn-xl {
