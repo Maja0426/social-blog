@@ -37,7 +37,7 @@
         <h3>Regisztrált felhasználók</h3>
         <ul class="list-unstyled">
           <% allUser.forEach(function(user){ %>
-          <li class="media mb-3">
+          <li class="media mb-3 comments-avatar">
             <img src="<%= user.avatar %>" class="mr-3" alt=" profile image">
             <div class="media-body">
               <h6 class="mt-0 my-1"><b class="">Név: </b>
@@ -82,8 +82,7 @@
                 <% } %>
               <% }) %>
               </details>
-              <hr>
-              <div>
+              <div class="mt-2">
                 <form class="d-inline" action="/users/<%= user._id %>?_method=DELETE" method="POST">
             <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Felhasználó törlése</button>
             <a href="#" class="btn btn-sm btn-success"><i class="far fa-comment-alt"></i> Üzenet </a>
@@ -95,6 +94,7 @@
               </div>
             </div>
           </li>
+          <hr>
           <% }) %>
         </ul>
       </div>

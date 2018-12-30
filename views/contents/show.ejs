@@ -45,13 +45,10 @@
         <div class="card-body">
           <h3 class="font-weight-bold p-1 mt-2">
             <%= content.comments.length%> hozzászólás
-            <!-- <div class="float-right">
-              <a class="btn btn-success" href="/contents/<%= content._id %>/comments/new"><i class="fas fa-pencil-alt"></i> Hozzászólás írása</a>
-            </div> -->
           </h3>
         </div>
         <% content.comments.forEach(function(comment) { %>
-        <div class="media mt-2">
+        <div class="media mt-2 comments-avatar">
           <img class="align-self-start m-2" src="<%= comment.author.avatar %>" alt="Generic placeholder image">
           <div class="media-body">
 
@@ -79,6 +76,7 @@
             </p>
           </div>
         </div>
+        <hr>
         <% }) %>
         <% if(currentUser) { %> 
         <div class="mt-3">

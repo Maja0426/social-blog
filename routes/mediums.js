@@ -51,22 +51,6 @@ router.get("/sports", function(req, res){
   });
 });
 
-router.get("/health", function(req, res){
-  var url = "https://newsapi.org/v2/top-headlines?country=hu&category=health&apiKey=e96d952bdb5c45659fcab9a565d8a886";
-  request(url, function (error, response, body) {
-    if (error || response.statusCode !== 200) {
-      console.log(error);
-      req.flash("error", "Gond van a hírfolyammal!");
-    } else {
-      var mediums = JSON.parse(body);
-      res.render("mediums/index", {
-        page: "anotherNews",
-        mediums: mediums.articles
-      });
-    }
-  });
-});
-
 router.get("/business", function(req, res){
   var url = "https://newsapi.org/v2/top-headlines?country=hu&category=business&apiKey=e96d952bdb5c45659fcab9a565d8a886";
   request(url, function (error, response, body) {

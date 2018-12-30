@@ -205,11 +205,6 @@ input.search-bar {
   margin-top: 1%
 }
 
-/* .normal-paragraph:nth-child {
-  font-weight: unset !important;
-  font-size: 1rem !important;
-} */
-
 /* =========== UNDERLINE CARDS ================ */
 .card {
   border-radius: 0;
@@ -384,7 +379,7 @@ input.search-bar {
 
 .media,
 .commentButton {
-  background: #e2e5e7 !important;
+  background: #fff !important;
 }
 
 .small-text {
@@ -419,8 +414,22 @@ input.search-bar {
   overflow: auto;
 }
 
+.user-articles a {
+  text-decoration: none;
+  color: #000;
+}
+
+.user-articles li:hover {
+  background: #e54d26 !important;
+  color: #F0F2EF;
+}
+
 .media img {
   width: 150px;
+}
+
+.comments-avatar img {
+  width: 70px !important;
 }
 
 .founded a {

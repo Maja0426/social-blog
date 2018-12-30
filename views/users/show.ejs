@@ -83,13 +83,13 @@
         <div class="tab-pane" id="articles">
           <h4 class="mt-2 mb-3">
             <%= user.username %> eddigi írásai</h4>
-          <ul class="list-unstyled">
+          <ul class="list-unstyled user-articles">
             <% contents.forEach(function(content) { %>
-              <a href="/contents/<%= content._id %>">
+              <a class="" href="/contents/<%= content._id %>">
             <li class="media mb-2">
               <img src="<%= content.image %>" class="mr-3" alt="article image">
               <div class="media-body">
-                <h5 class="my-2"><%= content.title %></h5>
+                <h6 class="m-2"><%= content.title %></h6>
                 
               </div>
             </li>
