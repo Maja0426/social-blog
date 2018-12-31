@@ -64,16 +64,17 @@ app.get('*', function (req, res) {
   res.render("404");
 });
 
+var PORT = process.env.PORT || 3000;
 
 // DEPLOYED RUNNING SCRIPT
-app.listen(process.env.PORT, function () {
+/* app.listen(process.env.PORT, function () {
   console.log("YOUR LIFE WILL BE CHANGE.. SERVER HAS STARTED!");
   console.log("==============================================")
-});
-
-// LOCAL RUNNING SCRIPT
-/* app.listen(3000, function () {
-  console.log("YOUR LIFE WILL BE CHANGE.. SERVER HAS STARTED!");
-  console.log("==============================================")
-  console.log("💻 localhost:3000");
 }); */
+
+// START SERVER SCRIPT
+app.listen(PORT, function () {
+  console.log("YOUR LIFE WILL BE CHANGE.. SERVER HAS STARTED!");
+  console.log("==============================================")
+  console.log(`Server started on port ${PORT}`);
+});
