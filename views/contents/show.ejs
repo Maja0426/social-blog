@@ -16,7 +16,7 @@
             </div>
              <a class="text-dark font-weight-bold" href="/users/<%= content.author.id %>"><%= content.author.username %></a>, <span class="text-muted">
                 <%= moment(content.createdAt).format('YYYY. MMMM D. dddd') %></span><br>
-            <span class="badge badge-dark pl-2"> #
+            <span class="badge badge-info p-2 pl-2"> #
               <%= content.category %></span>
           </h5>
         </div>
@@ -58,7 +58,7 @@
                 <%= moment(comment.createdAt).fromNow() %>
               </span>
             </h6>
-            <div class="p-2 commentButton float-right">
+            <div class="d-flex justify-content-end">
               <% if(currentUser && comment.author.id.equals(currentUser._id)) { %>
               <a class="btn btn-sm btn-warning mr-2" href="/contents/<%= content._id %>/comments/<%= comment._id %>/edit"><i
                   class="fas fa-edit"></i> Szerkeszt</a>
@@ -81,17 +81,13 @@
         <% if(currentUser) { %> 
         <div class="mt-3">
           <form action="/contents/<%= content._id %>/comments" method="POST">
-            <!-- <div class="d-inline-block mb-2">
-              <button type="submit" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></i> Hozzászólás
-                írása</button>
-            </div> -->
             <h4>Új hozzászólás írása</h4>
             <div class="form-row">
               <div class="form-group col-md-12 mx-auto">
                 <textarea rows="3" class="form-control" placeholder="Jöhet a véleményed!" name="comment[text]" required></textarea>
               </div>
             </div>
-            <div class="d-inline-block mb-2">
+            <div class="d-flex mb-2 justify-content-end">
               <button type="submit" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></i> Hozzászólás
                 közzététele</button>
             </div>
@@ -131,10 +127,6 @@
         </p>
       </div>
     </div>
-  </div>
-
-  <div class="text-center mb-5">
-    <a class="btn btn-dark" href="/contents">Vissza</a>
   </div>
 </div>
 
