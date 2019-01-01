@@ -66,15 +66,9 @@ app.get('*', function (req, res) {
 
 var PORT = process.env.PORT || 3000;
 
-// DEPLOYED RUNNING SCRIPT
-/* app.listen(process.env.PORT, function () {
-  console.log("YOUR LIFE WILL BE CHANGE.. SERVER HAS STARTED!");
-  console.log("==============================================")
-}); */
-
 // START SERVER SCRIPT
 app.listen(PORT, function () {
-  console.log("YOUR LIFE WILL BE CHANGE.. SERVER HAS STARTED!");
-  console.log("==============================================")
-  console.log(`Server started on port ${PORT}`);
+  console.log("======================================================");
+  console.log(`YOUR LIFE WILL BE CHANGE.. SERVER STARTED ON PORT ${PORT}`);
+  console.log("======================================================");
 });
