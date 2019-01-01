@@ -55,6 +55,9 @@
           </li>
           <% } %>
         </ul>
+        <div class="d-none d-lg-block">
+          <img src="http://openweathermap.org/img/w/<%= weather.weather[0].icon + ".png" %>" alt="weather icon"><span class="text-light font-weight-bold"><i class="fas fa-thermometer-three-quarters"></i> <%= weather.main.temp %>&#176;C (Bgy.)</span>
+        </div>
         <ul class="navbar-nav ml-auto">
           <% if(!currentUser) { %>
           <li class="nav-item <%= typeof page !== 'undefined' && page === 'login' ? 'activeMenu' : '' %>">

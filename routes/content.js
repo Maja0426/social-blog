@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 var Content = require("../models/content");
 var middleware = require("../middleware/index");
+var request = require("request");
 
 // IMAGE UPLOAD SECTION
 var multer = require('multer');
@@ -55,9 +56,20 @@ router.get("/", middleware.checkAllUser, middleware.checkAllComments, function (
         console.log(err);
         res.redirect("/contents");
       } else {
-            res.render("contents/index", {
-              contents: foundContent,
-              page: "mainPage",
+            var url = "http://api.openweathermap.org/data/2.5/weather?q=balassagyarmat&units=metric&lang=hu&APPID=6f61627605a3c31e560a9fe5af755ab3";
+            request(url, function (error, response, body) {
+              if (error || response.statusCode !== 200) {
+                console.log(error);
+                req.flash("error", "Gond van a hírfolyammal!");
+                res.redirect("404");
+              } else {
+                var weather = JSON.parse(body);
+                res.render("contents/index", {
+                  page: "mainpage",
+                  weather: weather,
+                  contents: foundContent
+                });
+              }
             });
           }
     });

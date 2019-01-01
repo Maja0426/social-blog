@@ -180,7 +180,7 @@ input.search-bar {
 .article-header a h5 {
   display: block;
   padding: .5rem;
-  background: #3aa2f4;
+  background: #ff9903;
   color: #000;
   font-weight: bold !important;
   max-width: 100%;
@@ -406,6 +406,15 @@ body .footer-2nd h6 {
 
 .badge-custom {
   background: #9e2bb1;
+  color: #fff;
+  padding: 5px;
+  font-size: 1rem;
+  margin-right: 5px;
+  margin-bottom: 8px;
+}
+
+.badge-custom-d {
+  background: #222222;
   color: #fff;
   padding: 5px;
   font-size: 1rem;
