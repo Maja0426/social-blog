@@ -107,7 +107,7 @@ input.search-bar {
   z-index: 1;
 }
 
-.menuLeft .nav {
+.menuLeft {
   max-height: 75vh;
   overflow: auto;
 }
