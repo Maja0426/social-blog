@@ -82,6 +82,18 @@
       <div class="row">
         <div class="col-md-12">
           <div class="tags tags-sideLine">
+            <h3 class="my-4 alert alert-info"><span class=""></span>Bgy. időjárás</h3>
+            <div class="d-none d-lg-block text-center">
+              <img src="http://openweathermap.org/img/w/<%= weather.weather[0].icon + ".png" %>" alt="weather icon"> <span
+                class="font-weight-bold"><i class="fas fa-thermometer-three-quarters"></i>
+                <%= weather.main.temp %>&#176;C</span>
+                <p class="badge-custom-d">Légnyomás:
+                  <%= weather.main.pressure %> mb</p>
+                <p class="badge-custom-d">Páratartalom:
+                  <%= weather.main.humidity %>%</p>
+            </div>
+          </div>
+          <div class="tags tags-sideLine">
             <h3 class="my-4 alert alert-info"><span class=""></span>Friss</h3>
             <div class="text-uppercase daily-articles">
               <% contents.forEach(function(content){ %>

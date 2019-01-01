@@ -60,7 +60,6 @@ router.get("/", middleware.checkAllUser, middleware.checkAllComments, function (
             request(url, function (error, response, body) {
               if (error || response.statusCode !== 200) {
                 console.log(error);
-                req.flash("error", "Gond van a hírfolyammal!");
                 res.redirect("404");
               } else {
                 var weather = JSON.parse(body);
