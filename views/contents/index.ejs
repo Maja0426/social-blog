@@ -83,12 +83,12 @@
         <div class="col-md-12">
           <div class="tags tags-sideLine">
             <h3 class="my-4 alert alert-info"><span class=""></span>Bgy. időjárás</h3>
-            <div class="d-none d-lg-block text-center">
+            <div class="d-none d-lg-block text-center badge badge-primary">
               <img src="http://openweathermap.org/img/w/<%= weather.weather[0].icon + ".png" %>" alt="weather icon"> <span
-                class="font-weight-bold"><i class="fas fa-thermometer-three-quarters"></i>
+                class="font-weight-bold weather-font"><i class="fas fa-thermometer-three-quarters"></i>
                 <%= weather.main.temp %>&#176;C</span>
                 <p class="badge-custom-d">Légnyomás:
-                  <%= weather.main.pressure %> mb</p>
+                  <%= weather.main.pressure %> hPa</p>
                 <p class="badge-custom-d">Páratartalom:
                   <%= weather.main.humidity %>%</p>
             </div>

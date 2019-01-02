@@ -55,6 +55,10 @@ body .card {
   box-shadow: none !important;
 }
 
+.weather-font {
+  font-size: 1.3rem;
+}
+
 /* ADD SMOOTH SCROLLING IN-PAGE NAVIGATION */
 html {
   scroll-behavior: smooth;
@@ -414,7 +418,7 @@ body .footer-2nd h6 {
 }
 
 .badge-custom-d {
-  background: #3aa2f4;
+  background: #2196f3;
   color: #000;
   padding: 5px;
   font-size: 1rem;
