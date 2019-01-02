@@ -184,8 +184,8 @@ input.search-bar {
 .article-header a h5 {
   display: block;
   padding: .5rem;
-  background: #000;
-  color: #fff;
+  background: #3aa2f4;
+  color: #000;
   font-weight: bold !important;
   max-width: 100%;
   margin: 20px;
