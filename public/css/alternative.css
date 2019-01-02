@@ -34,7 +34,7 @@ body {
   font-size: 1rem !important;
 }
 
-body .container {
+body .container, body .container-fluid {
   padding-top: 80px !important;
 }
 
@@ -184,11 +184,12 @@ input.search-bar {
 .article-header a h5 {
   display: block;
   padding: .5rem;
-  background: #ff9903;
+  background: #fff;
   color: #000;
   font-weight: bold !important;
   max-width: 100%;
   margin: 20px;
+  opacity: .8;
 }
 
 .article-header a {
