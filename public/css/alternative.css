@@ -122,6 +122,11 @@ input.search-bar {
   transition: .3s ease;
 }
 
+/* .statistic {
+  font-size: 1.2rem !important;
+  margin-right: 5px;
+}
+ */
 .superMenuLeft a {
   display: block;
   margin: 10px 0 !important;

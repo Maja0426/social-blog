@@ -26,6 +26,8 @@ mongoose.connect("mongodb://tmajoros:Tmsmajoros1977@ds161833.mlab.com:61833/test
   useNewUrlParser: true
 });
 mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));

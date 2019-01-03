@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://bootswatch.com/4/materia/bootstrap.min.css">
+  <link rel="icon" href="/images/smart-bee.png">
+  <link rel="stylesheet" href="/css/alternative.css">
+  <title>PROJECT-1</title>
+  <% moment.locale("hu") %>
+</head>
+
+<body id="pageTop">
+  <header class="header-bottom">
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-success">
+      <span class="nav-item">
+        <a class="btn btn-dark" href="/contents"><i class="fas fa-home"></i></a>
+      </span>
+      <form class="form-inline mr-auto" action="/contents" method="GET">
+        <input class="form-control mx-sm-2 search-bar" type="text" name="search" placeholder="Gyorskeresés">
+        <button class="btn btn-secondary my-2 my-sm-0 ml-sm-1" type="submit"><i class="fas fa-search"></i></button>
+      </form>
+      <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="nav nav-pills mr-auto">
+          <li class="nav-item">
+            <a href="#allArticles" class="nav-link btn btn-dark" data-toggle="tab"><i class="fas fa-newspaper"></i>
+              <%= allContent.length %></a>
+          </li>
+          <li class="nav-item">
+            <a href="#regUsers" class="nav-link btn btn-dark" data-toggle="tab"><i class="fas fa-users"></i>
+              <%= allUser.length %></a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link btn btn-dark"><i class="far fa-comments"></i>
+              <%= allComment.length %></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link btn btn-dark" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false"><i class="fas fa-caret-down"></i> Menü
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="/mediums/science">Tudomány</a>
+              <a class="dropdown-item" href="/mediums/technology">Technológia</a>
+              <a class="dropdown-item" href="/mediums/sports">Sport</a>
+              <a class="dropdown-item" href="/mediums/business">Üzlet</a>
+              <a class="dropdown-item" href="/mediums/entertainment">Szórakozás</a>
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <% if(!currentUser) { %>
+          <li class="nav-item">
+            <a class="nav-link btn btn-primary" data-toggle="modal" data-target="#userRegister" href="/register"><i
+                class="fas fa-user-plus"></i>
+              Regisztráció</a>
+          </li>
+          <% } else { %>
+          <li class="nav-item">
+            <a class="nav-link btn btn-danger" href="/logout"><i class="fas fa-sign-out-alt"></i> Kilépés</a>
+          </li>
+          <% } %>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container mt-3">
+    <% if(error && error.length > 0) { %>
+    <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+      <%= error %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <% } %>
+    <% if(success && success.length > 0) { %>
+    <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+      <%= success %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <% } %>
+  </div>
+
+  <section class="content">
