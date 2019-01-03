@@ -106,21 +106,19 @@ input.search-bar {
 /* HELP PAGE LEFT-SIDE MENUBAR*/
 .menuLeft,
 .superMenuLeft {
-  width: 25%;
   position: fixed;
   z-index: 1;
 }
 
 .menuLeft {
-  max-height: 75vh;
+  max-height: 70vh;
   overflow: auto;
 }
 
 .menuLeft a {
   display: block;
-  margin: 10px 25px !important;
-  padding: 5px 10px !important;
-  text-decoration: none;
+  margin: 5px !important;
+  padding: 8px 10px;
   transition: .3s ease;
 }
 
