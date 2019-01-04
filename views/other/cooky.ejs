@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://bootswatch.com/4/materia/bootstrap.min.css">
+  <link rel="shortcut icon" href="../images/cookie-bite-solid.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+    crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=ABeeZee%7CCrete+Round" rel="stylesheet">
+  <title>Sütik (cookies)</title>
+  <style>
+    html,
+    body {
+      font-family: 'ABeeZee', sans-serif;
+    }
+
+    .text-green {
+      color: #00ff00;
+    }
+
+    .big {
+      font-size: 2rem;
+    }
+
+    .accordion {
+background-color: #2196f3;
+color: #e5e5e5;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      border: none;
+      text-align: center;
+      outline: none;
+      font-size: 15px;
+      transition: 0.4s;
+    }
+
+    .active,
+    .accordion:hover {
+      background-color: #343a40;
+    }
+
+    .panel {
+      padding: 0 18px;
+      background-color: #343a40;
+      color: #f8f9fa;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="text-center mt-4 display-4 font-weight-bold bg-primary text-light p-3">Sütik (cookie-k) kezelése</h1>
+    <h5 class="text-center">Oldalunk sütiket (cookies) használ az oldal működtetése, használatának megkönnyítése illetve az oldalon végzett tevékenység
+      nyomon követése érdekében.</h5>
+    <figure class="text-center">
+      <img src="../images/cookie.jpeg" alt="Sütik tálon" class="img-fluid rounded my-5">
+    </figure>
+    <p class="mb-5 text-justify">A süti (cookie) egy rövid szöveg, amelyet a felkeresett webhely küld el böngészőjébe. Segítségével a webhely megjegyzi
+      a látogatásával kapcsolatos információkat, például az Ön által használt nyelvet és egyéb beállításokat. Ezáltal gördülékenyebbé
+      válhat a következő látogatás, és könnyebb lesz a webhely használata. A sütik fontos szerepet játszanak. Nélkülük az
+      internet használata sokkal nehézkesebb lenne.
+    </p>
+    <div class="card text-center lead font-weight-bold p-3 mb-5">
+      <ul class="list-unstyled">
+        <li>
+          <p>A sütiknek az engedélyezése nem feltétlenül szükséges a webhely működéséhez, de javítja a böngészés élményét és
+            teljesítményét.
+          </p>
+        </li>
+        <li>
+          <p>Ön törölheti vagy letilthatja ezeket a sütiket, de ebben az esetben előfordulhat, hogy a webhely bizonyos funkciói
+            nem működnek rendeltetésszerűen.</p>
+        </li>
+        <li>
+          <p>A sütik által tárolt információkat nem használjuk fel az Ön személyazonosságának megállapítására, és a mintaadatok
+            teljes mértékben az ellenőrzésünk alatt állnak.</p>
+        </li>
+      </ul>
+    </div>
+    <h3 class="text-center bg-primary text-light p-3">Milyen sütiket használunk és mire?</h3>
+    <div class="row mb-5">
+      <div class="col-lg-6 my-2">
+        <div class="pt-3">
+          <p class="text-center">Információ gyűjtése, hogy milyen módon használja weboldalunkat (annak felmérésével, hogy weboldalunk melyik részeit
+            látogatja vagy használja leginkább), így tudunk biztosítani még jobb felhasználói élményt, ha újra meglátogatja
+            oldalunkat.
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-6 my-2 h-100">
+        <div class="pt-3">
+          <p class="text-center">A felhasználó által az oldalon végzett tevékenységének nyomon követésére azért, hogy az Önt érdeklő vagy Önnek
+            fontos ajánlatokról üzenetet juttathassunk el az Ön számára.</p>
+        </div>
+      </div>
+    </div>
+    <h3 class="text-center bg-primary text-light p-3">Az általunk használt sütik típusai</h3>
+    <div class="row mb-5">
+      <div class="col-lg-12 my-2">
+        <div class="pt-3">
+          <h5 class="font-weight-bold mt-2">Alapműködést biztosító sütik
+          </h5>
+          <p>Ezen sütik biztosítják a weboldal megfelelő működését, megkönnyítik annak használatát, és látogatóink azonosítása
+            nélkül gyűjtenek információt a használatáról.</p>
+          <p>Ilyen a sütikezelés elfogadásának státusza, az ikonkészletet biztosító fontawesome sütije és a részleges funkcionalitású
+            Google Analytics kód.</p>
+          <h5 class="font-weight-bold mt-4">Statisztikai célú sütik
+          </h5>
+          <p>A felhasználói élmény javítása céljából olyan sütiket is használunk, mely lehetővé teszi számunkra hogy információt
+            szerezzünk látogatóink weboldalunkkal kapcsolatos használatának módjáról. Ezek a sütik nem tudják a felhasználót
+            beazonosítani. Ezen sütik olyan információkat gyűjtenek mint például: Ön melyik oldalt nézte meg, mennyi időt
+            töltött el az adott oldalon, melyik lapról hagyta el oldalunkat.</p>
+          <p>Ilyen teljesítményt biztosító sütik a Google Analytics sütijei is. A Google Analitics sütikkel kapcsolatos részletes
+            tájékoztatásért
+            <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage" target="_blank">kattintson ide.</a>
+          </p>
+          <h5 class="font-weight-bold mt-4">Célzó- és hirdetési sütik
+          </h5>
+          <p>Ezeknek a sütiknek az a célja, hogy az Önt leginkább vagy az Ön számára leginkább jelentőséggel bíró hirdetések
+            jelenjenek meg az oldalakon. Ezek a sütik nem tudják a felhasználót beazonosítani. Ezen sütik olyan információkat
+            gyűjtenek mint például: Ön melyik oldalt nézte meg, mennyi időt töltött el az adott oldalon, melyik lapról hagyta
+            el oldalunkat.</p>
+          <p class="text-center">
+            <u>Az oldalunkon nem végzünk kereskedelmi vagy reklám tevékenységet, ezzel kapcsolatos adatokat, információkat nem
+              gyűjtünk, sütiket ilyen célra nem használunk fel.</u>
+          </p>
+        </div>
+      </div>
+    </div>
+    <h3 class="text-center bg-primary text-light p-3">Weboldalunkon a következő szolgáltatók sütijeit használjuk:</h3>
+    <div class="row mb-5">
+      <div class="col-lg-12 my-2">
+        <div class="pt-3">
+          <h5 class="font-weight-bold mt-2">Google Adwords
+          </h5>
+          <p>Részletes tájékoztató az alábbi linken:
+            <a href="https://policies.google.com/privacy?hl=hu" target="_blank">https://policies.google.com/privacy?hl=hu</a>
+          </p>
+          <h5 class="font-weight-bold mt-2">Font Awesome
+          </h5>
+          <p>Részletes tájékoztató az alábbi linken:
+            <a href="https://fontawesome.com/privacy" target="_blank">https://fontawesome.com/privacy</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <h3 class="text-center bg-primary text-light p-3">Hogyan lehet a sütiket ellenőrizni és kikapcsolni:</h3>
+    <div class="row mb-5">
+      <div class="col-lg-12 my-2">
+        <div class="pt-3">
+          <p class="text-justify">Minden modern böngésző kötelező eleme annak engedélyezése, hogy a felhasználó kézben tarthassa a sütik beállítását,
+            azt megváltoztathassa. A böngészők általában véve automatikusan elfogadják a sütiket, azonban lehetőség van arra
+            is, hogy ezt megváltoztassuk. Így a böngésző meg tudja akadályozni hogy a sütiket automatikusan elfogadja, és
+            felajánlja a lehetőséget, hogy a felhasználó engedélyezi-e a sütiket.</p>
+        </div>
+</div>
+</div>
+        <h5 class="text-center font-weight-bold my-4">Sütik ki-be kapcsolása különböző böngészőkben:
+        </h5>
+        <button class="accordion">
+          <i class="fab fa-chrome big"></i>
+          <span class="big">Google Chrome</span>
+        </button>
+        <div class="panel">
+          <ol class="my-3">
+            <li>Nyissa meg a Chrome-ot számítógépén.
+            </li>
+            <li>Kattintson a <span class="text-green">menü</span> gombra a jobb felső sarokban (3 egymás alatti pont) - majd a <span class="text-green">Beállítások</span> menüpontra.</li>
+            <li>A lap alján kattintson a <span class="text-green">Speciális lehetőség</span>re.
+            </li>
+            <li>Az <span class="text-green">„Adatvédelem és biztonság”</span> alatt kattintson a <span class="text-green">Tartalombeállítások</span> elemre.
+            </li>
+            <li>Kattintson a <span class="text-green">Cookie-k</span> lehetőségre.
+            </li>
+            <li>Ezután a következőket teheti:
+              <ul>
+                <li>Cookie-k bekapcsolása: Kapcsolja be a „Letiltott” érték melletti kapcsolót.
+                </li>
+                <li>Kapcsolja ki a Cookie-adatok mentésének és olvasásának engedélyezése a webhelyeken beállítást.
+                </li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+
+        <button class="accordion">
+          <i class="fab fa-firefox big"></i>
+          <span class="big"> Firefox</span>
+        </button>
+        <div class="panel">
+          <ol class="my-3">
+            <li>Nyissa meg a Firefox-ot számítógépén.
+            </li>
+            <li>Kattintson a <span class="text-green">menü</span> gombra a jobb felső sarokban(3 egymás alatti vonal) - majd válassza a <span class="text-green">Beállítások</span> menüpontot.</li>
+            <li>Válassza ki bal oldalt az
+              <span class="text-green">Adatvédelem és biztonság panelt</span>
+            </li>
+            <li>Menjen a
+<span class="text-green">Sütik és oldaladatok részhez</span>
+            </li>
+          </ol>
+        </div>
+
+        <button class="accordion">
+          <i class="fab fa-opera big"></i>
+          <span class="big"> Opera</span>
+        </button>
+        <div class="panel">
+          <ol class="my-3">
+            <li>Nyissa meg a Opera böngészőt a számítógépén.
+            </li>
+            <li>Kattintson a <span class="text-green">Menü</span> gombra a bal felső sarokban ("O" betű, menü felirattal) - majd válassza a <span class="text-green">Beállítások</span> menüpontot.</li>
+            <li>Válassza ki bal oldalt az
+              <span class="text-green">Adatvédelem és biztonság panelt</span>
+            </li>
+            <li>Görgessen a
+              <span class="text-green">Sütik</span> részhez
+            </li>
+          </ol>
+        </div>
+
+        <button class="accordion">
+          <i class="fab fa-edge big"></i>
+          <span class="big"> Microsoft Edge</span>
+        </button>
+        <div class="panel">
+          <ol class="my-3">
+            <li>Nyissa meg az Edge-t számítógépén.
+            </li>
+            <li>Válassza az
+              <span class="text-green">Egyebek</span> ...>
+              <span class="text-green">Gépház</span> (fogaskerék ikon)</li>
+            <li>Válassza ki a
+              <span class="text-green">Speciális beállítások megnyitása</span> lehetőséget</li>
+            <li>A lap
+              <span class="text-green">Adatvédelem és szolgáltatások > Cookie-k</span> részén válassza ki a megfelelő beállítást:
+
+              <ul>
+                <li>
+                  <span class="text-green">Az összes cookie blokkolása:</span> egyik webhely számára sem engedélyezi, hogy cookie-kat mentsen a gépére.
+                </li>
+                <li>
+                  <span class="text-green">Csak a külső cookie-k blokkolása:</span> elfogadja a cookie-kat az éppen meglátogatott webhelytől, de blokkolja
+                  a külső webszolgáltatásoktól, például a meglátogatott weblapokra beágyazott hirdetésektől származókat.
+                </li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+
+        <button class="accordion">
+          <i class="fab fa-safari big"></i>
+          <span class="big"> Safari</span>
+        </button>
+        <div class="panel mb-5">
+          <ol class="my-3">
+            <li>Nyissa meg a Safari-t számítógépén.
+            </li>
+            <li>Kattintson a Safari > Beállítások menüelemre, majd az Adatvédelem gombra, és végezze el a következők valamelyikét:
+              <ul>
+                <li>
+                  <span class="text-green">Az elfogadott sütik és webhelyadatok módosítása:</span> Válasszon a „Sütik és webhelyadatok” egyik lehetőségét:</li>
+                <li>Blokkolás mindig: A Safari nem engedélyezi a webhelyek, harmadik felek és hirdetők számára a sütik és egyéb
+                  adatok tárolását a Mac gépen. Előfordulhat, hogy ettől néhány webhely nem fog megfelelően működni.
+                </li>
+                <li>Engedélyezés csak a jelenlegi webhelyről: A Safari csak az Ön által éppen felkeresett webhelyről fogadja
+                  el a sütiket és webhelyadatokat. A webhelyek gyakran egyéb forrásokból származó beágyazott tartalommal
+                  is rendelkeznek. A Safari nem engedélyezi, hogy ezek a harmadik felek sütiket vagy más adatokat tároljanak
+                  vagy azokhoz hozzáférjenek.</li>
+                <li>Engedélyezés az általam meglátogatott webhelyekről: A Safari csak az Ön által felkeresett webhelyekről fogadja
+                  el a sütiket és webhelyadatokat. A Safari a meglévő sütik alapján határozza meg, hogy meglátogatta-e már
+                  a webhelyeket. A lehetőség kiválasztása segíthet meggátolni, hogy a más webhelyekről származó beágyazott
+                  tartalommal rendelkező, meglátogatott webhelyek sütiket és adatokat tároljanak a Mac gépen.
+                </li>
+                <li>Engedélyezés mindig: A Safari engedélyezi a webhelyek, harmadik felek és hirdetők számára a sütik és egyéb
+                  adatok tárolását a Mac gépen.
+                </li>
+                <li>A tárolt sütik és adatok eltávolítása: Kattintson a Webhelyadatok kezelése lehetőségre, jelöljön ki egy vagy
+                  több webhelyet, majd kattintson az Eltávolítás vagy az Összes eltávolítása lehetőségre. Az adatok eltávolítása
+                  csökkentheti a nyomon követés lehetőségét, de kiléptetheti Önt egyes webhelyekről, vagy módosíthatja a
+                  webhelyek viselkedését.
+                </li>
+                <li>A sütiket vagy egyéb adatokat tároló webhelyek megtekintése: Kattintson a Webhelyadatok kezelése lehetőségre.
+                </li>
+                <li>Annak módosítása, hogy a webhelyek milyen gyakran kérdezzenek rá a helyadatok használatára: Válassza ki „A
+                  helymeghatározást használó webhelyek” beállítás értékét:</li>
+                <li>Rákérdezés minden webhelyre naponta egyszer: A Safari naponta egyszer kérdez rá minden egyes webhelyen, amely
+                  helymeghatározás használatát igényli.
+                </li>
+                <li>Rákérdezés minden webhelyre egyetlen alkalommal: A Safari csak egyszer kérdez rá minden egyes webhelyen,
+                  amely helymeghatározás használatát igényli.</li>
+                <li>Elutasítás kérdezés nélkül: Egyik webhely sem férhet hozzá a helymeghatározási szolgáltatásokhoz, és a Safari
+                  nem kérdez rá külön.</li>
+                <li>Webhelyek felszólítása a követés leállítására: Bizonyos webhelyek nyomon követik a felhasználó böngészési
+                  tevékenységeit, miközben tartalmat szolgáltatnak, így személyre szabott tartalmat jeleníthetnek meg. Beállíthatja,
+                  hogy a Safari megkérje a webhelyeket és azok külső tartalomszolgáltatóit (beleértve a hirdetőket is), hogy
+                  ne kövessék Önt.
+                </li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+   <!--    <footer class="container-fluid bg-primary text-light mt-5 pt-3">
+<p class="text-center">&copy;2018. <a href="https://smart-bee.hu" target="_blank" class="text-green">Smart-Bee Web</a> | All Right Reserved | Powered by Bootstrap</p>
+      </footer> -->
+
+      <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+        for (i = 0; i < acc.length; i++) {
+          acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+              panel.style.maxHeight = null;
+            } else {
+              panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+          });
+        }
+      </script>
+</body>
+</html>

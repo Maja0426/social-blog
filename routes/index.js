@@ -24,6 +24,11 @@ router.get("/gdpr", function(req, res){
   res.render("other/gdpr");
 })
 
+// COOKIES PAGE
+router.get("/cookies", function(req, res){
+  res.render("other/cooky");
+})
+
 // HELP PAGE
 router.get("/help", function(req, res){
   res.render("other/help", {page: "help"});
