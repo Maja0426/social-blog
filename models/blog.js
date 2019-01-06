@@ -1,22 +1,13 @@
 var mongoose = require("mongoose");
 
-var contentSchema = new mongoose.Schema({
+var BlogSchema = new mongoose.Schema({
   title: String,
   image: String,
-  category: String,
   article: String,
   comments: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: "Comment"
   }],
-  blogs: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Blog"
-  }],
-  createdAt: {
-    type: Date, 
-    default: Date.now
-  },
   author: {
     id: {
       type: mongoose.Schema.Types.ObjectId,
@@ -25,7 +16,13 @@ var contentSchema = new mongoose.Schema({
     username: String,
     bio: String,
     avatar: String
-    }
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  }
 });
 
-module.exports = mongoose.model("Content", contentSchema);
+
+
+module.exports = mongoose.model("Blog", BlogSchema);

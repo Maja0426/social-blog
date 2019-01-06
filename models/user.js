@@ -23,6 +23,10 @@ var userSchema = new mongoose.Schema({
     type: Date, 
     default: Date.now
   },
+  blogs: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Blog"
+  }],
   gender: String,
   county: String,
   isAdmin: {type: Boolean, default: false},

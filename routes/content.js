@@ -76,14 +76,14 @@ router.get("/", middleware.checkAllUser, middleware.checkAllComments, function (
 });
 
 // NEW ROUTE - RENDER NEW .EJS PAGE
-router.get("/new", middleware.isLoggedIn, function (req, res) {
+router.get("/new", middleware.checkAdmin, function (req, res) {
   res.render("contents/new", {
     page: "writeNew"
   });
 });
 
 // CREATE ROUTE - CREATE NEW CONTENT, ADD CONTENT TO DB
-router.post("/", middleware.isLoggedIn, upload.single("image"), function (req, res) {
+router.post("/", middleware.checkAdmin, upload.single("image"), function (req, res) {
   cloudinary.uploader.upload(req.file.path, function (result) {
     // add cloudinary url for the image to the contents object under image property
     req.body.content.image = result.secure_url;
@@ -121,7 +121,7 @@ router.get("/:id", function (req, res) {
 });
 
 // EDIT ROUTE
-router.get("/:id/edit", middleware.checkOwnContent, function (req, res) {
+router.get("/:id/edit", middleware.checkAdmin, function (req, res) {
   Content.findById(req.params.id, function (err, foundContent) {
     res.render("contents/edit", {
       content: foundContent
@@ -130,7 +130,7 @@ router.get("/:id/edit", middleware.checkOwnContent, function (req, res) {
 });
 
 // UPDATE ROUTE
-router.put("/:id", middleware.checkOwnContent, function (req, res) {
+router.put("/:id", middleware.checkAdmin, function (req, res) {
   req.body.blog.article = req.sanitize(req.body.blog.article);
   Content.findByIdAndUpdate(req.params.id, req.body.blog, function (err, updatedContent) {
     if (err) {
@@ -143,7 +143,7 @@ router.put("/:id", middleware.checkOwnContent, function (req, res) {
 });
 
 // DESTROY ROUTE
-router.delete("/:id", middleware.checkOwnContent, function (req, res) {
+router.delete("/:id", middleware.checkAdmin, function (req, res) {
   Content.findByIdAndDelete(req.params.id, function (err) {
     if (err) {
       req.flash("error", "VALAMI BALUL SÜLT EL. BOCSI...");

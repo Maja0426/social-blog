@@ -16,9 +16,9 @@
 <body id="pageTop">
   <header class="header-bottom">
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-success">
-      <span class="nav-item">
-        <a class="btn btn-dark" href="/contents"><i class="fas fa-home"></i></a>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-primary">
+      <span class="nav-item <%= typeof page !== 'undefined' && page === 'mainPage' ? 'activeMenu' : '' %>">
+        <a class="btn btn-primary" href="/blogs"><i class="fas fa-home"></i></a>
       </span>
       <form class="form-inline mr-auto" action="/contents" method="GET">
         <input class="form-control mx-sm-2 search-bar" type="text" name="search" placeholder="Gyorskeresés">
@@ -30,22 +30,18 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="nav nav-pills mr-auto">
-          <li class="nav-item">
-            <a href="#allArticles" class="nav-link btn btn-dark" data-toggle="tab"><i class="fas fa-newspaper"></i>
-              <%= allContent.length %></a>
+        <ul class="navbar-nav">
+          <li class="nav-item <%= typeof page !== 'undefined' && page === 'blogs' ? 'activeMenu' : '' %>">
+            <a class="nav-link btn btn-primary" href="/blogs">Blogok</a>
           </li>
-          <li class="nav-item">
-            <a href="#regUsers" class="nav-link btn btn-dark" data-toggle="tab"><i class="fas fa-users"></i>
-              <%= allUser.length %></a>
+          <% if(currentUser) { %>
+          <li class="nav-item <%= typeof page !== 'undefined' && page === 'newBlog' ? 'activeMenu' : '' %>">
+            <a class="nav-link btn btn-primary" href="/blogs/new">Blog írása</a>
           </li>
-          <li class="nav-item">
-            <a href="" class="nav-link btn btn-dark"><i class="far fa-comments"></i>
-              <%= allComment.length %></a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link btn btn-dark" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false"><i class="fas fa-caret-down"></i> Menü
+          <% } %>
+          <li class="nav-item dropdown <%= typeof page !== 'undefined' && page === 'anotherNews' ? 'activeMenu' : '' %>">
+            <a class="nav-link btn btn-primary" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false"><i class="fas fa-caret-down"></i> Lapszemle
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
               <a class="dropdown-item" href="/mediums/science">Tudomány</a>
@@ -55,20 +51,33 @@
               <a class="dropdown-item" href="/mediums/entertainment">Szórakozás</a>
             </div>
           </li>
-          <li class="nav-item <%= typeof page !== 'undefined' && page === 'writeNew' ? 'activeMenu' : '' %>">
-            <a class="nav-link btn btn-dark" href="/contents/new"><i class="fas fa-marker"></i> Cikket írok </a>
+          <li class="nav-item <%= typeof page !== 'undefined' && page === 'help' ? 'activeMenu' : '' %>">
+            <a class="nav-link btn btn-primary" href="/help">Súgó</a>
           </li>
+          <% if(currentUser && currentUser.username === "Supervisor") { %>
+          <li class="nav-item <%= typeof page !== 'undefined' && page === 'superVisor' ? 'activeMenu' : '' %>">
+            <a class="nav-link btn btn-primary" href="/supervisor">SUPERVISOR</a>
+          </li>
+          <% } %>
         </ul>
         <ul class="navbar-nav ml-auto">
           <% if(!currentUser) { %>
-          <li class="nav-item">
+          <li class="nav-item <%= typeof page !== 'undefined' && page === 'login' ? 'activeMenu' : '' %>">
+            <a class="nav-link btn btn-primary" data-toggle="modal" data-target="#userLogin" href="/login"><i class="fas fa-sign-in-alt"></i>
+              Belépés </a>
+          </li>
+          <li class="nav-item <%= typeof page !== 'undefined' && page === 'register' ? 'activeMenu' : '' %>">
             <a class="nav-link btn btn-primary" data-toggle="modal" data-target="#userRegister" href="/register"><i
                 class="fas fa-user-plus"></i>
               Regisztráció</a>
           </li>
           <% } else { %>
+          <li class="nav-item <%= typeof page !== 'undefined' && page === 'profile' ? 'activeMenu' : '' %>">
+            <a class="nav-link btn btn-primary" href="/users/<%= currentUser._id %>">Bejelenkezve mint: <b class="">
+                <%= currentUser.username %></b></a>
+          </li>
           <li class="nav-item">
-            <a class="nav-link btn btn-danger" href="/logout"><i class="fas fa-sign-out-alt"></i> Kilépés</a>
+            <a class="nav-link btn btn-primary" href="/logout"><i class="fas fa-sign-out-alt"></i> Kilépés</a>
           </li>
           <% } %>
         </ul>
@@ -94,5 +103,8 @@
     </div>
     <% } %>
   </div>
+
+  <% include login %>
+
 
   <section class="content">
