@@ -16,15 +16,13 @@ var contentRoutes     = require("./routes/content");
 var commentRoutes     = require("./routes/comments");
 var userRoutes        = require("./routes/user");
 var mediumsRoutes     = require("./routes/mediums");
-var blogsRoutes       = require("./routes/blogs");
-var blogsCommentRoutes= require("./routes/blogsComments");
 
 // APP CONFIGURATION
 app.locals.moment = require("moment");
 /* mongoose.connect("mongodb://localhost:27017/DB_07", {
   useNewUrlParser: true
 }); */
-mongoose.connect("mongodb://tmajoros:Tmsmajoros1977@ds149414.mlab.com:49414/demo_blog_v2", {
+mongoose.connect("mongodb://tmajoros:Tmsmajoros1977@ds161833.mlab.com:61833/test_blog", {
   useNewUrlParser: true
 });
 mongoose.set('useFindAndModify', false);
@@ -62,8 +60,6 @@ app.use("/contents", contentRoutes);
 app.use("/contents/:id/comments", commentRoutes);
 app.use("/users", userRoutes);
 app.use("/mediums", mediumsRoutes);
-app.use("/blogs", blogsRoutes);
-app.use("/blogs/:id/comments", blogsCommentRoutes);
 
 // EASY 404 ERROR HANDLING
 app.get('*', function (req, res) {

@@ -1,7 +1,6 @@
 // ALL THE MIDDLEWARE GOES HERE
 var Content = require("../models/content");
 var Comment = require("../models/comment");
-var Blog = require("../models/blog");
 var User    = require("../models/user");
 
 var middlewareObj = {};
@@ -15,28 +14,6 @@ middlewareObj.checkOwnContent = function (req, res, next) {
       } else {
         // does user own the Content?
         if (foundContent.author.id.equals(req.user._id) || req.user.isAdmin) {
-          next();
-        } else {
-          req.flash("error", "Nem rendelkezel engedéllyel ehhez a művelethez!");
-          res.redirect("back");
-        }
-      }
-    });
-  } else {
-    req.flash("error", "Kérlek előbb lépj be!");
-    res.redirect("back");
-  }
-}
-
-middlewareObj.checkOwnBlog = function (req, res, next) {
-  if (req.isAuthenticated()) {
-    Blog.findById(req.params.id, function (err, foundBlog) {
-      if (err || !foundBlog) {
-        req.flash("error", "A blog nem található!");
-        res.redirect("/blogs");
-      } else {
-        // does user own the Blog?
-        if (foundBlog.author.id.equals(req.user._id) || req.user.isAdmin) {
           next();
         } else {
           req.flash("error", "Nem rendelkezel engedéllyel ehhez a művelethez!");

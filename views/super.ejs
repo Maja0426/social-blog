@@ -68,7 +68,7 @@
                 <b>Kommentek: </b>
                 <% var num = 0 %>
                 <% allComment.forEach(function(comment) { %>
-                <% if(comment.author.id === user._id) { %>
+                <% if(comment.author.id.equals(user._id)) { %>
                 <% num += 1 %>
                 <% } %>
                 <% }) %>
@@ -76,7 +76,7 @@
               </summary>
               <% var num = 0 %>
               <% allComment.forEach(function(comment) { %>
-              <% if(comment.author.id === user._id) { %>
+              <% if(comment.author.id.equals(user._id)) { %>
               <span class="small mr-2">[
                 <%= comment.text %>]</span>
               <% } %>
