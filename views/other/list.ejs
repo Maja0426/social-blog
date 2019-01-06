@@ -1,0 +1,43 @@
+<% include ../partials/header %>
+
+<div class="container">
+
+  <div class="row mb-5">
+    <div class="col-12">
+    <table class="table table-sm">
+      <thead class="thead-light">
+        <tr>
+          <th></th>
+          <th>Cikk közzététele</th>
+          <th>Cikk szerzője</th>
+          <th>Cikk címe</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% allContent.forEach(function(content){ %>
+        <tr>
+          <td class="d-none d-md-block">
+            <img src="<%= content.image %>" width="80px;" alt="article image">
+          </td>
+          <td>
+            <%= moment(content.createdAt).format('YYYY. MM D.') %>
+          </td>
+          <td>
+            <%= content.author.username %>
+          </td>
+          <td>
+            <%= content.title %>
+          </td>
+          <td>
+            <a class="btn btn-primary" href="/contents/<%= content._id %>"><i class="far fa-eye"></i></a>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+
+<% include ../partials/footer %>

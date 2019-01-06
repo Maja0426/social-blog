@@ -19,6 +19,11 @@ router.get("/supervisor", middleware.checkAdmin, middleware.checkAllUser, middle
   });
 })
 
+// ALL CONTENTS (ARTICLES) ROUTE
+router.get("/articles", middleware.checkAllContents, function(req, res){
+  res.render("other/list");
+});
+
 // GDPR PAGE
 router.get("/gdpr", function(req, res){
   res.render("other/gdpr");

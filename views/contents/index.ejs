@@ -83,7 +83,7 @@
         <div class="col-md-12">
           <div class="d-none d-lg-block">
           <div class="tags tags-sideLine">
-            <h3 class="mb-4 alert alert-warning"><span class=""></span>Bgy. időjárás</h3>
+            <h3 class="mb-4 alert alert-dark"><span class=""></span>Bgy. időjárás</h3>
             <div class="d-block text-center badge badge-primary">
               <img src="http://openweathermap.org/img/w/<%= weather.weather[0].icon + ".png" %>" alt="weather icon"> <span
                 class="font-weight-bold weather-font"><i class="fas fa-thermometer-three-quarters"></i>
@@ -95,35 +95,20 @@
             </div>
           </div>
           </div>
+          <div class="tags tags-sideLine">
+             <h3 class="my-4 alert alert-dark"><span class=""></span>Friss</h3>
           <% contents.forEach(function(content){ %>
               <% if(moment().format('YYYYMMD') === moment(content.createdAt).format('YYYYMMD')){ %>
-          <div class="tags tags-sideLine">
-            <h3 class="my-4 alert alert-warning"><span class=""></span>Friss</h3>
             <div class="text-uppercase daily-articles">
               <div class=""><a class="" href="/contents/<%= content._id %>"> <span class="font-weight-bold badge-custom">
                     <%= moment(content.createdAt).format('HH:mm') %> </span>
                   <%= content.title %></a></div>
+            </div>
               <% } %>
               <% }) %>
-            </div>
           </div>
-
-          <div class="tags tags-sideLine">
-            <h3 class="mt-4 mb-4 alert alert-warning"><span class=""></span> Hirdetések</h3>
-            <p class="py-0 text-uppercase">
-              <div class="card mb-5">
-                <img class="card-top-img" src="https://images.pexels.com/photos/341014/pexels-photo-341014.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                  alt="">
-              </div>
-              <div class="card mb-5">
-                <img class="card-top-img" src="https://images.pexels.com/photos/788662/pexels-photo-788662.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                  alt="">
-              </div>
-            </p>
-          </div>
-
           <div class="tags tags-sideLine new-articles">
-            <h3 class="my-4 alert alert-warning">
+            <h3 class="my-4 alert alert-dark">
               <span class="">
               </span>Korábbi cikkek</h3>
             <% contents.slice(12, 22).forEach(function(content){ %>
