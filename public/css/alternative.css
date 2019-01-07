@@ -36,14 +36,11 @@ body {
 
 body .container, body .container-fluid {
   padding-top: 70px !important;
+  font-size: 1rem !important;
 }
 
 textarea {
   font-size: 1rem !important;
-}
-
-nav {
-  font-size: 14px !important;
 }
 
 .card a {
@@ -66,36 +63,31 @@ html {
 
 /* MAIN SETTINGS */
 
-header .btn {
-  margin: 0 5px;
+/* Nav hover*/
+
+.navbar .navbar-nav .nav-link {
+  margin: 0 2px;
 }
 
-@media(max-width:1024px) {
-  nav form {
-    max-width: 60% !important;
-  }
-
-  form.form-inline {
-    margin-left: 5px !important;
-    margin-right: 0 !important;
-  }
-
-  .form-inline .search-bar {
-    max-width: 65% !important;
-  }
+.navbar {
+  padding: 6px 12px;
 }
 
-input.search-bar {
-  border-radius: 0;
-  padding-left: 5px;
-  margin-right: 5px;
+.navbar .navbar-nav .nav-link{
+  padding: 8px 16px;
 }
+
+/* .navbar .navbar-nav .nav-link:hover  {
+  background: #fff;
+  border-radius: 5px;
+  color: #000;
+} */
 
 /* another .active, main menu */
 .activeMenu a,
 .activeMenu btn {
-  background: #222222 !important;
-  color: #fff !important;
+  background: #f8e641;
+  color: #000 !important;
 }
 
 /* BODY MIN. HEIGHT*/
@@ -122,18 +114,12 @@ input.search-bar {
   transition: .3s ease;
 }
 
-/* .statistic {
-  font-size: 1.2rem !important;
-  margin-right: 5px;
-}
- */
 .superMenuLeft a {
   display: block;
   margin: 10px 0 !important;
   padding: 5px 10px !important;
   text-decoration: none;
 }
-
 
 /* MEDIA QUERIES */
 @media(max-width:1024px) {
@@ -148,11 +134,6 @@ input.search-bar {
     width: 100%;
   }
 }
-
-/* =========== GAP UNDER MAIN MENU ================ */
-/* .header-bottom {
-  margin-bottom: 80px;
-} */
 
 /* =========== MAIN PAGE PARAGRAPH FONT SIZE ================ */
 .feed-paragraph {

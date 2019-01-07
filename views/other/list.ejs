@@ -4,22 +4,18 @@
 
   <div class="row mb-5">
     <div class="col-12">
-    <table class="table table-sm">
+    <table class="table table-sm table-hover">
       <thead class="thead-light">
         <tr>
-          <th></th>
           <th>Cikk közzététele</th>
           <th>Cikk szerzője</th>
           <th>Cikk címe</th>
-          <th></th>
+          <th>Ugrás a cikkhez</th>
         </tr>
       </thead>
       <tbody>
         <% allContent.forEach(function(content){ %>
         <tr>
-          <td class="d-none d-md-block">
-            <img src="<%= content.image %>" width="80px;" alt="article image">
-          </td>
           <td>
             <%= moment(content.createdAt).format('YYYY. MM D.') %>
           </td>

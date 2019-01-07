@@ -16,14 +16,8 @@
 <body id="pageTop">
   <header class="header-bottom">
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-success">
-      <span class="nav-item">
-        <a class="btn btn-dark" href="/contents"><i class="fas fa-home"></i></a>
-      </span>
-      <form class="form-inline mr-auto" action="/contents" method="GET">
-        <input class="form-control mx-sm-2 search-bar" type="text" name="search" placeholder="Gyorskeresés">
-        <button class="btn btn-secondary my-2 my-sm-0 ml-sm-1" type="submit"><i class="fas fa-search"></i></button>
-      </form>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
+      <a class="navbar-brand <%= typeof page !== 'undefined' && page === 'mainPage' ? 'activeMenu' : '' %>" href="/contents" title="Vissza a kezdőlapra"><i class="fas fa-home"></i></a>
       <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarCollapse"
         aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -31,20 +25,20 @@
 
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="nav nav-pills mr-auto">
-          <li class="nav-item">
-            <a href="#allArticles" class="nav-link btn btn-dark" data-toggle="tab"><i class="fas fa-newspaper"></i>
-              <%= allContent.length %></a>
+          <li class="nav-item m-2">
+            <a href="#allArticles" class="nav-link btn btn-primary" data-toggle="tab"><i class="fas fa-newspaper"></i>
+              <%= allContent.length %> Cikk</a>
           </li>
-          <li class="nav-item">
-            <a href="#regUsers" class="nav-link btn btn-dark" data-toggle="tab"><i class="fas fa-users"></i>
-              <%= allUser.length %></a>
+          <li class="nav-item m-2">
+            <a href="#regUsers" class="nav-link btn btn-success" data-toggle="tab"><i class="fas fa-users"></i>
+              <%= allUser.length %> User</a>
           </li>
-          <li class="nav-item">
-            <a href="" class="nav-link btn btn-dark"><i class="far fa-comments"></i>
-              <%= allComment.length %></a>
+          <li class="nav-item m-2">
+            <a href="" class="nav-link btn btn-info"><i class="far fa-comments"></i>
+              <%= allComment.length %> Komment</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link btn btn-dark" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+          <li class="nav-item m-2 dropdown">
+            <a class="nav-link btn btn-secondary" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
               aria-expanded="false"><i class="fas fa-caret-down"></i> Menü
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -56,6 +50,10 @@
             </div>
           </li>
         </ul>
+        <form class="form-inline mr-auto my-2 my-lg-0" action="/contents" method="GET">
+      <input class="form-control mx-3" type="text" name="search" placeholder="keresendő szöveg">
+      <button class="btn btn-md btn-secondary ml-3 mt-3 mt-lg-0" type="submit">Keresés</button>
+    </form>
         <ul class="navbar-nav ml-auto">
           <% if(!currentUser) { %>
           <li class="nav-item">

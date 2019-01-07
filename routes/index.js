@@ -21,7 +21,7 @@ router.get("/supervisor", middleware.checkAdmin, middleware.checkAllUser, middle
 
 // ALL CONTENTS (ARTICLES) ROUTE
 router.get("/articles", middleware.checkAllContents, function(req, res){
-  res.render("other/list");
+  res.render("other/list", {page: "allArticle"});
 });
 
 // GDPR PAGE
