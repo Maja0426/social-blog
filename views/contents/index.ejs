@@ -15,7 +15,7 @@
           <% contents.reverse().slice(0, 4).forEach(function(content){ %>
           <div class="card mb-5">
             <div class="article-main-img">
-              <img class="card-img" src="<%= content.image %>" alt="article title image">
+              <img class="card-img" src="<%= content.image, {quality: 60} %>" alt="article title image">
             </div>
             <div class="article-header">
               <a class="" href="/contents/<%= content._id %>">
