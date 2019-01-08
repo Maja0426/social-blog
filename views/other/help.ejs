@@ -1,57 +1,56 @@
 <% include ../partials/header %>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-4 parent">
+<div class="container-fluid">
+<div class="row">
+
+    <div class="col-md-2 mt-2">
       <div class="menuLeft">
-        <ul class="navbar-nav">
+        <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="btn btn-dark" href="#whatIs">Bevezető</a>
+            <a class="nav-link  btn btn-primary mb-2" href="#whatIs">Bevezető</a>
           </li>
           <li class="nav-item">
-            <a class="btn btn-dark" href="#content">A közzétevő felelőssége</a>
+            <a class="nav-link  btn btn-primary mb-2" href="#content">A közzétevő felelőssége</a>
           </li>
           <li class="nav-item">
-            <a class="btn btn-dark" href="#register">Regisztráció menete</a>
+            <a class="nav-link  btn btn-primary mb-2" href="#register">Regisztráció menete</a>
           </li>
           <li class="nav-item">
-            <a class="btn btn-dark" href="#forgotPasswd">Elfelejtett jelszó</a>
+            <a class="nav-link  btn btn-primary mb-2" href="#forgotPasswd">Elfelejtett jelszó</a>
           </li>
           <li class="nav-item">
-            <a class="btn btn-dark" href="#writing">Cikk írása</a>
+            <a class="nav-link  btn btn-primary mb-2" href="#writing">Cikk írása</a>
           </li>
           <li class="nav-item">
-            <a class="btn btn-dark" href="#writEdit">Cikk szerkesztése</a>
+            <a class="nav-link  btn btn-primary mb-2" href="#writEdit">Cikk szerkesztése</a>
           </li>
           <li class="nav-item">
-            <a class="btn btn-dark" href="#comment">Hozzászólások</a>
+            <a class="nav-link  btn btn-primary mb-2" href="#comment">Hozzászólások</a>
           </li>
           <li class="nav-item">
-            <a class="btn btn-dark" href="#search">Cikkek keresése</a>
+            <a class="nav-link  btn btn-primary mb-2" href="#search">Cikkek keresése</a>
           </li>
           <li class="nav-item">
-            <a class="btn btn-dark" href="#category">Kategóriák</a>
+            <a class="nav-link  btn btn-primary mb-2" href="#category">Kategóriák</a>
           </li>
         </ul>
       </div>
     </div>
 
-    <div id="whatIs" class="col-md-8">
 
-      <div class="tags">
-        <h3 class="alert alert-dark mt-2">Bevezető</h3>
-        <p class=""></p>
-        <div class="jumbotron bg-primary">
-          <h4 class="font-weight-bold text-center text-light">&#8226;Hobbi újságíró vagy? &#8226;Tényfeltáró riportot írnál?
+    <div class="col-md-10">
+      <div id="whatIs"class="card tags-help">
+        <div class="jumbotron">
+          <h4 class="font-weight-bold text-center">&#8226;Hobbi újságíró vagy? &#8226;Tényfeltáró riportot írnál?
             &#8226;Szívesen írnál néha blogot, de azért az évi 1-2 alkalomért nem éri meg belefektetni? &#8226;Meg nem
             értett író vagy, egy zseni, aki szívesen publikálna, de nincs hol? &#8226;Néha jól odamondanál, de nem
             akarod
             adni hozzá az arcod vagy / és a neved? &#8226;Egy oknyomozó riporter bújt el benned, de sehol sem vesznek
             komolyan?</h4>
         </div>
-        <h2 class="alert alert-info text-center">Na álljunk csak meg. Ne keress tovább, ez a te oldalad.</h2>
+        <h2 class="text-center pb-2">Na álljunk csak meg. Ne keress tovább, ez a te oldalad.</h2>
         <p>Ha már megfordult a fejedben legalább egyszer, hogy mi lenne ha te is írhatnál egy cikket valamelyik
-          újságba, vagy hogy megosztanád nagy nyilvánossággal is "tuti" infóid, akkor jó helyen jársz.</p>
+          újságba, vagy hogy megosztanád nagy nyilvánossággal is gondolataid, akkor jó helyen jársz.</p>
         <p>Bár nem újkeletű dolog az úgynevezett "közösségi újságírás", mégsem találkozni vele túl gyakran, pláne nem
           magyar nyelven. Az oldal célja hogy politikai és gazdasági szervezetektől teljesen független módon, a
           közösség erejénél fogva gyártson -és szolgáltasson híreket, információkat, gondolatokat, véleményeket.
@@ -62,7 +61,7 @@
         <blockquote>Publikálj verseket, novellákat, bármit amit megmutatnál, csak eddig nem tudtad hogy hol, -és hogyan
           teheted ezt meg.</blockquote>
         <p class="font-weight-bold">Ehhez semmi mást nem kell tenned, minthogy kitalálsz egy felhasználónevet és egy
-          erős jelszót, majd ezekkel és az email címeddel regisztrálsz az oldalra. <span class="text-orange">Ennyi.</span>
+          erős jelszót, majd ezekkel és az email címeddel regisztrálsz az oldalra. <span class="">Ennyi.</span>
           Ha akarod bővítheted persze profilodat, névvel, profilképpel, különböző adatokkal, de nem kötelező, és
           egyébként sem kötelez senki a valódi adatok megadására. Maradj anonim, ha akarsz, de persze tudathatod is az
           olvasókkal, kinek köszönhetik a tartalmat.</p>
@@ -70,10 +69,10 @@
           még fel
           kérdés, bátran írj a <a href="mailto:tmsmajoros@gmail.com">tmsmajoros@gmail.com</a> email címre.</p>
       </div>
-      <div id="content" class="tags pt-10">
-        <h3 class="alert alert-dark">A TE FELELŐSSÉGED</h3>
-        <h5 class="font-weight-bold text-orange text-center">Az általad feltöltött írás, komment, és ezekkel
-          kapcsolatos adat:</h5>
+      <div id="content" class="card tags-help">
+        <h3 class="card-header mb-3">Felelősség</h3>
+        <p class="lead font-weight-bold text-center">Az általad feltöltött írás, komment, és ezekkel
+          kapcsolatos adat:</p>
         <ul class="help-list">
           <li><span class="text-warning"><i class="fas fa-exclamation-triangle"></i></span> nem sértheti más szerzői vagy szomszédos jogait, egyéb jogait
             (személyiségi, személyhez fűződő jogok,
@@ -104,8 +103,8 @@
         </ul>
 
       </div>
-      <div id="register" class="tags pt-10">
-        <h3>Regisztráció menete</h3>
+      <div id="register" class="tags-help ">
+        <h3 class="card-header">Regisztráció menete</h3>
         <p class="p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem iure quibusdam perspiciatis
           voluptates consequuntur modi ipsum et dicta aliquam. Et veritatis explicabo velit id necessitatibus non error
           quod, fugiat molestiae quas molestias doloribus nostrum magnam ad ducimus nesciunt ullam, iusto natus!
@@ -115,8 +114,8 @@
           placeat laborum distinctio vitae quibusdam animi unde natus, nostrum vero at aut inventore consectetur
           dolorem?</p>
       </div>
-      <div id="forgotPasswd" class="tags pt-10">
-        <h3>Elflejtett jelszó</h3>
+      <div id="forgotPasswd" class="card tags-help ">
+        <h3 class="card-header">Elfelejtett jelszó</h3>
         <p class="p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem iure quibusdam perspiciatis
           voluptates consequuntur modi ipsum et dicta aliquam. Et veritatis explicabo velit id necessitatibus non error
           quod, fugiat molestiae quas molestias doloribus nostrum magnam ad ducimus nesciunt ullam, iusto natus!
@@ -126,8 +125,8 @@
           placeat laborum distinctio vitae quibusdam animi unde natus, nostrum vero at aut inventore consectetur
           dolorem?</p>
       </div>
-      <div id="writing" class="tags pt-10">
-        <h3>Cikk írása</h3>
+      <div id="writing" class="card tags-help ">
+        <h3 class="card-header">Cikk írása</h3>
         <p class="p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem iure quibusdam perspiciatis
           voluptates consequuntur modi ipsum et dicta aliquam. Et veritatis explicabo velit id necessitatibus non error
           quod, fugiat molestiae quas molestias doloribus nostrum magnam ad ducimus nesciunt ullam, iusto natus!
@@ -137,8 +136,8 @@
           placeat laborum distinctio vitae quibusdam animi unde natus, nostrum vero at aut inventore consectetur
           dolorem?</p>
       </div>
-      <div id="writEdit" class="tags pt-10">
-        <h3>Cikk szerkesztése</h3>
+      <div id="writEdit" class="card tags-help ">
+        <h3 class="card-header">Cikk szerkesztése</h3>
         <p class="p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem iure quibusdam perspiciatis
           voluptates consequuntur modi ipsum et dicta aliquam. Et veritatis explicabo velit id necessitatibus non error
           quod, fugiat molestiae quas molestias doloribus nostrum magnam ad ducimus nesciunt ullam, iusto natus!
@@ -148,8 +147,8 @@
           placeat laborum distinctio vitae quibusdam animi unde natus, nostrum vero at aut inventore consectetur
           dolorem?</p>
       </div>
-      <div id="comment" class="tags pt-10">
-        <h3>Hozzászólások</h3>
+      <div id="comment" class="card tags-help ">
+        <h3 class="card-header">Hozzászólások</h3>
         <p class="p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem iure quibusdam perspiciatis
           voluptates consequuntur modi ipsum et dicta aliquam. Et veritatis explicabo velit id necessitatibus non error
           quod, fugiat molestiae quas molestias doloribus nostrum magnam ad ducimus nesciunt ullam, iusto natus!
@@ -159,9 +158,11 @@
           placeat laborum distinctio vitae quibusdam animi unde natus, nostrum vero at aut inventore consectetur
           dolorem?</p>
       </div>
-      <div id="search" class="tags pt-10">
-        <h3 class="alert alert-dark">Cikkek keresése</h3>
-        <img class="float-right p-1 img-fluid" src="../../images/help.jpg" alt="help search pic">
+
+      <div id="search" class="card tags-help ">
+          <h3 class="card-header">Cikkek keresése</h3>
+          <div class="">
+        <img class="float-right p-3 img-fluid" src="../../images/help.png" alt="help search pic">
         <p class="p-3 text-justify">Ha tudjuk a keresendő cikk címét, vagy címkezdetét, esetleg kulcsszavakat akkor
           érdemes használni az oldal gyorskeresés funkcióját. A keresőmező a legfelső menüsor jobb oldalán található. A
           mezőbe írjuk be a keresendő címet, szót vagy kifejezést. Ezt követően kattintsunk a nagyító ikonra vagy
@@ -169,9 +170,11 @@
           különbséggel, hogy a bal oldali sávban csak a keresett kifejezésre kapott találatokat kapjuk vissza, a címsor
           pedig a kapott találatok számáról tájékoztat. Természetesen a már megszokott módon, a főcímre illetve a
           tovább gombra kattintva megnyithatjuk a cikket.</p>
+        </div>
       </div>
-      <div id="category" class="tags pt-10">
-        <h3>Kategóriák</h3>
+
+      <div id="category" class="card tags-help ">
+        <h3 class="card-header">Kategóriák</h3>
         <p class="p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem iure quibusdam perspiciatis
           voluptates consequuntur modi ipsum et dicta aliquam. Et veritatis explicabo velit id necessitatibus non error
           quod, fugiat molestiae quas molestias doloribus nostrum magnam ad ducimus nesciunt ullam, iusto natus!

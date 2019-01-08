@@ -35,7 +35,7 @@ body {
 }
 
 body .container, body .container-fluid {
-  padding-top: 70px !important;
+  margin-top: 70px !important;
   font-size: 1rem !important;
 }
 
@@ -77,12 +77,6 @@ html {
   padding: 8px 16px;
 }
 
-/* .navbar .navbar-nav .nav-link:hover  {
-  background: #fff;
-  border-radius: 5px;
-  color: #000;
-} */
-
 /* another .active, main menu */
 .activeMenu a,
 .activeMenu btn {
@@ -96,13 +90,12 @@ html {
 }
 
 /* HELP PAGE LEFT-SIDE MENUBAR*/
-.menuLeft,
-.superMenuLeft {
+.menuLeft {
   position: fixed;
   z-index: 1;
 }
 
-.menuLeft {
+/* .menuLeft {
   max-height: 70vh;
   overflow: auto;
 }
@@ -112,7 +105,7 @@ html {
   margin: 5px !important;
   padding: 8px 10px;
   transition: .3s ease;
-}
+} */
 
 .superMenuLeft a {
   display: block;
@@ -227,6 +220,23 @@ html {
 .tags {
   margin-bottom: 50px;
 }
+
+.tags-help {
+  padding-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.tags-help h3 {
+  font-size: 2rem;
+}
+
+/* .tags-help h3 {
+  font-size: 2rem;
+  background: #2196f3;
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+} */
 
 .tags h3 {
   padding: 8px 10px;
