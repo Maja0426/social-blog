@@ -80,9 +80,12 @@ html {
 /* another .active, main menu */
 .activeMenu a,
 .activeMenu btn {
-  background: #f8e641;
-  color: #000 !important;
+  background-color: #311e28;
+  background-image: linear-gradient(0deg, #311e28 0%, #44394e 50%, #3f4c52 100%);
+  color: #fff !important;
 }
+
+
 
 /* BODY MIN. HEIGHT*/
 .content {

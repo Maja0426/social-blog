@@ -7,10 +7,13 @@
       <div class="menuLeft">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link  btn btn-primary mb-2" href="#whatIs">Bevezető</a>
+            <a class="nav-link  btn btn-primary mb-2" href="#whatIs">Az oldalról</a>
           </li>
           <li class="nav-item">
             <a class="nav-link  btn btn-primary mb-2" href="#content">A közzétevő felelőssége</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  btn btn-primary mb-2" href="#use">Funkciók, navigáció</a>
           </li>
           <li class="nav-item">
             <a class="nav-link  btn btn-primary mb-2" href="#register">Regisztráció menete</a>
@@ -37,7 +40,7 @@
       </div>
     </div>
 
-
+    <!-- Az oldalról -->
     <div class="col-md-10">
       <div id="whatIs"class="card tags-help">
         <div class="jumbotron">
@@ -49,7 +52,8 @@
             komolyan?</h4>
         </div>
         <h2 class="text-center pb-2">Na álljunk csak meg. Ne keress tovább, ez a te oldalad.</h2>
-        <p>Ha már megfordult a fejedben legalább egyszer, hogy mi lenne ha te is írhatnál egy cikket valamelyik
+        <article class="p-3">
+          <p>Ha már megfordult a fejedben legalább egyszer, hogy mi lenne ha te is írhatnál egy cikket valamelyik
           újságba, vagy hogy megosztanád nagy nyilvánossággal is gondolataid, akkor jó helyen jársz.</p>
         <p>Bár nem újkeletű dolog az úgynevezett "közösségi újságírás", mégsem találkozni vele túl gyakran, pláne nem
           magyar nyelven. Az oldal célja hogy politikai és gazdasági szervezetektől teljesen független módon, a
@@ -68,7 +72,10 @@
         <p>Bevezetőnek legyen elég ennyi. A legtöbb kérdésedre valószínűleg választ kapsz ebben a súgóban, de ha merül
           még fel
           kérdés, bátran írj a <a href="mailto:tmsmajoros@gmail.com">tmsmajoros@gmail.com</a> email címre.</p>
+        </article>
       </div>
+
+      <!-- Felhasználó felelőssége -->
       <div id="content" class="card tags-help">
         <h3 class="card-header mb-3">Felelősség</h3>
         <p class="lead font-weight-bold text-center">Az általad feltöltött írás, komment, és ezekkel
@@ -101,8 +108,20 @@
             jogszabályi rendelkezéseket</li>
           <li><span class="text-warning"><i class="fas fa-exclamation-triangle"></i></span> illetve nem ütközhet egyéb jogszabály rendelkezéseibe.</li>
         </ul>
-
       </div>
+
+      <!-- Használat módja -->
+      <div id="use" class="card tags-help">
+        <h3 class="card-header mb-3">Funkciók, navigáció</h3>
+        <!-- <img class="float-right p-3 img-fluid" src="../../images/menubar.png" alt=""> -->
+        <article class="p-3">
+          <p class="">Az egyes menüpontok között az oldal tetején található navigációs sáv segítségével mozoghatunk. A menüsor bal oldalán található házikó ikonra <img class="img-fluid" src="../../images/main-icon.png" alt=""> kattintva minden esetben a főoldalra (kezdőlap) kerülünk.</p>
+          <p class="">
+            A következő négy menüpont segítségével megetekinthetjük az összes, az oldalra felkerült cikket; új cikket írhatunk; népszerű magyarországi online médiumok népszerű, friss cikkjei között válogathatunk; illetve a jelenleg is megnyitott súgó oldalt nyithatjuk meg. <img class="img-fluid" src="../../images/pages.png" alt="">  Ezen menüpontok fenti sorrendben az ÖSSZES CIKK, CIKKET ÍROK, LAPSZEMLE illetve SÚGÓ. Cikkek írására csak regisztrált felhasználóknak van lehetőségük!
+          </p>
+        </article>
+      </div>
+
       <div id="register" class="tags-help ">
         <h3 class="card-header">Regisztráció menete</h3>
         <p class="p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem iure quibusdam perspiciatis
@@ -166,10 +185,8 @@
         <p class="p-3 text-justify">Ha tudjuk a keresendő cikk címét, vagy címkezdetét, esetleg kulcsszavakat akkor
           érdemes használni az oldal gyorskeresés funkcióját. A keresőmező a legfelső menüsor jobb oldalán található. A
           mezőbe írjuk be a keresendő címet, szót vagy kifejezést. Ezt követően kattintsunk a nagyító ikonra vagy
-          nyomjunk entert. A keresés lefutását követően a már megszokott kezdőképernyő fogad minket azzal a
-          különbséggel, hogy a bal oldali sávban csak a keresett kifejezésre kapott találatokat kapjuk vissza, a címsor
-          pedig a kapott találatok számáról tájékoztat. Természetesen a már megszokott módon, a főcímre illetve a
-          tovább gombra kattintva megnyithatjuk a cikket.</p>
+          nyomjunk entert. A keresés lefutását követően a találati lista képernyő fogad minket. Itt láthatjuk hány olyan oldal van melyben szerepel a keresett szó, egy bélyegképet a cikk "borítóról", a közzététel idejét, a cikk címét és a cikkíró nicknevét is. A lista elemre kattintva megnyithatjuk a cikket.</p>
+          <img class="p-3 img-fluid" src="../../images/founded-articles.png" alt="help search pic">
         </div>
       </div>
 
