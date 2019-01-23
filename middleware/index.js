@@ -1,9 +1,9 @@
 // ALL THE MIDDLEWARE GOES HERE
-var Content = require("../models/content");
-var Comment = require("../models/comment");
-var User    = require("../models/user");
+var Content = require('../models/content')
+var Comment = require('../models/comment')
+var User = require('../models/user')
 
-var middlewareObj = {};
+var middlewareObj = {}
 
 middlewareObj.checkOwnContent = function (req, res, next) {
   if (req.isAuthenticated()) {

@@ -81,7 +81,7 @@
           </li>
           <% } else { %>
           <li class="nav-item m-2 <%= typeof page !== 'undefined' && page === 'profile' ? 'activeMenu' : '' %>">
-            <a class="nav-link btn btn-dark" href="/users/<%= currentUser._id %>">Felhasználó: <b class="">
+            <a class="nav-link btn btn-dark" href="/users/<%= currentUser._id %>"><i class="fas fa-user"></i><b class="">
                 <%= currentUser.username %></b></a>
           </li>
           <li class="nav-item m-2">
@@ -94,7 +94,7 @@
     </nav>
   </header>
 
-  <div class="container mt-3">
+  <div class="container">
     <% if(error && error.length > 0) { %>
     <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
       <%= error %>
