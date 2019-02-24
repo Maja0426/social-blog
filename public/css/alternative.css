@@ -35,7 +35,7 @@ body {
 }
 
 body .container, body .container-fluid {
-  margin-top: 150px !important;
+  margin-top: 90px !important;
   font-size: 1rem !important;
 }
 
@@ -78,12 +78,12 @@ html {
 }
 
 /* another .active, main menu */
-.activeMenu a,
+/* .activeMenu a,
 .activeMenu btn {
   background-color: #311e28;
   background-image: linear-gradient(0deg, #311e28 0%, #44394e 50%, #3f4c52 100%);
   color: #fff !important;
-}
+} */
 
 
 

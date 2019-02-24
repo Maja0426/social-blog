@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
     crossorigin="anonymous">
-  <link rel="stylesheet" href="https://bootswatch.com/4/materia/bootstrap.min.css">
+  <link rel="stylesheet" href="https://bootswatch.com/4/lumen/bootstrap.min.css">
   <link rel="icon" href="/images/smart-bee.png">
   <link rel="stylesheet" href="/css/alternative.css">
 <!-- <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=sq2snqvxx0nnkf6d44o0lxj243jxb3hgfdmmbmkf055rbxnd"></script> -->
@@ -32,13 +32,13 @@
 
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="nav nav-pills mr-auto">
-          <li class="nav-item m-2 <%= typeof page !== 'undefined' && page === 'allArticle' ? 'activeMenu' : '' %>">
+          <li class="nav-item m-2 <%= typeof page !== 'undefined' && page === 'allArticle' ? 'active' : '' %>">
             <a class="nav-link btn btn-info" href="/articles"><i class="far fa-eye"></i> Összes cikk </a>
           </li>
-          <li class="nav-item m-2 <%= typeof page !== 'undefined' && page === 'writeNew' ? 'activeMenu' : '' %>">
+          <li class="nav-item m-2 <%= typeof page !== 'undefined' && page === 'writeNew' ? 'active' : '' %>">
             <a class="nav-link btn btn-info" href="/contents/new"><i class="fas fa-pencil-alt"></i> Cikket írok </a>
           </li>
-          <li class="nav-item m-2 dropdown <%= typeof page !== 'undefined' && page === 'anotherNews' ? 'activeMenu' : '' %>">
+          <li class="nav-item m-2 dropdown <%= typeof page !== 'undefined' && page === 'anotherNews' ? 'active' : '' %>">
             <a class="nav-link btn btn-info" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
               aria-expanded="false"><i class="fas fa-caret-down"></i> Lapszemle
             </a>
@@ -50,11 +50,11 @@
               <a class="dropdown-item" href="/mediums/entertainment">Szórakozás</a>
             </div>
           </li>
-          <li class="nav-item m-2 <%= typeof page !== 'undefined' && page === 'help' ? 'activeMenu' : '' %>">
+          <li class="nav-item m-2 <%= typeof page !== 'undefined' && page === 'help' ? 'active' : '' %>">
             <a class="nav-link btn btn-info" href="/help"><i class="fas fa-info-circle"></i> Súgó</a>
           </li>
           <% if(currentUser && currentUser.username === "Supervisor") { %>
-          <li class="nav-item m-2 <%= typeof page !== 'undefined' && page === 'superVisor' ? 'activeMenu' : '' %>">
+          <li class="nav-item m-2 <%= typeof page !== 'undefined' && page === 'superVisor' ? 'active' : '' %>">
             <a class="nav-link btn btn-danger" href="/supervisor"><i class="fas fa-skull"></i> SUPERVISOR</a>
           </li>
           <% } %>
@@ -70,17 +70,17 @@
         </form>
         <ul class="nav nav-pills">
           <% if(!currentUser) { %>
-          <li class="nav-item m-2 <%= typeof page !== 'undefined' && page === 'login' ? 'activeMenu' : '' %>">
+          <li class="nav-item m-2 <%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>">
             <a class="nav-link btn btn-primary" data-toggle="modal" data-target="#userLogin" href="/login"><i class="fas fa-sign-in-alt"></i>
               Belépés </a>
           </li>
-          <li class="nav-item m-2 <%= typeof page !== 'undefined' && page === 'register' ? 'activeMenu' : '' %>">
+          <li class="nav-item m-2 <%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>">
             <a class="nav-link btn btn-success" data-toggle="modal" data-target="#userRegister" href="/register"><i
                 class="fas fa-user-plus"></i>
               Regisztráció</a>
           </li>
           <% } else { %>
-          <li class="nav-item m-2 <%= typeof page !== 'undefined' && page === 'profile' ? 'activeMenu' : '' %>">
+          <li class="nav-item m-2 <%= typeof page !== 'undefined' && page === 'profile' ? 'active' : '' %>">
             <a class="nav-link btn btn-dark" href="/users/<%= currentUser._id %>"><i class="fas fa-user"></i><b class="">
                 <%= currentUser.username %></b></a>
           </li>
